@@ -9,7 +9,7 @@ html {
 
 /* Custom text shadow for hover effect */
 .hover\:text-shadow-lg:hover {
-  text-shadow: 0 0 5px #00ffff;
+  text-shadow: 0 0 5px #242444;
 }
 
 .navbar {
@@ -46,8 +46,8 @@ html {
 }
 
 .nav-list li:hover {
-  color: #00ffff;
-  text-shadow: 0 0 5px #00ffff;
+  color: #242444;
+  text-shadow: 0 0 5px #242444;
 }
 
 .nav-list li a {
@@ -69,4 +69,49 @@ section {
 body {
   position: relative;
   z-index: 1;
+}
+
+/* Typewriter effect */
+.typewriter {
+    display: inline-block;
+    overflow: hidden;
+    border-right: .15em solid #242444;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #2f2fa5; }
+}
+
+/* Add this to ensure consistent width */
+.inline-block {
+    text-align: left;
+    padding-right: 0.5rem; /* Adjust as needed */
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-bounce {
+    animation: bounce 1.5s infinite;
 }
