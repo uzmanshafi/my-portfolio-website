@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom text shadow for hover effect */
+.hover\:text-shadow-lg:hover {
+  text-shadow: 0 0 5px #00ffff;
+}
+
 .navbar {
   position: fixed;
   top: 2rem;
@@ -11,10 +21,10 @@
 }
 
 .navbar-style {
-  background: rgba(255, 255, 255, 0.02);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-  backdrop-filter: blur(4.5px);
-  -webkit-backdrop-filter: blur(4.5px);
+  background: rgba(44, 44, 44, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 1rem 2rem;
@@ -40,27 +50,23 @@
   text-shadow: 0 0 5px #00ffff;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 .nav-list li a {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s ease;
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .nav-list li:hover a {
-    color: inherit;
+  color: inherit;
 }
 
 section {
-    padding-top: 6rem;
-    position: relative;
-    z-index: 1;
+  padding-top: 6rem;
+  position: relative;
+  z-index: 1;
 }
 
 body {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
