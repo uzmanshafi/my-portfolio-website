@@ -84,9 +84,9 @@
           <span class="typewriter">Shafi Uzman</span>
         </div>
         <div
-          class="mt-4 text-2xl sm:text-3xl md:text-3xl font-normal text-white uppercase tracking-[0.2em]"
+          class="mt-4 text-2xl sm:text-3xl md:text-3xl font-normal text-white uppercase tracking-[0.15em]"
         >
-          Software Engineer
+          <div id="job-title" class="inline-block">Software</div> Developer
         </div>
         <div class="mt-6 flex justify-center space-x-6">
           <a
@@ -1460,8 +1460,8 @@
       <!-- Contact content here -->
        <div class="project-card rounded-xl max-w-md mx-auto p-12">
         <div class="flex flex-col items-center justify-center">
-          <h2 class="text-4xl font-semibold text-white my-4">Get in Touch</h2>
-          <p class="text-gray-400 text-lg text-center mb-4">
+          <h2 class="text-3xl md:text-4xl font-semibold text-white my-4">Get in Touch</h2>
+          <p class="text-gray-400 text-sm md:text-lg text-center mb-4">
             Interested in collaborating or have a job role in mind? Feel free to
             reach out to me via email or social media. I'm always open to new
             opportunities and exciting challenges!
@@ -1535,4 +1535,78 @@
     window.addEventListener('scroll', checkScrollPosition);
   </script>
   <!-- Added scroll-to-top visibility script end -->
+  <!-- Added text scramble script start -->
+  <script>
+    class TextScramble {
+      constructor(el) {
+        this.el = el;
+        this.chars = '!@#$%^&*()-_=+[]{};:,.<>?';
+        this.update = this.update.bind(this);
+      }
+
+      setText(newText) {
+        const oldText = this.el.innerText;
+        const length = Math.max(oldText.length, newText.length);
+        const promise = new Promise(resolve => this.resolve = resolve);
+        this.queue = [];
+        for (let i = 0; i < length; i++) {
+          const from = oldText[i] || '';
+          const to = newText[i] || '';
+          const start = Math.floor(Math.random() * 40);
+          const end = start + Math.floor(Math.random() * 40);
+          this.queue.push({ from, to, start, end });
+        }
+        this.frame = 0;
+        cancelAnimationFrame(this.frameRequest);
+        this.frameRequest = requestAnimationFrame(this.update);
+        return promise;
+      }
+
+      update() {
+        let output = '';
+        let complete = 0;
+        for (let i = 0; i < this.queue.length; i++) {
+          let { from, to, start, end, char } = this.queue[i];
+          if (this.frame >= end) {
+            output += to;
+            complete++;
+          } else if (this.frame >= start) {
+            if (!char || Math.random() < 0.28) {
+              char = this.randomChar();
+              this.queue[i].char = char;
+            }
+            output += '<span class="dud">' + char + '</span>';
+          } else {
+            output += from;
+          }
+        }
+        this.el.innerHTML = output;
+        if (complete === this.queue.length) {
+          this.resolve();
+        } else {
+          this.frame++;
+          this.frameRequest = requestAnimationFrame(this.update);
+        }
+      }
+
+      randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
+      }
+    }
+
+    const phrases = ['Software', 'Web', 'Game'];
+    const el = document.getElementById('job-title');
+    const fx = new TextScramble(el);
+
+    let counter = 0;
+    function nextPhrase() {
+      fx.setText(phrases[counter]).then(() => {
+        setTimeout(nextPhrase, 2000);
+      });
+      counter = (counter + 1) % phrases.length;
+    }
+
+    nextPhrase();
+  </script>
+  <!-- Added text scramble script end -->
 </html>
