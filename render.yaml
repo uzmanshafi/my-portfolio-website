@@ -1,5 +1,5 @@
 services:
-  - type: static_site
+  - type: web
     name: portfolio-website
     runtime: static
     buildCommand: echo "Static site - no build required"
