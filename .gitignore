@@ -28,3 +28,4 @@ src/generated/
 
 # Docker
 postgres_data/
+/src/generated/prisma
