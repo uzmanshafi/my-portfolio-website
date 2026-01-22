@@ -6,3 +6,93 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+// Single bio/about content (one record)
+model Bio {
+  id          String   @id @default(cuid())
+  name        String
+  title       String   // "Software Developer"
+  headline    String   // Short intro tagline
+  description String   @db.Text // Full bio content
+  imageUrl    String?  // Profile image URL
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Skills with categories and ordering
+model Skill {
+  id        String   @id @default(cuid())
+  name      String
+  icon      String   // Lucide icon name (e.g., "code", "database")
+  category  String   // "frontend", "backend", "tools", "other"
+  order     Int      @default(0)
+  visible   Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category])
+  @@index([order])
+}
+
+// Projects with GitHub integration fields (for Phase 4)
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  imageUrl    String?  // Project screenshot/thumbnail
+  liveUrl     String?  // Deployed project URL
+  repoUrl     String?  // GitHub repository URL
+
+  // GitHub sync fields (populated in Phase 4)
+  githubId    Int?     @unique
+  stars       Int      @default(0)
+  forks       Int      @default(0)
+  language    String?  // Primary language from GitHub
+
+  // Display settings
+  featured    Boolean  @default(false)
+  visible     Boolean  @default(true)
+  order       Int      @default(0)
+
+  // Technologies used (stored as array)
+  technologies String[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([featured, visible])
+  @@index([order])
+}
+
+// Social media links
+model SocialLink {
+  id        String   @id @default(cuid())
+  platform  String   // "github", "linkedin", "twitter", etc.
+  url       String
+  icon      String   // Lucide icon name
+  order     Int      @default(0)
+  visible   Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+}
+
+// Resume/CV file tracking
+model Resume {
+  id        String   @id @default(cuid())
+  filename  String   // Original filename
+  url       String   // File URL (public/resume/ or cloud storage)
+  active    Boolean  @default(true) // Only one active at a time
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Contact information
+model Contact {
+  id        String   @id @default(cuid())
+  email     String
+  location  String?  // Optional location display
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
