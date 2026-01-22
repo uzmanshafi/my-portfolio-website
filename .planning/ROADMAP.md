@@ -13,7 +13,7 @@ This roadmap transforms a static HTML portfolio into a production-ready full-sta
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Next.js project, database, and core infrastructure
-- [ ] **Phase 2: Authentication** - Secure admin access with Auth.js v5
+- [x] **Phase 2: Authentication** - Secure admin access with Auth.js v5
 - [ ] **Phase 3: Data Layer + Admin CRUD** - Complete content management system
 - [ ] **Phase 4: GitHub Integration** - Dynamic repository sync and display
 - [ ] **Phase 5: Public Portfolio** - Server-rendered showcase with responsive design
@@ -51,7 +51,7 @@ Plans:
 
 Plans:
 - [x] 02-01-PLAN.md — Auth.js v5 configuration with Credentials provider and password hashing (2026-01-22)
-- [ ] 02-02-PLAN.md — Route protection, login UI, and protected dashboard structure
+- [x] 02-02-PLAN.md — Route protection, login UI, and protected dashboard structure (2026-01-22)
 
 ### Phase 3: Data Layer + Admin CRUD
 **Goal**: Admin can manage all portfolio content through intuitive dashboard forms with immediate persistence
@@ -139,7 +139,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete | 2026-01-22 |
-| 2. Authentication | 1/2 | In progress | - |
+| 2. Authentication | 2/2 | Complete | 2026-01-22 |
 | 3. Data Layer + Admin CRUD | 0/TBD | Not started | - |
 | 4. GitHub Integration | 0/TBD | Not started | - |
 | 5. Public Portfolio | 0/TBD | Not started | - |
@@ -147,4 +147,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-22 (02-01 complete)*
+*Last updated: 2026-01-22 (Phase 2 complete)*

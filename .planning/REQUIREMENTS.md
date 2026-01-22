@@ -9,9 +9,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Authentication
 
-- [ ] **AUTH-01**: Admin can log in with email and password
-- [ ] **AUTH-02**: Admin session persists across browser refresh
-- [ ] **AUTH-03**: Admin can log out securely
+- [x] **AUTH-01**: Admin can log in with email and password
+- [x] **AUTH-02**: Admin session persists across browser refresh
+- [x] **AUTH-03**: Admin can log out securely
 
 ### Admin Dashboard
 
@@ -93,7 +93,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **TECH-02**: PostgreSQL database for content storage
 - [x] **TECH-03**: Prisma ORM for type-safe database access
 - [ ] **TECH-04**: Framer Motion for animations
-- [ ] **TECH-05**: Secure authentication with Auth.js v5
+- [x] **TECH-05**: Secure authentication with Auth.js v5
 - [ ] **TECH-06**: Deployable to Render.com or similar
 
 ## v2 Requirements
@@ -141,10 +141,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TECH-01 | Phase 1 | Complete |
 | TECH-02 | Phase 1 | Complete |
 | TECH-03 | Phase 1 | Complete |
-| AUTH-01 | Phase 2 | Pending |
-| AUTH-02 | Phase 2 | Pending |
-| AUTH-03 | Phase 2 | Pending |
-| TECH-05 | Phase 2 | Pending |
+| AUTH-01 | Phase 2 | Complete |
+| AUTH-02 | Phase 2 | Complete |
+| AUTH-03 | Phase 2 | Complete |
+| TECH-05 | Phase 2 | Complete |
 | ADMN-01 | Phase 3 | Pending |
 | ADMN-02 | Phase 3 | Pending |
 | ADMN-03 | Phase 3 | Pending |
@@ -199,4 +199,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-01-22*
-*Last updated: 2026-01-22 after initial definition*
+*Last updated: 2026-01-22 (Phase 2 complete)*
