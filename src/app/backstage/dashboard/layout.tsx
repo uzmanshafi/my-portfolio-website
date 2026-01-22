@@ -4,7 +4,7 @@
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { SessionProvider } from "next-auth/react";
-import { LogoutButton } from "./components/logout-button";
+import { Sidebar } from "@/components/admin/sidebar";
 
 export default async function DashboardLayout({
   children,
@@ -21,30 +21,19 @@ export default async function DashboardLayout({
   return (
     <SessionProvider session={session}>
       <div
-        className="min-h-screen flex flex-col"
+        className="min-h-screen"
         style={{ backgroundColor: "var(--color-background)" }}
       >
-        {/* Header */}
-        <header
-          className="sticky top-0 z-50 border-b"
-          style={{
-            backgroundColor: "var(--color-background)",
-            borderColor: "rgba(243, 233, 226, 0.1)",
-          }}
-        >
-          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <h1
-              className="text-xl font-bold"
-              style={{ color: "var(--color-text)" }}
-            >
-              Backstage
-            </h1>
-            <LogoutButton />
-          </div>
-        </header>
+        {/* Sidebar handles both desktop (fixed) and mobile (overlay) */}
+        <Sidebar />
 
-        {/* Main content */}
-        <main className="flex-1">{children}</main>
+        {/* Main content area - offset on desktop for fixed sidebar */}
+        <main className="lg:pl-60">
+          {/* Content wrapper with padding */}
+          <div className="p-6 lg:p-8">
+            {children}
+          </div>
+        </main>
       </div>
     </SessionProvider>
   );
