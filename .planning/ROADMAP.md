@@ -65,10 +65,16 @@ Plans:
   5. Admin can upload and replace resume PDF file
   6. Admin can update contact email and manage social media links (add/edit/remove)
   7. All save operations provide visual feedback (loading states, success/error messages)
-**Plans**: TBD
+**Plans**: 7 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 03-01-PLAN.md — Infrastructure: packages, Supabase clients, sidebar navigation, shared hooks
+- [ ] 03-02-PLAN.md — Bio section: form editing, image cropper, Supabase upload
+- [ ] 03-03-PLAN.md — Skills section: CRUD, drag-and-drop within categories, category reordering
+- [ ] 03-04-PLAN.md — Projects section: CRUD, drag-and-drop, visibility toggle, image upload
+- [ ] 03-05-PLAN.md — Resume section: PDF upload and replacement
+- [ ] 03-06-PLAN.md — Contact section: email editing, social links CRUD with drag-and-drop
+- [ ] 03-07-PLAN.md — Dashboard home: stats overview, unsaved changes warning integration
 
 **Research needed during planning**: No (standard CRUD with Server Actions)
 
@@ -140,11 +146,11 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete | 2026-01-22 |
 | 2. Authentication | 2/2 | Complete | 2026-01-22 |
-| 3. Data Layer + Admin CRUD | 0/TBD | Not started | - |
+| 3. Data Layer + Admin CRUD | 0/7 | Not started | - |
 | 4. GitHub Integration | 0/TBD | Not started | - |
 | 5. Public Portfolio | 0/TBD | Not started | - |
 | 6. Animation + Polish | 0/TBD | Not started | - |
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-22 (Phase 2 complete)*
+*Last updated: 2026-01-22 (Phase 3 planned)*
