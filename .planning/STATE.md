@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-22)
 ## Current Position
 
 Phase: 3 of 6 (Data Layer + Admin CRUD)
-Plan: 4 of 7 complete in current phase (03-01, 03-03, 03-05, 03-06)
+Plan: 5 of 7 complete in current phase (03-01, 03-03, 03-04, 03-05, 03-06)
 Status: In progress
-Last activity: 2026-01-22 — Completed 03-03-PLAN.md
+Last activity: 2026-01-22 — Completed 03-04-PLAN.md
 
 Progress: [████████░░] 80%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
-- Average duration: 6.4 min
-- Total execution time: 0.85 hours
+- Total plans completed: 9
+- Average duration: 7 min
+- Total execution time: 1.05 hours
 
 **By Phase:**
 
@@ -29,10 +29,10 @@ Progress: [████████░░] 80%
 |-------|-------|-------|----------|
 | 1 | 2 | 12 min | 6 min |
 | 2 | 2 | 7 min | 3.5 min |
-| 3 | 4 | 32 min | 8 min |
+| 3 | 5 | 47 min | 9.4 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-01 (6 min), 03-05 (3 min), 03-06 (8 min), 03-03 (15 min)
+- Last 5 plans: 03-05 (3 min), 03-06 (8 min), 03-03 (15 min), 03-04 (15 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -67,6 +67,8 @@ Recent decisions affecting current work:
 - Skills grouped by category: GroupedSkills type (array of category + skills[])
 - Category order persistence: Uses order ranges (1000 per category) for sorting
 - Nested drag contexts: Outer SortableContext for categories, inner for skills
+- Project image upload: Direct client-to-Supabase upload, then update project record
+- Project ordering: Global order field (not per-category like skills)
 
 ### Pending Todos
 
@@ -78,8 +80,8 @@ User must configure Supabase environment variables and create storage bucket bef
 
 ## Session Continuity
 
-Last session: 2026-01-22T14:49:02Z
-Stopped at: Completed 03-03-PLAN.md
+Last session: 2026-01-22T15:34:56Z
+Stopped at: Completed 03-04-PLAN.md
 Resume file: None
 
 ---
