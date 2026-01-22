@@ -4,7 +4,7 @@
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { SessionProvider } from "next-auth/react";
-import { Sidebar } from "@/components/admin/sidebar";
+import { DashboardShell } from "@/components/admin/dashboard-shell";
 
 export default async function DashboardLayout({
   children,
@@ -20,21 +20,7 @@ export default async function DashboardLayout({
 
   return (
     <SessionProvider session={session}>
-      <div
-        className="min-h-screen"
-        style={{ backgroundColor: "var(--color-background)" }}
-      >
-        {/* Sidebar handles both desktop (fixed) and mobile (overlay) */}
-        <Sidebar />
-
-        {/* Main content area - offset on desktop for fixed sidebar */}
-        <main className="lg:pl-60">
-          {/* Content wrapper with padding */}
-          <div className="p-6 lg:p-8">
-            {children}
-          </div>
-        </main>
-      </div>
+      <DashboardShell>{children}</DashboardShell>
     </SessionProvider>
   );
 }

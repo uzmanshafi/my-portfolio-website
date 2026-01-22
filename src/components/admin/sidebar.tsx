@@ -2,10 +2,11 @@
 
 // Dashboard sidebar navigation component
 // Responsive: desktop shows fixed sidebar, mobile shows hamburger menu with overlay
+// Intercepts navigation when there are unsaved changes
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   LayoutDashboard,
   User,
@@ -18,6 +19,8 @@ import {
   LogOut,
 } from "lucide-react";
 import { signOut } from "next-auth/react";
+import { useUnsavedChangesContext } from "@/contexts/unsaved-changes-context";
+import { UnsavedChangesModal } from "@/components/admin/unsaved-changes-modal";
 
 interface NavItem {
   name: string;
@@ -34,14 +37,17 @@ const navItems: NavItem[] = [
   { name: "Contact", href: "/backstage/dashboard/contact", icon: Mail },
 ];
 
-interface SidebarProps {
-  /** Map of section paths to dirty state for unsaved changes indicator */
-  dirtyStates?: Record<string, boolean>;
-}
-
-export function Sidebar({ dirtyStates = {} }: SidebarProps) {
+export function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Get unsaved changes state from context
+  const unsavedChangesContext = useUnsavedChangesContext();
+  const dirtyStates = unsavedChangesContext?.dirtyStates ?? {};
+  const pendingNavigation = unsavedChangesContext?.pendingNavigation ?? null;
+  const setPendingNavigation =
+    unsavedChangesContext?.setPendingNavigation ?? (() => {});
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -67,8 +73,43 @@ export function Sidebar({ dirtyStates = {} }: SidebarProps) {
     return pathname.startsWith(href);
   };
 
+  // Check if current section has unsaved changes
+  const currentSectionDirty = Object.entries(dirtyStates).some(
+    ([path, isDirty]) => pathname.startsWith(path) && isDirty
+  );
+
   const handleLogout = async () => {
     await signOut({ callbackUrl: "/backstage" });
+  };
+
+  // Handle navigation click - intercept if dirty
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    // If navigating to same page, allow
+    if (pathname === href || pathname.startsWith(href + "/")) {
+      return;
+    }
+
+    // Check if current section is dirty
+    if (currentSectionDirty) {
+      e.preventDefault();
+      setPendingNavigation(href);
+    }
+  };
+
+  // Handle modal confirm - navigate to pending URL
+  const handleConfirmNavigation = () => {
+    if (pendingNavigation) {
+      router.push(pendingNavigation);
+      setPendingNavigation(null);
+    }
+  };
+
+  // Handle modal cancel - stay on page
+  const handleCancelNavigation = () => {
+    setPendingNavigation(null);
   };
 
   const NavLink = ({ item }: { item: NavItem }) => {
@@ -79,6 +120,7 @@ export function Sidebar({ dirtyStates = {} }: SidebarProps) {
     return (
       <Link
         href={item.href}
+        onClick={(e) => handleNavClick(e, item.href)}
         className="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors relative"
         style={{
           backgroundColor: active ? "rgba(211, 177, 150, 0.15)" : "transparent",
@@ -241,6 +283,14 @@ export function Sidebar({ dirtyStates = {} }: SidebarProps) {
           </aside>
         </div>
       )}
+
+      {/* Unsaved Changes Modal */}
+      <UnsavedChangesModal
+        isOpen={pendingNavigation !== null}
+        onClose={handleCancelNavigation}
+        onConfirm={handleConfirmNavigation}
+        onCancel={handleCancelNavigation}
+      />
     </>
   );
 }
