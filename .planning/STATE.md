@@ -5,33 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-01-22)
 
 **Core value:** The portfolio must beautifully showcase work and be effortlessly updatable through the admin dashboard — if updating content feels like a chore, the system has failed.
-**Current focus:** Phase 1 - Foundation
+**Current focus:** Phase 2 - Authentication
 
 ## Current Position
 
-Phase: 1 of 6 (Foundation)
-Plan: 2 of 2 in current phase
-Status: Phase complete
-Last activity: 2026-01-22 — Completed 01-02-PLAN.md
+Phase: 2 of 6 (Authentication)
+Plan: 1 of 2 in current phase
+Status: In progress
+Last activity: 2026-01-22 — Completed 02-01-PLAN.md
 
-Progress: [██░░░░░░░░] 20%
+Progress: [███░░░░░░░] 30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 6 min
-- Total execution time: 0.2 hours
+- Total plans completed: 3
+- Average duration: 5 min
+- Total execution time: 0.25 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 2 | 12 min | 6 min |
+| 2 | 1 | 3 min | 3 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (6 min), 01-02 (6 min)
-- Trend: Consistent
+- Last 5 plans: 01-01 (6 min), 01-02 (6 min), 02-01 (3 min)
+- Trend: Improving
 
 *Updated after each plan completion*
 
@@ -49,6 +50,9 @@ Recent decisions affecting current work:
 - Prisma 7 config: URL in prisma.config.ts using env() helper, not schema.prisma
 - Environment loading: .env.local (secrets) loaded before .env (defaults)
 - Prisma client output: src/generated/prisma for @/ path alias imports
+- Auth.js v5: JWT session strategy, split config pattern for Edge compatibility
+- Password hashing: Argon2id with RFC 9106 recommended parameters
+- Admin credentials: Environment-based (ADMIN_EMAIL, ADMIN_PASSWORD_HASH)
 
 ### Pending Todos
 
@@ -60,8 +64,8 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-01-22T09:41:29Z
-Stopped at: Completed 01-02-PLAN.md (Phase 1 complete)
+Last session: 2026-01-22T11:02:29Z
+Stopped at: Completed 02-01-PLAN.md
 Resume file: None
 
 ---

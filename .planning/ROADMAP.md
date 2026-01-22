@@ -50,7 +50,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Auth.js v5 configuration with Credentials provider and password hashing
+- [x] 02-01-PLAN.md — Auth.js v5 configuration with Credentials provider and password hashing (2026-01-22)
 - [ ] 02-02-PLAN.md — Route protection, login UI, and protected dashboard structure
 
 ### Phase 3: Data Layer + Admin CRUD
@@ -139,7 +139,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete | 2026-01-22 |
-| 2. Authentication | 0/2 | Not started | - |
+| 2. Authentication | 1/2 | In progress | - |
 | 3. Data Layer + Admin CRUD | 0/TBD | Not started | - |
 | 4. GitHub Integration | 0/TBD | Not started | - |
 | 5. Public Portfolio | 0/TBD | Not started | - |
@@ -147,4 +147,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-22 (Phase 2 planned)*
+*Last updated: 2026-01-22 (02-01 complete)*
