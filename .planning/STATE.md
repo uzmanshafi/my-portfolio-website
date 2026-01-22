@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-22)
 ## Current Position
 
 Phase: 3 of 6 (Data Layer + Admin CRUD)
-Plan: 6 of 7 in current phase
+Plan: 4 of 7 complete in current phase (03-01, 03-03, 03-05, 03-06)
 Status: In progress
-Last activity: 2026-01-22 — Completed 03-06-PLAN.md
+Last activity: 2026-01-22 — Completed 03-03-PLAN.md
 
-Progress: [███████░░░] 70%
+Progress: [████████░░] 80%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: 5.1 min
-- Total execution time: 0.60 hours
+- Total plans completed: 8
+- Average duration: 6.4 min
+- Total execution time: 0.85 hours
 
 **By Phase:**
 
@@ -29,10 +29,10 @@ Progress: [███████░░░] 70%
 |-------|-------|-------|----------|
 | 1 | 2 | 12 min | 6 min |
 | 2 | 2 | 7 min | 3.5 min |
-| 3 | 3 | 17 min | 5.7 min |
+| 3 | 4 | 32 min | 8 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-02 (4 min), 03-01 (6 min), 03-05 (3 min), 03-06 (8 min)
+- Last 5 plans: 03-01 (6 min), 03-05 (3 min), 03-06 (8 min), 03-03 (15 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -64,6 +64,9 @@ Recent decisions affecting current work:
 - Contact singleton: Uses findFirst/upsert pattern for single contact record
 - Social links ordering: order field with bulk $transaction updates for reordering
 - Dynamic Lucide icons: Store lowercase icon names, convert to PascalCase for lookup
+- Skills grouped by category: GroupedSkills type (array of category + skills[])
+- Category order persistence: Uses order ranges (1000 per category) for sorting
+- Nested drag contexts: Outer SortableContext for categories, inner for skills
 
 ### Pending Todos
 
@@ -75,8 +78,8 @@ User must configure Supabase environment variables and create storage bucket bef
 
 ## Session Continuity
 
-Last session: 2026-01-22T15:00:00Z
-Stopped at: Completed 03-06-PLAN.md
+Last session: 2026-01-22T14:49:02Z
+Stopped at: Completed 03-03-PLAN.md
 Resume file: None
 
 ---
