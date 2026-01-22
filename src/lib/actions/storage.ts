@@ -94,10 +94,13 @@ export async function deleteStorageFile(
  * Get the public URL for a file in Supabase Storage.
  * Does not require authentication as public URLs are accessible to all.
  *
+ * Note: This is a simple URL construction that runs on server.
+ * It's marked async because all exports in a "use server" file must be async.
+ *
  * @param bucket - Supabase storage bucket name
  * @param path - File path within the bucket
  */
-export function getPublicUrl(bucket: string, path: string): string {
+export async function getPublicUrl(bucket: string, path: string): Promise<string> {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   return `${supabaseUrl}/storage/v1/object/public/${bucket}/${path}`;
 }
