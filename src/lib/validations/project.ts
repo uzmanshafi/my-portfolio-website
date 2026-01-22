@@ -4,13 +4,16 @@
 import { z } from "zod";
 
 /**
- * Optional URL field - accepts empty string, null, or valid URL
+ * Optional URL field - accepts empty string or valid URL
+ * Transforms empty string to undefined for cleaner handling
  */
 const optionalUrl = z
   .string()
-  .transform((val) => (val === "" ? null : val))
-  .pipe(z.string().url().nullable())
-  .or(z.literal(""))
+  .refine(
+    (val) => val === "" || z.string().url().safeParse(val).success,
+    { message: "Please enter a valid URL" }
+  )
+  .transform((val) => (val === "" ? undefined : val))
   .optional();
 
 /**
@@ -41,3 +44,17 @@ export const projectSchema = z.object({
  * Use this for form data typing.
  */
 export type ProjectFormData = z.infer<typeof projectSchema>;
+
+/**
+ * Input type for the form (before transformation).
+ * All optional URLs are strings (empty or valid URL).
+ */
+export type ProjectFormInput = {
+  title: string;
+  description: string;
+  imageUrl?: string;
+  liveUrl?: string;
+  repoUrl?: string;
+  technologies?: string[];
+  featured?: boolean;
+};
