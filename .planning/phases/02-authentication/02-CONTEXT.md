@@ -17,16 +17,15 @@ Admin can securely access dashboard with session persistence and proper authoriz
 - Split layout: form on one side, portfolio preview on the other
 - Match dark theme colors (#160f09 bg, #f3e9e2 text)
 - Error messages shown as toast/banner at top of form
-- "Remember me" checkbox: checked = 7 days, unchecked = browser session only
+- Session duration: 7-day sliding window (simplified from "Remember me" toggle)
 - Button shows spinner during login (form disabled)
 - Password visibility toggle (eye icon)
 - After successful login: redirect to dashboard home (not intended page)
 
 ### Session Behavior
-- With "Remember me": 7-day session
-- Without "Remember me": browser session only (logged out when tabs closed)
+- 7-day sliding window session for all logins (simplified)
 - Sliding window: each activity resets the 7-day timer
-- Session expiry mid-use: modal prompt to re-login (preserves context)
+- Session expiry: redirect to login page
 
 ### Protected Routes
 - Login page lives at `/backstage` (secret URL)
