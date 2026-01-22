@@ -89,9 +89,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Technical Foundation
 
-- [ ] **TECH-01**: Next.js 15+ application with App Router
-- [ ] **TECH-02**: PostgreSQL database for content storage
-- [ ] **TECH-03**: Prisma ORM for type-safe database access
+- [x] **TECH-01**: Next.js 15+ application with App Router
+- [x] **TECH-02**: PostgreSQL database for content storage
+- [x] **TECH-03**: Prisma ORM for type-safe database access
 - [ ] **TECH-04**: Framer Motion for animations
 - [ ] **TECH-05**: Secure authentication with Auth.js v5
 - [ ] **TECH-06**: Deployable to Render.com or similar
@@ -138,9 +138,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TECH-01 | Phase 1 | Pending |
-| TECH-02 | Phase 1 | Pending |
-| TECH-03 | Phase 1 | Pending |
+| TECH-01 | Phase 1 | Complete |
+| TECH-02 | Phase 1 | Complete |
+| TECH-03 | Phase 1 | Complete |
 | AUTH-01 | Phase 2 | Pending |
 | AUTH-02 | Phase 2 | Pending |
 | AUTH-03 | Phase 2 | Pending |
