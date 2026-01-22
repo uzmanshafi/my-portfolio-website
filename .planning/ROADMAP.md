@@ -47,12 +47,11 @@ Plans:
   3. Admin can log out from any page, clearing session completely
   4. Unauthenticated users are redirected when accessing admin routes
   5. Authentication uses layered defense (middleware + layout + data layer checks)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] TBD during planning
-
-**Research needed during planning**: No (Auth.js v5 has comprehensive documentation)
+- [ ] 02-01-PLAN.md — Auth.js v5 configuration with Credentials provider and password hashing
+- [ ] 02-02-PLAN.md — Route protection, login UI, and protected dashboard structure
 
 ### Phase 3: Data Layer + Admin CRUD
 **Goal**: Admin can manage all portfolio content through intuitive dashboard forms with immediate persistence
@@ -140,7 +139,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete | 2026-01-22 |
-| 2. Authentication | 0/TBD | Not started | - |
+| 2. Authentication | 0/2 | Not started | - |
 | 3. Data Layer + Admin CRUD | 0/TBD | Not started | - |
 | 4. GitHub Integration | 0/TBD | Not started | - |
 | 5. Public Portfolio | 0/TBD | Not started | - |
@@ -148,4 +147,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-22 (Phase 1 complete)*
+*Last updated: 2026-01-22 (Phase 2 planned)*
