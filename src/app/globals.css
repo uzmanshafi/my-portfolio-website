@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* Design system colors from PROJECT.md */
+:root {
+  --color-text: #f3e9e2;
+  --color-background: #160f09;
+  --color-primary: #d3b196;
+  --color-secondary: #326978;
+  --color-accent: #6655b8;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: Arial, Helvetica, sans-serif;
+}

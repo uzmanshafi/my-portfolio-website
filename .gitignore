@@ -1,6 +1,15 @@
+# Dependencies
 node_modules/
+
+# Next.js
+.next/
+out/
+
+# Build
 dist/
 coverage/
+
+# Test
 .turbo
 test-results/
 playwright-report/
@@ -8,3 +17,14 @@ blob-report/
 playwright/.cache/
 target/
 .debug
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# Prisma
+src/generated/
+
+# Docker
+postgres_data/
