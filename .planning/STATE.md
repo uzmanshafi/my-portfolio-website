@@ -5,33 +5,33 @@
 See: .planning/PROJECT.md (updated 2026-01-22)
 
 **Core value:** The portfolio must beautifully showcase work and be effortlessly updatable through the admin dashboard — if updating content feels like a chore, the system has failed.
-**Current focus:** Phase 2 - Authentication
+**Current focus:** Phase 3 - Data Layer
 
 ## Current Position
 
-Phase: 2 of 6 (Authentication)
-Plan: 1 of 2 in current phase
-Status: In progress
-Last activity: 2026-01-22 — Completed 02-01-PLAN.md
+Phase: 2 of 6 (Authentication) - COMPLETE
+Plan: 2 of 2 in current phase
+Status: Phase complete
+Last activity: 2026-01-22 — Completed 02-02-PLAN.md
 
-Progress: [███░░░░░░░] 30%
+Progress: [████░░░░░░] 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
+- Total plans completed: 4
 - Average duration: 5 min
-- Total execution time: 0.25 hours
+- Total execution time: 0.35 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 2 | 12 min | 6 min |
-| 2 | 1 | 3 min | 3 min |
+| 2 | 2 | 7 min | 3.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (6 min), 01-02 (6 min), 02-01 (3 min)
+- Last 5 plans: 01-01 (6 min), 01-02 (6 min), 02-01 (3 min), 02-02 (4 min)
 - Trend: Improving
 
 *Updated after each plan completion*
@@ -53,6 +53,9 @@ Recent decisions affecting current work:
 - Auth.js v5: JWT session strategy, split config pattern for Edge compatibility
 - Password hashing: Argon2id with RFC 9106 recommended parameters
 - Admin credentials: Environment-based (ADMIN_EMAIL, ADMIN_PASSWORD_HASH)
+- Route protection: 404 rewrite for unauthenticated backstage access (hide admin routes)
+- Layered defense: Middleware (Layer 1) + Dashboard layout session check (Layer 2)
+- Server actions: Located in src/lib/actions/ directory
 
 ### Pending Todos
 
@@ -64,8 +67,8 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-01-22T11:02:29Z
-Stopped at: Completed 02-01-PLAN.md
+Last session: 2026-01-22T11:09:35Z
+Stopped at: Completed 02-02-PLAN.md
 Resume file: None
 
 ---
