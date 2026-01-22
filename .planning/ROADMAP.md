@@ -12,7 +12,7 @@ This roadmap transforms a static HTML portfolio into a production-ready full-sta
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Next.js project, database, and core infrastructure
+- [x] **Phase 1: Foundation** - Next.js project, database, and core infrastructure
 - [ ] **Phase 2: Authentication** - Secure admin access with Auth.js v5
 - [ ] **Phase 3: Data Layer + Admin CRUD** - Complete content management system
 - [ ] **Phase 4: GitHub Integration** - Dynamic repository sync and display
@@ -35,7 +35,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md — Project scaffold with Next.js 15, Tailwind 4, and PostgreSQL Docker setup (2026-01-22)
-- [ ] 01-02-PLAN.md — Prisma 7 integration with pg adapter and portfolio data models
+- [x] 01-02-PLAN.md — Prisma 7 integration with pg adapter and portfolio data models (2026-01-22)
 
 ### Phase 2: Authentication
 **Goal**: Admin can securely access dashboard with session persistence and proper authorization checks
@@ -139,7 +139,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 1/2 | In progress | - |
+| 1. Foundation | 2/2 | Complete | 2026-01-22 |
 | 2. Authentication | 0/TBD | Not started | - |
 | 3. Data Layer + Admin CRUD | 0/TBD | Not started | - |
 | 4. GitHub Integration | 0/TBD | Not started | - |
@@ -148,4 +148,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-22 (01-01 complete)*
+*Last updated: 2026-01-22 (Phase 1 complete)*
