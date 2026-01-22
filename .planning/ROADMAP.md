@@ -31,10 +31,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Prisma schema defines all content models (bio, skills, projects, resume, contact)
   4. Database migrations can be generated and applied without errors
   5. Development environment is documented and reproducible
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 01-01-PLAN.md — Project scaffold with Next.js 15, Tailwind 4, and PostgreSQL Docker setup
+- [ ] 01-02-PLAN.md — Prisma 7 integration with pg adapter and portfolio data models
 
 ### Phase 2: Authentication
 **Goal**: Admin can securely access dashboard with session persistence and proper authorization checks
@@ -138,7 +139,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/TBD | Not started | - |
+| 1. Foundation | 0/2 | Planned | - |
 | 2. Authentication | 0/TBD | Not started | - |
 | 3. Data Layer + Admin CRUD | 0/TBD | Not started | - |
 | 4. GitHub Integration | 0/TBD | Not started | - |
