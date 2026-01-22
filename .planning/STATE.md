@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-22)
 ## Current Position
 
 Phase: 3 of 6 (Data Layer + Admin CRUD)
-Plan: 1 of 7 in current phase
+Plan: 6 of 7 in current phase
 Status: In progress
-Last activity: 2026-01-22 — Completed 03-01-PLAN.md
+Last activity: 2026-01-22 — Completed 03-06-PLAN.md
 
-Progress: [█████░░░░░] 50%
+Progress: [███████░░░] 70%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: 5.2 min
-- Total execution time: 0.43 hours
+- Total plans completed: 6
+- Average duration: 4.8 min
+- Total execution time: 0.48 hours
 
 **By Phase:**
 
@@ -29,10 +29,10 @@ Progress: [█████░░░░░] 50%
 |-------|-------|-------|----------|
 | 1 | 2 | 12 min | 6 min |
 | 2 | 2 | 7 min | 3.5 min |
-| 3 | 1 | 6 min | 6 min |
+| 3 | 2 | 9 min | 4.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (6 min), 02-01 (3 min), 02-02 (4 min), 03-01 (6 min)
+- Last 5 plans: 02-01 (3 min), 02-02 (4 min), 03-01 (6 min), 03-05 (3 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -59,6 +59,8 @@ Recent decisions affecting current work:
 - Server actions: Located in src/lib/actions/ directory
 - Supabase clients: Server uses service role key for storage (not cookies), browser uses anon key
 - ActionResult<T>: Standard type for server action responses
+- Resume uploads: Single active resume at a time, new uploads deactivate previous
+- File upload pattern: client validation -> signed URL -> direct upload -> database record
 
 ### Pending Todos
 
@@ -70,8 +72,8 @@ User must configure Supabase environment variables and create storage bucket bef
 
 ## Session Continuity
 
-Last session: 2026-01-22T12:06:00Z
-Stopped at: Completed 03-01-PLAN.md
+Last session: 2026-01-22T14:37:55Z
+Stopped at: Completed 03-05-PLAN.md
 Resume file: None
 
 ---
