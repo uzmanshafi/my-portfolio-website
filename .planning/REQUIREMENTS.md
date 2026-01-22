@@ -15,41 +15,41 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Admin Dashboard
 
-- [ ] **ADMN-01**: Dashboard UI is accessible only when authenticated
-- [ ] **ADMN-02**: Dashboard provides navigation to all content sections
-- [ ] **ADMN-03**: Changes can be saved with visual feedback
+- [x] **ADMN-01**: Dashboard UI is accessible only when authenticated
+- [x] **ADMN-02**: Dashboard provides navigation to all content sections
+- [x] **ADMN-03**: Changes can be saved with visual feedback
 
 ### Bio/About Management
 
-- [ ] **BIO-01**: Admin can edit bio/about section text
-- [ ] **BIO-02**: Admin can update profile image
+- [x] **BIO-01**: Admin can edit bio/about section text
+- [x] **BIO-02**: Admin can update profile image
 - [ ] **BIO-03**: Bio updates reflect immediately on public portfolio
 
 ### Skills Management
 
-- [ ] **SKIL-01**: Admin can add new skills with icon and name
-- [ ] **SKIL-02**: Admin can remove skills
-- [ ] **SKIL-03**: Admin can reorder skills via drag-and-drop
-- [ ] **SKIL-04**: Skills can be grouped by category
+- [x] **SKIL-01**: Admin can add new skills with icon and name
+- [x] **SKIL-02**: Admin can remove skills
+- [x] **SKIL-03**: Admin can reorder skills via drag-and-drop
+- [x] **SKIL-04**: Skills can be grouped by category
 
 ### Projects Management
 
-- [ ] **PROJ-01**: Admin can add projects manually (name, description, image, links)
-- [ ] **PROJ-02**: Admin can edit existing project details
-- [ ] **PROJ-03**: Admin can delete projects
-- [ ] **PROJ-04**: Admin can reorder projects via drag-and-drop
-- [ ] **PROJ-05**: Admin can toggle project visibility (show/hide)
+- [x] **PROJ-01**: Admin can add projects manually (name, description, image, links)
+- [x] **PROJ-02**: Admin can edit existing project details
+- [x] **PROJ-03**: Admin can delete projects
+- [x] **PROJ-04**: Admin can reorder projects via drag-and-drop
+- [x] **PROJ-05**: Admin can toggle project visibility (show/hide)
 
 ### Resume Management
 
-- [ ] **RESU-01**: Admin can upload resume PDF
-- [ ] **RESU-02**: Admin can replace existing resume
+- [x] **RESU-01**: Admin can upload resume PDF
+- [x] **RESU-02**: Admin can replace existing resume
 - [ ] **RESU-03**: Resume is downloadable from public portfolio
 
 ### Contact/Social Management
 
-- [ ] **CONT-01**: Admin can update contact email
-- [ ] **CONT-02**: Admin can manage social media links (add, edit, remove)
+- [x] **CONT-01**: Admin can update contact email
+- [x] **CONT-02**: Admin can manage social media links (add, edit, remove)
 - [ ] **CONT-03**: Contact info displays on public portfolio with copy functionality
 
 ### GitHub Integration
@@ -145,25 +145,25 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-02 | Phase 2 | Complete |
 | AUTH-03 | Phase 2 | Complete |
 | TECH-05 | Phase 2 | Complete |
-| ADMN-01 | Phase 3 | Pending |
-| ADMN-02 | Phase 3 | Pending |
-| ADMN-03 | Phase 3 | Pending |
-| BIO-01 | Phase 3 | Pending |
-| BIO-02 | Phase 3 | Pending |
-| BIO-03 | Phase 3 | Pending |
-| SKIL-01 | Phase 3 | Pending |
-| SKIL-02 | Phase 3 | Pending |
-| SKIL-03 | Phase 3 | Pending |
-| SKIL-04 | Phase 3 | Pending |
-| PROJ-01 | Phase 3 | Pending |
-| PROJ-02 | Phase 3 | Pending |
-| PROJ-03 | Phase 3 | Pending |
-| PROJ-04 | Phase 3 | Pending |
-| PROJ-05 | Phase 3 | Pending |
-| RESU-01 | Phase 3 | Pending |
-| RESU-02 | Phase 3 | Pending |
-| CONT-01 | Phase 3 | Pending |
-| CONT-02 | Phase 3 | Pending |
+| ADMN-01 | Phase 3 | Complete |
+| ADMN-02 | Phase 3 | Complete |
+| ADMN-03 | Phase 3 | Complete |
+| BIO-01 | Phase 3 | Complete |
+| BIO-02 | Phase 3 | Complete |
+| BIO-03 | Phase 3 | Deferred to Phase 5 |
+| SKIL-01 | Phase 3 | Complete |
+| SKIL-02 | Phase 3 | Complete |
+| SKIL-03 | Phase 3 | Complete |
+| SKIL-04 | Phase 3 | Complete |
+| PROJ-01 | Phase 3 | Complete |
+| PROJ-02 | Phase 3 | Complete |
+| PROJ-03 | Phase 3 | Complete |
+| PROJ-04 | Phase 3 | Complete |
+| PROJ-05 | Phase 3 | Complete |
+| RESU-01 | Phase 3 | Complete |
+| RESU-02 | Phase 3 | Complete |
+| CONT-01 | Phase 3 | Complete |
+| CONT-02 | Phase 3 | Complete |
 | GHUB-01 | Phase 4 | Pending |
 | GHUB-02 | Phase 4 | Pending |
 | GHUB-03 | Phase 4 | Pending |
@@ -199,4 +199,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-01-22*
-*Last updated: 2026-01-22 (Phase 2 complete)*
+*Last updated: 2026-01-22 (Phase 3 complete)*
