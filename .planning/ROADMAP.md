@@ -34,7 +34,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Project scaffold with Next.js 15, Tailwind 4, and PostgreSQL Docker setup
+- [x] 01-01-PLAN.md — Project scaffold with Next.js 15, Tailwind 4, and PostgreSQL Docker setup (2026-01-22)
 - [ ] 01-02-PLAN.md — Prisma 7 integration with pg adapter and portfolio data models
 
 ### Phase 2: Authentication
@@ -139,7 +139,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/2 | Planned | - |
+| 1. Foundation | 1/2 | In progress | - |
 | 2. Authentication | 0/TBD | Not started | - |
 | 3. Data Layer + Admin CRUD | 0/TBD | Not started | - |
 | 4. GitHub Integration | 0/TBD | Not started | - |
@@ -148,4 +148,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-22*
+*Last updated: 2026-01-22 (01-01 complete)*
