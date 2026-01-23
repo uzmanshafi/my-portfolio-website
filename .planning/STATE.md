@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-22)
 
 **Core value:** The portfolio must beautifully showcase work and be effortlessly updatable through the admin dashboard — if updating content feels like a chore, the system has failed.
-**Current focus:** Phase 4 - GitHub Integration (COMPLETE)
+**Current focus:** Phase 5 - Public Portfolio
 
 ## Current Position
 
-Phase: 4 of 6 (GitHub Integration)
-Plan: 5 of 5 complete in current phase (04-05)
-Status: Phase complete
-Last activity: 2026-01-23 - Completed 04-05-PLAN.md
+Phase: 5 of 6 (Public Portfolio)
+Plan: 1 of 7 complete in current phase (05-01)
+Status: In progress
+Last activity: 2026-01-23 - Completed 05-01-PLAN.md
 
-Progress: [████████░░] 80% (16/20 plans)
+Progress: [████████░░] 85% (17/20 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 16
-- Average duration: 9.8 min
-- Total execution time: 2.55 hours
+- Total plans completed: 17
+- Average duration: 9.6 min
+- Total execution time: 2.7 hours
 
 **By Phase:**
 
@@ -31,10 +31,11 @@ Progress: [████████░░] 80% (16/20 plans)
 | 2 | 2 | 7 min | 3.5 min |
 | 3 | 7 | 114 min | 16.3 min |
 | 4 | 5 | 20 min | 4 min |
+| 5 | 1 | 8 min | 8 min |
 
 **Recent Trend:**
-- Last 5 plans: 04-05 (2 min), 04-04 (3 min), 04-03 (3 min), 04-02 (4 min), 04-01 (8 min)
-- Trend: Fast (GitHub integration with focused scope)
+- Last 5 plans: 05-01 (8 min), 04-05 (2 min), 04-04 (3 min), 04-03 (3 min), 04-02 (4 min)
+- Trend: Starting public portfolio phase
 
 *Updated after each plan completion*
 
@@ -86,6 +87,8 @@ Recent decisions affecting current work:
 - customizedFields tracking: Store array of field names edited on synced projects for sync protection
 - Vercel Cron sync: Daily 4 AM UTC via /api/cron/sync-github with CRON_SECRET auth
 - Per-field reset: Reset to GitHub buttons for customized title/description fields
+- Public data layer: Direct Prisma queries in src/lib/data/ (not server actions) for read-only operations
+- ISR revalidation: 60 seconds for portfolio page freshness/performance balance
 
 ### Pending Todos
 
@@ -99,8 +102,8 @@ User must set CRON_SECRET environment variable for background sync to work.
 
 ## Session Continuity
 
-Last session: 2026-01-23T05:46:11Z
-Stopped at: Completed 04-05-PLAN.md (Phase 4 complete)
+Last session: 2026-01-23T14:09:47Z
+Stopped at: Completed 05-01-PLAN.md
 Resume file: None
 
 ---

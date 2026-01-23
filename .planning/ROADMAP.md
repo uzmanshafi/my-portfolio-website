@@ -118,7 +118,7 @@ Plans:
 **Plans**: 7 plans
 
 Plans:
-- [ ] 05-01-PLAN.md — Page layout foundation (single page structure, side navigation dots, section scaffold)
+- [x] 05-01-PLAN.md — Page layout foundation (single page structure, side navigation dots, section scaffold) (2026-01-23)
 - [ ] 05-02-PLAN.md — Hero section (geometric shapes, bio info, CTAs)
 - [ ] 05-03-PLAN.md — About section (bio text, profile image display)
 - [ ] 05-04-PLAN.md — Skills section (category groups, Lucide icons)
@@ -158,7 +158,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 2. Authentication | 2/2 | Complete | 2026-01-22 |
 | 3. Data Layer + Admin CRUD | 7/7 | Complete | 2026-01-22 |
 | 4. GitHub Integration | 5/5 | Complete | 2026-01-23 |
-| 5. Public Portfolio | 0/7 | Not started | - |
+| 5. Public Portfolio | 1/7 | In progress | - |
 | 6. Animation + Polish | 0/TBD | Not started | - |
 
 ---
