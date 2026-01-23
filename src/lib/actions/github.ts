@@ -5,7 +5,15 @@
 
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { encryptToken, decryptToken, createGitHubClient } from "@/lib/github";
+import {
+  encryptToken,
+  decryptToken,
+  createGitHubClient,
+  fetchUserRepos,
+  searchUserRepos,
+  getRepoLanguages,
+  type ReposResponse,
+} from "@/lib/github";
 import type { ActionResult } from "@/lib/validations/common";
 import { success, failure } from "@/lib/validations/common";
 import type { GitHubConnection } from "@/generated/prisma/client";
@@ -105,5 +113,67 @@ export async function getGitHubAccessToken(): Promise<string | null> {
   } catch (error) {
     console.error("Failed to get GitHub access token:", error);
     return null;
+  }
+}
+
+/**
+ * Get repositories from connected GitHub account.
+ * Supports pagination, search, and language filtering.
+ */
+export async function getRepositories(options: {
+  page?: number;
+  perPage?: number;
+  query?: string;
+  language?: string;
+} = {}): Promise<ActionResult<ReposResponse>> {
+  const session = await auth();
+  if (!session?.user) {
+    return failure("Unauthorized");
+  }
+
+  const accessToken = await getGitHubAccessToken();
+  if (!accessToken) {
+    return failure("GitHub not connected");
+  }
+
+  try {
+    const octokit = createGitHubClient(accessToken);
+
+    // Use search if query or language filter provided
+    if (options.query || options.language) {
+      const result = await searchUserRepos(octokit, options);
+      return success(result);
+    }
+
+    // Otherwise use simple pagination
+    const result = await fetchUserRepos(octokit, options);
+    return success(result);
+  } catch (error) {
+    console.error("Failed to fetch repositories:", error);
+    return failure("Failed to fetch repositories from GitHub");
+  }
+}
+
+/**
+ * Get available languages for filter dropdown.
+ */
+export async function getLanguages(): Promise<ActionResult<string[]>> {
+  const session = await auth();
+  if (!session?.user) {
+    return failure("Unauthorized");
+  }
+
+  const accessToken = await getGitHubAccessToken();
+  if (!accessToken) {
+    return failure("GitHub not connected");
+  }
+
+  try {
+    const octokit = createGitHubClient(accessToken);
+    const languages = await getRepoLanguages(octokit);
+    return success(languages);
+  } catch (error) {
+    console.error("Failed to fetch languages:", error);
+    return failure("Failed to fetch languages");
   }
 }
