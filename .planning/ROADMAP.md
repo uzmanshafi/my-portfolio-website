@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation** - Next.js project, database, and core infrastructure
 - [x] **Phase 2: Authentication** - Secure admin access with Auth.js v5
 - [x] **Phase 3: Data Layer + Admin CRUD** - Complete content management system
-- [ ] **Phase 4: GitHub Integration** - Dynamic repository sync and display
+- [x] **Phase 4: GitHub Integration** - Dynamic repository sync and display
 - [ ] **Phase 5: Public Portfolio** - Server-rendered showcase with responsive design
 - [ ] **Phase 6: Animation + Polish** - Motion design and production readiness
 
@@ -96,7 +96,7 @@ Plans:
 - [x] 04-02-PLAN.md — GitHub OAuth integration (Auth.js provider, connection UI, connect/disconnect flow) (2026-01-23)
 - [x] 04-03-PLAN.md — Repository browser (paginated fetch, card grid, search/filter) (2026-01-23)
 - [x] 04-04-PLAN.md — Project sync from GitHub (import repos as projects, GitHub badge, customization tracking) (2026-01-23)
-- [ ] 04-05-PLAN.md — Background sync + cron (Vercel cron endpoint, per-field reset, deleted repo handling)
+- [x] 04-05-PLAN.md — Background sync + cron (Vercel cron endpoint, per-field reset, deleted repo handling) (2026-01-23)
 
 **Research needed during planning**: Yes (caching strategy, rate limit handling, sync logic)
 
@@ -151,10 +151,10 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 1. Foundation | 2/2 | Complete | 2026-01-22 |
 | 2. Authentication | 2/2 | Complete | 2026-01-22 |
 | 3. Data Layer + Admin CRUD | 7/7 | Complete | 2026-01-22 |
-| 4. GitHub Integration | 4/5 | In progress | - |
+| 4. GitHub Integration | 5/5 | Complete | 2026-01-23 |
 | 5. Public Portfolio | 0/TBD | Not started | - |
 | 6. Animation + Polish | 0/TBD | Not started | - |
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-23 (04-04 complete)*
+*Last updated: 2026-01-23 (Phase 4 complete)*
