@@ -302,6 +302,20 @@ export function ProjectFormModal({
 
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-6">
+          {/* GitHub sync info banner */}
+          {project?.isGitHubSynced && (
+            <div
+              className="p-3 rounded-lg text-sm"
+              style={{
+                backgroundColor: "rgba(211, 177, 150, 0.1)",
+                color: "var(--color-text)",
+              }}
+            >
+              <strong>GitHub Synced:</strong> Changes you make here will be
+              preserved during automatic sync.
+            </div>
+          )}
+
           {/* Error banner */}
           {uploadError && (
             <div

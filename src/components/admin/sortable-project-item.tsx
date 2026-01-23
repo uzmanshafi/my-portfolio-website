@@ -97,6 +97,18 @@ export function SortableProjectItem({
           >
             {project.title}
           </h3>
+          {project.isGitHubSynced && (
+            <span
+              className="flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium"
+              style={{
+                backgroundColor: "rgba(211, 177, 150, 0.2)",
+                color: "var(--color-primary)",
+              }}
+            >
+              <Github size={12} />
+              Synced
+            </span>
+          )}
           {project.featured && (
             <span
               className="px-2 py-0.5 text-xs rounded-full"

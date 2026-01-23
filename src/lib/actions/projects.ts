@@ -133,6 +133,26 @@ export async function updateProject(
       return failure("Project not found");
     }
 
+    // Track which fields are being customized (for GitHub-synced projects)
+    let customizedFields = existing.customizedFields || [];
+
+    if (existing.isGitHubSynced) {
+      // Fields that can be synced from GitHub - track if user changes them
+      const syncableFields: { key: string; newValue: string | null }[] = [
+        { key: "title", newValue: result.data.title },
+        { key: "description", newValue: result.data.description },
+      ];
+
+      for (const { key, newValue } of syncableFields) {
+        const existingValue = existing[key as keyof typeof existing];
+
+        // If value changed and field not already in customizedFields, add it
+        if (newValue !== existingValue && !customizedFields.includes(key)) {
+          customizedFields = [...customizedFields, key];
+        }
+      }
+    }
+
     // Update project
     const project = await prisma.project.update({
       where: { id },
@@ -144,6 +164,7 @@ export async function updateProject(
         repoUrl: result.data.repoUrl || null,
         technologies: result.data.technologies,
         featured: result.data.featured,
+        customizedFields,
       },
     });
 
