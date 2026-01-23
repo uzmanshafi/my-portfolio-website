@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-22)
 
 **Core value:** The portfolio must beautifully showcase work and be effortlessly updatable through the admin dashboard — if updating content feels like a chore, the system has failed.
-**Current focus:** Phase 3 complete - Ready for Phase 4
+**Current focus:** Phase 4 - GitHub Integration
 
 ## Current Position
 
-Phase: 3 of 6 (Data Layer + Admin CRUD) - COMPLETE
-Plan: 7 of 7 complete in current phase (03-01 through 03-07)
-Status: Phase complete
-Last activity: 2026-01-22 - Completed 03-07-PLAN.md
+Phase: 4 of 6 (GitHub Integration)
+Plan: 1 of 7 complete in current phase (04-01)
+Status: In progress
+Last activity: 2026-01-23 - Completed 04-01-PLAN.md
 
-Progress: [██████░░░░] 50% (3/6 phases)
+Progress: [███████░░░] 60% (12/20 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
-- Average duration: 12.2 min
-- Total execution time: 2.23 hours
+- Total plans completed: 12
+- Average duration: 11.8 min
+- Total execution time: 2.37 hours
 
 **By Phase:**
 
@@ -30,10 +30,11 @@ Progress: [██████░░░░] 50% (3/6 phases)
 | 1 | 2 | 12 min | 6 min |
 | 2 | 2 | 7 min | 3.5 min |
 | 3 | 7 | 114 min | 16.3 min |
+| 4 | 1 | 8 min | 8 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-07 (5 min), 03-06 (8 min), 03-03 (15 min), 03-04 (15 min), 03-02 (62 min)
-- Trend: Stabilizing (03-07 quick due to focused scope)
+- Last 5 plans: 04-01 (8 min), 03-07 (5 min), 03-06 (8 min), 03-03 (15 min), 03-04 (15 min)
+- Trend: Fast (infrastructure plan with focused scope)
 
 *Updated after each plan completion*
 
@@ -74,6 +75,9 @@ Recent decisions affecting current work:
 - Toast notifications: Toaster from sonner added to root layout
 - UnsavedChangesContext: Global dirty state tracking for sidebar navigation
 - DashboardShell: Client wrapper pattern for server layout with providers
+- GitHub token encryption: jose AES-256-GCM with key from AUTH_SECRET
+- Octokit throttling: Retry twice on rate limit, no retry on secondary limit
+- GitHub module: Barrel export at @/lib/github
 
 ### Pending Todos
 
@@ -85,10 +89,10 @@ User must configure Supabase environment variables and create storage bucket bef
 
 ## Session Continuity
 
-Last session: 2026-01-22T15:42:03Z
-Stopped at: Completed 03-07-PLAN.md (Phase 3 complete)
+Last session: 2026-01-23T10:48:00Z
+Stopped at: Completed 04-01-PLAN.md
 Resume file: None
 
 ---
 *State initialized: 2026-01-22*
-*Last updated: 2026-01-22*
+*Last updated: 2026-01-23*
