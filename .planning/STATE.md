@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-22)
 ## Current Position
 
 Phase: 4 of 6 (GitHub Integration)
-Plan: 1 of 7 complete in current phase (04-01)
+Plan: 2 of 7 complete in current phase (04-02)
 Status: In progress
-Last activity: 2026-01-23 - Completed 04-01-PLAN.md
+Last activity: 2026-01-23 - Completed 04-02-PLAN.md
 
-Progress: [███████░░░] 60% (12/20 plans)
+Progress: [███████░░░] 65% (13/20 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
-- Average duration: 11.8 min
-- Total execution time: 2.37 hours
+- Total plans completed: 13
+- Average duration: 11.2 min
+- Total execution time: 2.43 hours
 
 **By Phase:**
 
@@ -30,11 +30,11 @@ Progress: [███████░░░] 60% (12/20 plans)
 | 1 | 2 | 12 min | 6 min |
 | 2 | 2 | 7 min | 3.5 min |
 | 3 | 7 | 114 min | 16.3 min |
-| 4 | 1 | 8 min | 8 min |
+| 4 | 2 | 12 min | 6 min |
 
 **Recent Trend:**
-- Last 5 plans: 04-01 (8 min), 03-07 (5 min), 03-06 (8 min), 03-03 (15 min), 03-04 (15 min)
-- Trend: Fast (infrastructure plan with focused scope)
+- Last 5 plans: 04-02 (4 min), 04-01 (8 min), 03-07 (5 min), 03-06 (8 min), 03-03 (15 min)
+- Trend: Fast (OAuth integration with focused scope)
 
 *Updated after each plan completion*
 
@@ -78,6 +78,9 @@ Recent decisions affecting current work:
 - GitHub token encryption: jose AES-256-GCM with key from AUTH_SECRET
 - Octokit throttling: Retry twice on rate limit, no retry on secondary limit
 - GitHub module: Barrel export at @/lib/github
+- GitHub OAuth scopes: read:user user:email repo for private repo access
+- GitHub connection singleton: Fixed ID "github-connection" for single admin
+- OAuth token capture: linkAccount event fires after OAuth callback
 
 ### Pending Todos
 
@@ -86,11 +89,12 @@ None yet.
 ### Blockers/Concerns
 
 User must configure Supabase environment variables and create storage bucket before file uploads work.
+User must configure GitHub OAuth app and add AUTH_GITHUB_ID/AUTH_GITHUB_SECRET before GitHub integration works.
 
 ## Session Continuity
 
-Last session: 2026-01-23T10:48:00Z
-Stopped at: Completed 04-01-PLAN.md
+Last session: 2026-01-23T05:22:32Z
+Stopped at: Completed 04-02-PLAN.md
 Resume file: None
 
 ---
