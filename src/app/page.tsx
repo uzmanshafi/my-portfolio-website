@@ -7,6 +7,7 @@ import { HeroSection } from "@/app/components/portfolio/hero-section";
 import { ProjectsSection } from "@/app/components/portfolio/projects-section";
 import { AboutSection } from "@/app/components/portfolio/about-section";
 import { ContactSection } from "@/app/components/portfolio/contact-section";
+import { SkillsSection } from "@/app/components/portfolio/skills-section";
 
 // ISR: revalidate every 60 seconds
 export const revalidate = 60;
@@ -47,20 +48,7 @@ export default async function Home() {
       </SectionWrapper>
 
       <SectionWrapper id="skills">
-        {/* Placeholder: Skills Section - Plan 04 */}
-        <div className="min-h-[50vh] container mx-auto px-4">
-          <h2
-            className="text-3xl font-bold mb-8"
-            style={{ color: "var(--color-primary)" }}
-          >
-            Skills
-          </h2>
-          <p className="opacity-70">
-            {skills.length > 0
-              ? `${skills.reduce((acc, g) => acc + g.skills.length, 0)} skills across ${skills.length} categories`
-              : "Skills section coming soon..."}
-          </p>
-        </div>
+        <SkillsSection skills={skills} />
       </SectionWrapper>
 
       <SectionWrapper id="projects">
