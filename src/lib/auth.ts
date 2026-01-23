@@ -4,6 +4,7 @@
 
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import GitHub from 'next-auth/providers/github';
 import argon2 from 'argon2';
 import { authConfig } from './auth.config';
 
@@ -60,15 +61,31 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         };
       },
     }),
+    // GitHub OAuth provider for connecting GitHub account
+    GitHub({
+      clientId: process.env.AUTH_GITHUB_ID,
+      clientSecret: process.env.AUTH_GITHUB_SECRET,
+      authorization: {
+        params: {
+          // Request repo scope to access private repos
+          scope: 'read:user user:email repo',
+        },
+      },
+    }),
   ],
   callbacks: {
     ...authConfig.callbacks,
-    jwt: async ({ token, user }) => {
+    jwt: async ({ token, user, account }) => {
       // Persist user data to token on sign in
       if (user) {
         token.id = user.id;
         token.email = user.email;
         token.name = user.name;
+      }
+      // Capture GitHub token on OAuth login
+      if (account?.provider === 'github') {
+        token.githubAccessToken = account.access_token;
+        token.githubUsername = account.providerAccountId;
       }
       return token;
     },
@@ -79,7 +96,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         session.user.email = token.email as string;
         session.user.name = token.name as string;
       }
+      // Expose GitHub connection status
+      (session as { githubConnected?: boolean }).githubConnected = !!token.githubAccessToken;
       return session;
+    },
+  },
+  events: {
+    async linkAccount({ account }) {
+      if (account.provider === 'github' && account.access_token) {
+        // Import and call the connection action
+        const { storeGitHubConnection } = await import('@/lib/actions/github');
+        await storeGitHubConnection(account.access_token, account.providerAccountId ?? '');
+      }
     },
   },
 });

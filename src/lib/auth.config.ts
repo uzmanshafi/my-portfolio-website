@@ -4,6 +4,7 @@
 
 import type { NextAuthConfig } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import GitHub from 'next-auth/providers/github';
 
 export const authConfig = {
   pages: {
@@ -18,6 +19,9 @@ export const authConfig = {
       // Note: authorize function defined in auth.ts, not here
       // This is intentionally empty for Edge compatibility
     }),
+    // GitHub OAuth provider - authorization logic in auth.ts
+    // This stub is needed for Edge middleware compatibility
+    GitHub,
   ],
   callbacks: {
     authorized: async ({ auth, request }) => {
