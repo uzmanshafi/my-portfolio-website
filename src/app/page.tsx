@@ -8,6 +8,7 @@ import { ProjectsSection } from "@/app/components/portfolio/projects-section";
 import { AboutSection } from "@/app/components/portfolio/about-section";
 import { ContactSection } from "@/app/components/portfolio/contact-section";
 import { SkillsSection } from "@/app/components/portfolio/skills-section";
+import { SectionDivider } from "@/app/components/portfolio/section-divider";
 
 // ISR: revalidate every 60 seconds
 export const revalidate = 60;
@@ -40,6 +41,8 @@ export default async function Home() {
         />
       </SectionWrapper>
 
+      <SectionDivider className="my-8 md:my-12" />
+
       <SectionWrapper id="about">
         <AboutSection
           description={bio?.description ?? ""}
@@ -47,13 +50,19 @@ export default async function Home() {
         />
       </SectionWrapper>
 
+      <SectionDivider className="my-8 md:my-12" />
+
       <SectionWrapper id="skills">
         <SkillsSection skills={skills} />
       </SectionWrapper>
 
+      <SectionDivider className="my-8 md:my-12" />
+
       <SectionWrapper id="projects">
         <ProjectsSection projects={projects} />
       </SectionWrapper>
+
+      <SectionDivider className="my-8 md:my-12" />
 
       <SectionWrapper id="contact">
         <ContactSection
