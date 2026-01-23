@@ -68,26 +68,11 @@ export default async function Home() {
       </SectionWrapper>
 
       <SectionWrapper id="contact">
-        {/* Placeholder: Contact Section - Plan 06 */}
-        <div className="min-h-[50vh] container mx-auto px-4">
-          <h2
-            className="text-3xl font-bold mb-8"
-            style={{ color: "var(--color-primary)" }}
-          >
-            Contact
-          </h2>
-          <p className="opacity-70">
-            {contact?.email || "Contact section coming soon..."}
-          </p>
-          {socialLinks.length > 0 && (
-            <p className="opacity-50 mt-2">
-              {socialLinks.length} social links available
-            </p>
-          )}
-          {resume && (
-            <p className="opacity-50 mt-2">Resume available for download</p>
-          )}
-        </div>
+        <ContactSection
+          contact={contact}
+          socialLinks={socialLinks}
+          resumeUrl={resume?.url ?? null}
+        />
       </SectionWrapper>
     </main>
   );
