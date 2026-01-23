@@ -115,10 +115,16 @@ Plans:
   8. Dark warm color palette is implemented throughout (#f3e9e2 text, #160f09 bg, #d3b196 primary, #326978 secondary, #6655b8 accent)
   9. Glassmorphism effects appear on cards and subtle grain texture on background
   10. Pages are server-rendered with ISR caching for fast load times
-**Plans**: TBD
+**Plans**: 7 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 05-01-PLAN.md — Page layout foundation (single page structure, side navigation dots, section scaffold)
+- [ ] 05-02-PLAN.md — Hero section (geometric shapes, bio info, CTAs)
+- [ ] 05-03-PLAN.md — About section (bio text, profile image display)
+- [ ] 05-04-PLAN.md — Skills section (category groups, Lucide icons)
+- [ ] 05-05-PLAN.md — Projects bento grid (asymmetric layout, cards, hover effects)
+- [ ] 05-06-PLAN.md — Contact section (copyable email, social links, resume link)
+- [ ] 05-07-PLAN.md — Visual polish (glassmorphism, grain texture, gradient lines, ISR verification)
 
 **Research needed during planning**: No (standard React Server Components patterns)
 
@@ -144,7 +150,7 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -152,9 +158,9 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 2. Authentication | 2/2 | Complete | 2026-01-22 |
 | 3. Data Layer + Admin CRUD | 7/7 | Complete | 2026-01-22 |
 | 4. GitHub Integration | 5/5 | Complete | 2026-01-23 |
-| 5. Public Portfolio | 0/TBD | Not started | - |
+| 5. Public Portfolio | 0/7 | Not started | - |
 | 6. Animation + Polish | 0/TBD | Not started | - |
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-23 (Phase 4 complete)*
+*Last updated: 2026-01-23 (Phase 5 planned)*
