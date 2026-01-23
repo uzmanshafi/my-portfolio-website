@@ -6,7 +6,8 @@
 import { useEffect, useRef, useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { X, Upload, Loader2, ImageIcon } from "lucide-react";
+import { X, Upload, Loader2, ImageIcon, RotateCcw } from "lucide-react";
+import { toast } from "sonner";
 import Image from "next/image";
 import {
   projectSchema,
@@ -17,6 +18,7 @@ import {
   updateProject,
   updateProjectImage,
 } from "@/lib/actions/projects";
+import { resetProjectFieldToGitHub } from "@/lib/actions/github";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import type { Project } from "@/generated/prisma/client";
 
@@ -41,6 +43,7 @@ export function ProjectFormModal({
   );
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
+  const [resettingField, setResettingField] = useState<string | null>(null);
 
   const isEditMode = !!project;
 
@@ -252,6 +255,29 @@ export function ProjectFormModal({
     setValue("technologies", techs);
   };
 
+  // Handle resetting a field to GitHub value
+  const handleResetField = async (field: 'title' | 'description') => {
+    if (!project?.id) return;
+
+    setResettingField(field);
+
+    const result = await resetProjectFieldToGitHub(project.id, field);
+
+    if (result.success && result.data) {
+      // Update form value
+      if (field === 'title') {
+        setValue('title', result.data.title);
+      } else if (field === 'description') {
+        setValue('description', result.data.description);
+      }
+      toast.success(`${field.charAt(0).toUpperCase() + field.slice(1)} reset to GitHub value`);
+    } else {
+      toast.error(result.error || `Failed to reset ${field}`);
+    }
+
+    setResettingField(null);
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -330,14 +356,32 @@ export function ProjectFormModal({
           )}
 
           {/* Title */}
-          <div>
-            <label
-              htmlFor="title"
-              className="block text-sm font-medium mb-2"
-              style={{ color: "var(--color-text)" }}
-            >
-              Title *
-            </label>
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <label
+                htmlFor="title"
+                className="block text-sm font-medium"
+                style={{ color: "var(--color-text)" }}
+              >
+                Title *
+              </label>
+              {project?.isGitHubSynced && project?.customizedFields?.includes('title') && (
+                <button
+                  type="button"
+                  onClick={() => handleResetField('title')}
+                  disabled={resettingField === 'title' || isSubmitting}
+                  className="flex items-center gap-1 text-xs transition-colors hover:opacity-80"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  {resettingField === 'title' ? (
+                    <Loader2 size={12} className="animate-spin" />
+                  ) : (
+                    <RotateCcw size={12} />
+                  )}
+                  Reset to GitHub
+                </button>
+              )}
+            </div>
             <input
               {...register("title")}
               id="title"
@@ -358,14 +402,32 @@ export function ProjectFormModal({
           </div>
 
           {/* Description */}
-          <div>
-            <label
-              htmlFor="description"
-              className="block text-sm font-medium mb-2"
-              style={{ color: "var(--color-text)" }}
-            >
-              Description *
-            </label>
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <label
+                htmlFor="description"
+                className="block text-sm font-medium"
+                style={{ color: "var(--color-text)" }}
+              >
+                Description *
+              </label>
+              {project?.isGitHubSynced && project?.customizedFields?.includes('description') && (
+                <button
+                  type="button"
+                  onClick={() => handleResetField('description')}
+                  disabled={resettingField === 'description' || isSubmitting}
+                  className="flex items-center gap-1 text-xs transition-colors hover:opacity-80"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  {resettingField === 'description' ? (
+                    <Loader2 size={12} className="animate-spin" />
+                  ) : (
+                    <RotateCcw size={12} />
+                  )}
+                  Reset to GitHub
+                </button>
+              )}
+            </div>
             <textarea
               {...register("description")}
               id="description"
