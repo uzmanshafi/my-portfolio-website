@@ -75,6 +75,19 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ],
   callbacks: {
     ...authConfig.callbacks,
+    signIn: async ({ account }) => {
+      // Store GitHub connection when signing in with GitHub OAuth
+      if (account?.provider === 'github' && account.access_token) {
+        try {
+          const { storeGitHubConnection } = await import('@/lib/actions/github');
+          await storeGitHubConnection(account.access_token, account.providerAccountId ?? '');
+        } catch (error) {
+          console.error('Failed to store GitHub connection:', error);
+          // Still allow sign-in even if storage fails
+        }
+      }
+      return true;
+    },
     jwt: async ({ token, user, account }) => {
       // Persist user data to token on sign in
       if (user) {
@@ -99,15 +112,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       // Expose GitHub connection status
       (session as { githubConnected?: boolean }).githubConnected = !!token.githubAccessToken;
       return session;
-    },
-  },
-  events: {
-    async linkAccount({ account }) {
-      if (account.provider === 'github' && account.access_token) {
-        // Import and call the connection action
-        const { storeGitHubConnection } = await import('@/lib/actions/github');
-        await storeGitHubConnection(account.access_token, account.providerAccountId ?? '');
-      }
     },
   },
 });
