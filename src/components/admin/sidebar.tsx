@@ -14,6 +14,7 @@ import {
   FolderKanban,
   FileText,
   Mail,
+  Github,
   Menu,
   X,
   LogOut,
@@ -35,6 +36,7 @@ const navItems: NavItem[] = [
   { name: "Projects", href: "/backstage/dashboard/projects", icon: FolderKanban },
   { name: "Resume", href: "/backstage/dashboard/resume", icon: FileText },
   { name: "Contact", href: "/backstage/dashboard/contact", icon: Mail },
+  { name: "GitHub", href: "/backstage/dashboard/github", icon: Github },
 ];
 
 export function Sidebar() {

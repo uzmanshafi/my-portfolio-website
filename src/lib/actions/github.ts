@@ -37,7 +37,7 @@ export async function getGitHubConnection(): Promise<ActionResult<GitHubConnecti
  */
 export async function storeGitHubConnection(
   accessToken: string,
-  providerAccountId: string
+  _providerAccountId: string
 ): Promise<ActionResult<GitHubConnection>> {
   try {
     // Encrypt the access token before storing
