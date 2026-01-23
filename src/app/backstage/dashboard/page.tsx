@@ -91,23 +91,7 @@ function QuickLinkCard({
   return (
     <Link
       href={href}
-      className="group p-4 rounded-lg flex items-center gap-4 transition-all"
-      style={{
-        backgroundColor: "rgba(243, 233, 226, 0.03)",
-        border: "1px solid rgba(243, 233, 226, 0.1)",
-      }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.backgroundColor =
-          "rgba(243, 233, 226, 0.08)";
-        (e.currentTarget as HTMLElement).style.borderColor =
-          "rgba(211, 177, 150, 0.3)";
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.backgroundColor =
-          "rgba(243, 233, 226, 0.03)";
-        (e.currentTarget as HTMLElement).style.borderColor =
-          "rgba(243, 233, 226, 0.1)";
-      }}
+      className="group p-4 rounded-lg flex items-center gap-4 transition-all bg-[rgba(243,233,226,0.03)] border border-[rgba(243,233,226,0.1)] hover:bg-[rgba(243,233,226,0.08)] hover:border-[rgba(211,177,150,0.3)]"
     >
       <div
         className="p-2 rounded-lg"
