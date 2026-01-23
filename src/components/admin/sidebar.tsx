@@ -123,20 +123,12 @@ export function Sidebar() {
       <Link
         href={item.href}
         onClick={(e) => handleNavClick(e, item.href)}
-        className="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors relative"
+        className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors relative ${
+          active ? "" : "hover:bg-[rgba(211,177,150,0.08)]"
+        }`}
         style={{
           backgroundColor: active ? "rgba(211, 177, 150, 0.15)" : "transparent",
           color: active ? "var(--color-primary)" : "var(--color-text)",
-        }}
-        onMouseEnter={(e) => {
-          if (!active) {
-            e.currentTarget.style.backgroundColor = "rgba(211, 177, 150, 0.08)";
-          }
-        }}
-        onMouseLeave={(e) => {
-          if (!active) {
-            e.currentTarget.style.backgroundColor = "transparent";
-          }
         }}
       >
         <Icon size={20} />
@@ -176,14 +168,8 @@ export function Sidebar() {
       <div className="px-3 py-4 border-t" style={{ borderColor: "rgba(243, 233, 226, 0.1)" }}>
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors w-full text-left"
+          className="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors w-full text-left hover:bg-[rgba(211,177,150,0.08)]"
           style={{ color: "var(--color-text)" }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(211, 177, 150, 0.08)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "transparent";
-          }}
         >
           <LogOut size={20} />
           <span className="font-medium">Sign out</span>
@@ -269,14 +255,8 @@ export function Sidebar() {
             <div className="px-3 py-4 border-t" style={{ borderColor: "rgba(243, 233, 226, 0.1)" }}>
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors w-full text-left"
+                className="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors w-full text-left hover:bg-[rgba(211,177,150,0.08)]"
                 style={{ color: "var(--color-text)" }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "rgba(211, 177, 150, 0.08)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "transparent";
-                }}
               >
                 <LogOut size={20} />
                 <span className="font-medium">Sign out</span>
