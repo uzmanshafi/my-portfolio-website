@@ -44,10 +44,14 @@ model Project {
   repoUrl     String?  // GitHub repository URL
 
   // GitHub sync fields (populated in Phase 4)
-  githubId    Int?     @unique
-  stars       Int      @default(0)
-  forks       Int      @default(0)
-  language    String?  // Primary language from GitHub
+  githubId         Int?     @unique
+  githubFullName   String?  // owner/repo for API calls
+  stars            Int      @default(0)
+  forks            Int      @default(0)
+  language         String?  // Primary language from GitHub
+  isGitHubSynced   Boolean  @default(false)
+  customizedFields String[] @default([])
+  lastSyncedAt     DateTime?
 
   // Display settings
   featured    Boolean  @default(false)
@@ -95,4 +99,15 @@ model Contact {
   location  String?  // Optional location display
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+// GitHub OAuth connection (single connection for admin)
+model GitHubConnection {
+  id          String    @id @default(cuid())
+  accessToken String    // Encrypted with jose
+  username    String
+  avatarUrl   String?
+  connectedAt DateTime  @default(now())
+  lastSyncAt  DateTime?
+  syncError   String?   // Last sync error if any
 }
