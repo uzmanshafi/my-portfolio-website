@@ -11,9 +11,16 @@ interface RepoCardProps {
   selected: boolean;
   onSelect: (repo: RepoListItem, selected: boolean) => void;
   disabled?: boolean;
+  alreadyImported?: boolean;
 }
 
-export function RepoCard({ repo, selected, onSelect, disabled }: RepoCardProps) {
+export function RepoCard({
+  repo,
+  selected,
+  onSelect,
+  disabled,
+  alreadyImported,
+}: RepoCardProps) {
   return (
     <div
       className={`relative rounded-xl p-4 transition-all cursor-pointer ${
@@ -26,16 +33,28 @@ export function RepoCard({ repo, selected, onSelect, disabled }: RepoCardProps) 
       }}
       onClick={() => !disabled && onSelect(repo, !selected)}
     >
-      {/* Selection checkbox */}
+      {/* Already imported badge or selection checkbox */}
       <div className="absolute top-4 right-4">
-        <input
-          type="checkbox"
-          checked={selected}
-          onChange={(e) => onSelect(repo, e.target.checked)}
-          disabled={disabled}
-          className="w-5 h-5 rounded accent-[var(--color-primary)]"
-          onClick={(e) => e.stopPropagation()}
-        />
+        {alreadyImported ? (
+          <span
+            className="px-2 py-1 rounded text-xs font-medium"
+            style={{
+              backgroundColor: "rgba(34, 197, 94, 0.2)",
+              color: "#22c55e",
+            }}
+          >
+            Added
+          </span>
+        ) : (
+          <input
+            type="checkbox"
+            checked={selected}
+            onChange={(e) => onSelect(repo, e.target.checked)}
+            disabled={disabled}
+            className="w-5 h-5 rounded accent-[var(--color-primary)]"
+            onClick={(e) => e.stopPropagation()}
+          />
+        )}
       </div>
 
       {/* Repo name with privacy indicator */}

@@ -7,7 +7,12 @@ import { useState, useEffect, useCallback } from "react";
 import { Search, Filter, Loader2, RefreshCw, Plus } from "lucide-react";
 import { toast } from "sonner";
 import { RepoCard } from "@/components/admin/repo-card";
-import { getRepositories, getLanguages } from "@/lib/actions/github";
+import {
+  getRepositories,
+  getLanguages,
+  importRepositoriesAsProjects,
+  getImportedRepoIds,
+} from "@/lib/actions/github";
 import type { RepoListItem } from "@/lib/github";
 
 const REPOS_PER_PAGE = 12;
@@ -28,6 +33,8 @@ export function ReposBrowser() {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [selectedRepos, setSelectedRepos] = useState<Set<number>>(new Set());
+  const [importedIds, setImportedIds] = useState<Set<number>>(new Set());
+  const [isImporting, setIsImporting] = useState(false);
 
   // Fetch repositories
   const fetchRepos = useCallback(async (page: number, append = false) => {
@@ -52,6 +59,16 @@ export function ReposBrowser() {
       }
       setTotalCount(result.data.totalCount);
       setHasMore(result.data.hasMore);
+
+      // Check which repos are already imported
+      const allRepoIds = append
+        ? [...repos, ...result.data.repos].map((r) => r.id)
+        : result.data.repos.map((r) => r.id);
+
+      const importedResult = await getImportedRepoIds(allRepoIds);
+      if (importedResult.success && importedResult.data) {
+        setImportedIds(new Set(importedResult.data));
+      }
     } else {
       toast.error(result.error || "Failed to fetch repositories");
     }
@@ -100,11 +117,40 @@ export function ReposBrowser() {
     });
   };
 
-  // Handle add selected (will be implemented in next plan)
-  const handleAddSelected = () => {
+  // Handle add selected - import repos as projects
+  const handleAddSelected = async () => {
     const selectedItems = repos.filter((r) => selectedRepos.has(r.id));
-    toast.info(`Selected ${selectedItems.length} repos (import coming soon)`);
-    // Will be replaced with actual import action in 04-04
+
+    // Filter out already imported
+    const newItems = selectedItems.filter((r) => !importedIds.has(r.id));
+
+    if (newItems.length === 0) {
+      toast.info("All selected repositories are already imported");
+      return;
+    }
+
+    setIsImporting(true);
+    const result = await importRepositoriesAsProjects(newItems);
+
+    if (result.success) {
+      toast.success(
+        `Imported ${result.data?.length} project${result.data?.length === 1 ? "" : "s"}`
+      );
+
+      // Update imported IDs
+      setImportedIds((prev) => {
+        const next = new Set(prev);
+        newItems.forEach((r) => next.add(r.id));
+        return next;
+      });
+
+      // Clear selection
+      setSelectedRepos(new Set());
+    } else {
+      toast.error(result.error || "Failed to import repositories");
+    }
+
+    setIsImporting(false);
   };
 
   return (
@@ -187,14 +233,25 @@ export function ReposBrowser() {
           </span>
           <button
             onClick={handleAddSelected}
+            disabled={isImporting}
             className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors"
             style={{
               backgroundColor: "var(--color-primary)",
               color: "var(--color-background)",
+              opacity: isImporting ? 0.7 : 1,
             }}
           >
-            <Plus size={18} />
-            Add to Portfolio
+            {isImporting ? (
+              <>
+                <Loader2 size={18} className="animate-spin" />
+                Importing...
+              </>
+            ) : (
+              <>
+                <Plus size={18} />
+                Add to Portfolio
+              </>
+            )}
           </button>
         </div>
       )}
@@ -233,6 +290,8 @@ export function ReposBrowser() {
                 repo={repo}
                 selected={selectedRepos.has(repo.id)}
                 onSelect={handleRepoSelect}
+                disabled={importedIds.has(repo.id)}
+                alreadyImported={importedIds.has(repo.id)}
               />
             ))}
           </div>
