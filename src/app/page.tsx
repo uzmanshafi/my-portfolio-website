@@ -6,6 +6,7 @@ import { GeometricShapes } from "@/app/components/portfolio/geometric-shapes";
 import { HeroSection } from "@/app/components/portfolio/hero-section";
 import { ProjectsSection } from "@/app/components/portfolio/projects-section";
 import { AboutSection } from "@/app/components/portfolio/about-section";
+import { ContactSection } from "@/app/components/portfolio/contact-section";
 
 // ISR: revalidate every 60 seconds
 export const revalidate = 60;
