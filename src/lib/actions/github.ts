@@ -3,6 +3,7 @@
 // Server actions for GitHub connection management
 // These actions manage the GitHubConnection record in the database
 
+import { revalidatePath } from "next/cache";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import {
@@ -13,10 +14,11 @@ import {
   searchUserRepos,
   getRepoLanguages,
   type ReposResponse,
+  type RepoListItem,
 } from "@/lib/github";
 import type { ActionResult } from "@/lib/validations/common";
 import { success, failure } from "@/lib/validations/common";
-import type { GitHubConnection } from "@/generated/prisma/client";
+import type { GitHubConnection, Project } from "@/generated/prisma/client";
 
 /**
  * Get the current GitHub connection status.
@@ -175,5 +177,107 @@ export async function getLanguages(): Promise<ActionResult<string[]>> {
   } catch (error) {
     console.error("Failed to fetch languages:", error);
     return failure("Failed to fetch languages");
+  }
+}
+
+/**
+ * Import selected GitHub repositories as portfolio projects.
+ * Creates new Project records with GitHub sync enabled.
+ */
+export async function importRepositoriesAsProjects(
+  repos: RepoListItem[]
+): Promise<ActionResult<Project[]>> {
+  const session = await auth();
+  if (!session?.user) {
+    return failure("Unauthorized");
+  }
+
+  if (repos.length === 0) {
+    return failure("No repositories selected");
+  }
+
+  try {
+    // Get current max order for new projects
+    const maxOrder = await prisma.project.aggregate({
+      _max: { order: true },
+    });
+    let nextOrder = (maxOrder._max.order ?? -1) + 1;
+
+    // Check which repos are already imported (by githubId)
+    const existingGithubIds = await prisma.project.findMany({
+      where: {
+        githubId: { in: repos.map((r) => r.id) },
+      },
+      select: { githubId: true },
+    });
+    const existingIds = new Set(existingGithubIds.map((p) => p.githubId));
+
+    // Filter out already imported repos
+    const newRepos = repos.filter((r) => !existingIds.has(r.id));
+
+    if (newRepos.length === 0) {
+      return failure("All selected repositories are already imported");
+    }
+
+    // Create projects in a transaction
+    const projects = await prisma.$transaction(
+      newRepos.map((repo) => {
+        const project = prisma.project.create({
+          data: {
+            title: repo.name,
+            description: repo.description || `GitHub repository: ${repo.fullName}`,
+            repoUrl: repo.url,
+            githubId: repo.id,
+            githubFullName: repo.fullName,
+            stars: repo.stars,
+            forks: repo.forks,
+            language: repo.language,
+            isGitHubSynced: true,
+            customizedFields: [], // No customizations yet
+            lastSyncedAt: new Date(),
+            technologies: repo.language ? [repo.language] : [],
+            visible: true,
+            featured: false,
+            order: nextOrder++,
+          },
+        });
+        return project;
+      })
+    );
+
+    revalidatePath("/backstage/dashboard/projects");
+    revalidatePath("/backstage/dashboard/github");
+
+    return success(projects);
+  } catch (error) {
+    console.error("Failed to import repositories:", error);
+    return failure("Failed to import repositories");
+  }
+}
+
+/**
+ * Check which repos from a list are already imported.
+ * Returns array of githubIds that exist as projects.
+ */
+export async function getImportedRepoIds(
+  githubIds: number[]
+): Promise<ActionResult<number[]>> {
+  const session = await auth();
+  if (!session?.user) {
+    return failure("Unauthorized");
+  }
+
+  try {
+    const existing = await prisma.project.findMany({
+      where: {
+        githubId: { in: githubIds },
+      },
+      select: { githubId: true },
+    });
+
+    return success(existing.map((p) => p.githubId!).filter(Boolean));
+  } catch (error) {
+    console.error("Failed to check imported repos:", error);
+    return failure("Failed to check imported repos");
   }
 }
