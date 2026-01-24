@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-22)
 ## Current Position
 
 Phase: 6 of 6 (Animation Polish)
-Plan: 1 of 4 complete in current phase (06-01)
+Plan: 2 of 4 complete in current phase (06-01, 06-02)
 Status: In progress
-Last activity: 2026-01-24 - Completed 06-01-PLAN.md
+Last activity: 2026-01-24 - Completed 06-02-PLAN.md
 
-Progress: [█████████░] 88% (23/26 plans)
+Progress: [█████████░] 92% (24/26 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 23
-- Average duration: 8.7 min
-- Total execution time: 3.35 hours
+- Total plans completed: 24
+- Average duration: 8.5 min
+- Total execution time: 3.4 hours
 
 **By Phase:**
 
@@ -32,11 +32,11 @@ Progress: [█████████░] 88% (23/26 plans)
 | 3 | 7 | 114 min | 16.3 min |
 | 4 | 5 | 20 min | 4 min |
 | 5 | 6 | 46 min | 7.7 min |
-| 6 | 1 | 3 min | 3 min |
+| 6 | 2 | 6 min | 3 min |
 
 **Recent Trend:**
-- Last 5 plans: 06-01 (3 min), 05-06 (5 min), 05-05 (8 min), 05-04 (9 min), 05-02 (10 min)
-- Trend: Animation infrastructure complete, ready for section animations
+- Last 5 plans: 06-02 (3 min), 06-01 (3 min), 05-06 (5 min), 05-05 (8 min), 05-04 (9 min)
+- Trend: Hero entrance animations complete, ready for scroll reveals
 
 *Updated after each plan completion*
 
@@ -100,6 +100,8 @@ Recent decisions affecting current work:
 - Animation variants: Centralized in src/lib/animation/variants.ts
 - Snappy spring config: stiffness 300, damping 30 for no overshoot
 - TiltCard touch detection: Disabled on pointer: coarse devices
+- Hero choreography: Shapes 0-0.5s, name 0.5s, title 0.7s, headline 0.9s, CTAs 1.2s
+- createShapeVariants helper: Factory for scale animations with target opacity
 
 ### Pending Todos
 
@@ -113,8 +115,8 @@ User must set CRON_SECRET environment variable for background sync to work.
 
 ## Session Continuity
 
-Last session: 2026-01-24T12:54:25Z
-Stopped at: Completed 06-01-PLAN.md
+Last session: 2026-01-24T12:55:05Z
+Stopped at: Completed 06-02-PLAN.md
 Resume file: None
 
 ---
