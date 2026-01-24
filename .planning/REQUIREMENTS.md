@@ -23,7 +23,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **BIO-01**: Admin can edit bio/about section text
 - [x] **BIO-02**: Admin can update profile image
-- [ ] **BIO-03**: Bio updates reflect immediately on public portfolio
+- [x] **BIO-03**: Bio updates reflect immediately on public portfolio
 
 ### Skills Management
 
@@ -44,57 +44,57 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **RESU-01**: Admin can upload resume PDF
 - [x] **RESU-02**: Admin can replace existing resume
-- [ ] **RESU-03**: Resume is downloadable from public portfolio
+- [x] **RESU-03**: Resume is downloadable from public portfolio
 
 ### Contact/Social Management
 
 - [x] **CONT-01**: Admin can update contact email
 - [x] **CONT-02**: Admin can manage social media links (add, edit, remove)
-- [ ] **CONT-03**: Contact info displays on public portfolio with copy functionality
+- [x] **CONT-03**: Contact info displays on public portfolio with copy functionality
 
 ### GitHub Integration
 
-- [ ] **GHUB-01**: Admin can authenticate with GitHub
-- [ ] **GHUB-02**: Admin can view list of their repositories
-- [ ] **GHUB-03**: Admin can select which repos to feature on portfolio
-- [ ] **GHUB-04**: Selected repos auto-pull name, description, stars, and languages
-- [ ] **GHUB-05**: Admin can override/customize details for GitHub-synced projects
+- [x] **GHUB-01**: Admin can authenticate with GitHub
+- [x] **GHUB-02**: Admin can view list of their repositories
+- [x] **GHUB-03**: Admin can select which repos to feature on portfolio
+- [x] **GHUB-04**: Selected repos auto-pull name, description, stars, and languages
+- [x] **GHUB-05**: Admin can override/customize details for GitHub-synced projects
 
 ### Public Portfolio Display
 
-- [ ] **PUBL-01**: Portfolio displays hero section with introduction
-- [ ] **PUBL-02**: Portfolio displays bio/about section
-- [ ] **PUBL-03**: Portfolio displays skills section with Lucide icons
-- [ ] **PUBL-04**: Portfolio displays projects in bento grid layout
-- [ ] **PUBL-05**: Portfolio displays contact section with copyable email
-- [ ] **PUBL-06**: Portfolio displays social links
-- [ ] **PUBL-07**: Portfolio provides resume download link
-- [ ] **PUBL-08**: Portfolio is fully responsive across devices
+- [x] **PUBL-01**: Portfolio displays hero section with introduction
+- [x] **PUBL-02**: Portfolio displays bio/about section
+- [x] **PUBL-03**: Portfolio displays skills section with Lucide icons
+- [x] **PUBL-04**: Portfolio displays projects in bento grid layout
+- [x] **PUBL-05**: Portfolio displays contact section with copyable email
+- [x] **PUBL-06**: Portfolio displays social links
+- [x] **PUBL-07**: Portfolio provides resume download link
+- [x] **PUBL-08**: Portfolio is fully responsive across devices
 
 ### Visual Design
 
-- [ ] **DSGN-01**: Dark warm color palette (text: #f3e9e2, bg: #160f09, primary: #d3b196, secondary: #326978, accent: #6655b8)
-- [ ] **DSGN-02**: Bento grid layout for projects section
-- [ ] **DSGN-03**: Glassmorphism effects on cards
-- [ ] **DSGN-04**: Subtle grain texture on background
-- [ ] **DSGN-05**: Lucide icons throughout (no emojis)
+- [x] **DSGN-01**: Dark warm color palette (text: #f3e9e2, bg: #160f09, primary: #d3b196, secondary: #326978, accent: #6655b8)
+- [x] **DSGN-02**: Bento grid layout for projects section
+- [x] **DSGN-03**: Glassmorphism effects on cards
+- [x] **DSGN-04**: Subtle grain texture on background
+- [x] **DSGN-05**: Lucide icons throughout (no emojis)
 
 ### Animations
 
-- [ ] **ANIM-01**: Scroll-triggered animations throughout page
-- [ ] **ANIM-02**: Text reveal animations on hero section
-- [ ] **ANIM-03**: 3D tilt effect on project card hover
-- [ ] **ANIM-04**: Smooth section transitions
-- [ ] **ANIM-05**: Respect prefers-reduced-motion preference
+- [x] **ANIM-01**: Scroll-triggered animations throughout page
+- [x] **ANIM-02**: Text reveal animations on hero section
+- [x] **ANIM-03**: 3D tilt effect on project card hover
+- [x] **ANIM-04**: Smooth section transitions
+- [x] **ANIM-05**: Respect prefers-reduced-motion preference
 
 ### Technical Foundation
 
 - [x] **TECH-01**: Next.js 15+ application with App Router
 - [x] **TECH-02**: PostgreSQL database for content storage
 - [x] **TECH-03**: Prisma ORM for type-safe database access
-- [ ] **TECH-04**: Framer Motion for animations
+- [x] **TECH-04**: Motion for React (formerly Framer Motion) for animations
 - [x] **TECH-05**: Secure authentication with Auth.js v5
-- [ ] **TECH-06**: Deployable to Render.com or similar
+- [x] **TECH-06**: Deployable to Render.com or similar
 
 ## v2 Requirements
 
@@ -150,7 +150,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ADMN-03 | Phase 3 | Complete |
 | BIO-01 | Phase 3 | Complete |
 | BIO-02 | Phase 3 | Complete |
-| BIO-03 | Phase 3 | Deferred to Phase 5 |
+| BIO-03 | Phase 5 | Complete |
 | SKIL-01 | Phase 3 | Complete |
 | SKIL-02 | Phase 3 | Complete |
 | SKIL-03 | Phase 3 | Complete |
@@ -164,39 +164,39 @@ Which phases cover which requirements. Updated during roadmap creation.
 | RESU-02 | Phase 3 | Complete |
 | CONT-01 | Phase 3 | Complete |
 | CONT-02 | Phase 3 | Complete |
-| GHUB-01 | Phase 4 | Pending |
-| GHUB-02 | Phase 4 | Pending |
-| GHUB-03 | Phase 4 | Pending |
-| GHUB-04 | Phase 4 | Pending |
-| GHUB-05 | Phase 4 | Pending |
-| PUBL-01 | Phase 5 | Pending |
-| PUBL-02 | Phase 5 | Pending |
-| PUBL-03 | Phase 5 | Pending |
-| PUBL-04 | Phase 5 | Pending |
-| PUBL-05 | Phase 5 | Pending |
-| PUBL-06 | Phase 5 | Pending |
-| PUBL-07 | Phase 5 | Pending |
-| PUBL-08 | Phase 5 | Pending |
-| RESU-03 | Phase 5 | Pending |
-| CONT-03 | Phase 5 | Pending |
-| DSGN-01 | Phase 5 | Pending |
-| DSGN-02 | Phase 5 | Pending |
-| DSGN-03 | Phase 5 | Pending |
-| DSGN-04 | Phase 5 | Pending |
-| DSGN-05 | Phase 5 | Pending |
-| TECH-04 | Phase 6 | Pending |
-| ANIM-01 | Phase 6 | Pending |
-| ANIM-02 | Phase 6 | Pending |
-| ANIM-03 | Phase 6 | Pending |
-| ANIM-04 | Phase 6 | Pending |
-| ANIM-05 | Phase 6 | Pending |
-| TECH-06 | Phase 6 | Pending |
+| GHUB-01 | Phase 4 | Complete |
+| GHUB-02 | Phase 4 | Complete |
+| GHUB-03 | Phase 4 | Complete |
+| GHUB-04 | Phase 4 | Complete |
+| GHUB-05 | Phase 4 | Complete |
+| PUBL-01 | Phase 5 | Complete |
+| PUBL-02 | Phase 5 | Complete |
+| PUBL-03 | Phase 5 | Complete |
+| PUBL-04 | Phase 5 | Complete |
+| PUBL-05 | Phase 5 | Complete |
+| PUBL-06 | Phase 5 | Complete |
+| PUBL-07 | Phase 5 | Complete |
+| PUBL-08 | Phase 5 | Complete |
+| RESU-03 | Phase 5 | Complete |
+| CONT-03 | Phase 5 | Complete |
+| DSGN-01 | Phase 5 | Complete |
+| DSGN-02 | Phase 5 | Complete |
+| DSGN-03 | Phase 5 | Complete |
+| DSGN-04 | Phase 5 | Complete |
+| DSGN-05 | Phase 5 | Complete |
+| TECH-04 | Phase 6 | Complete |
+| ANIM-01 | Phase 6 | Complete |
+| ANIM-02 | Phase 6 | Complete |
+| ANIM-03 | Phase 6 | Complete |
+| ANIM-04 | Phase 6 | Complete |
+| ANIM-05 | Phase 6 | Complete |
+| TECH-06 | Phase 6 | Complete |
 
 **Coverage:**
 - v1 requirements: 51 total
 - Mapped to phases: 51
-- Unmapped: 0
+- Complete: 51
 
 ---
 *Requirements defined: 2026-01-22*
-*Last updated: 2026-01-22 (Phase 3 complete)*
+*Last updated: 2026-01-24 (All phases complete - v1 COMPLETE)*
