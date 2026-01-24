@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
+import { MotionProvider } from "@/components/animation/motion-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,17 +30,19 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         style={{ backgroundColor: 'var(--color-background)', color: 'var(--color-text)' }}
       >
-        {children}
-        <Toaster
-          position="bottom-right"
-          toastOptions={{
-            style: {
-              background: 'var(--color-background)',
-              color: 'var(--color-text)',
-              border: '1px solid rgba(243, 233, 226, 0.2)',
-            },
-          }}
-        />
+        <MotionProvider>
+          {children}
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              style: {
+                background: 'var(--color-background)',
+                color: 'var(--color-text)',
+                border: '1px solid rgba(243, 233, 226, 0.2)',
+              },
+            }}
+          />
+        </MotionProvider>
       </body>
     </html>
   );
