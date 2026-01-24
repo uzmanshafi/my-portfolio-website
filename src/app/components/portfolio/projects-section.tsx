@@ -1,4 +1,8 @@
+"use client";
+
+import { motion } from "motion/react";
 import type { PublicProject } from "@/lib/data/portfolio";
+import { itemVariants } from "@/lib/animation/variants";
 import { ProjectCard } from "./project-card";
 
 interface ProjectsSectionProps {
@@ -44,6 +48,7 @@ function getCardSizeClass(index: number, featured: boolean): string {
 /**
  * Projects section with asymmetric bento grid layout.
  * Displays portfolio projects with varying card sizes for visual interest.
+ * Includes scroll-triggered reveal with staggered project cards.
  */
 export function ProjectsSection({ projects }: ProjectsSectionProps) {
   // Empty state
@@ -67,34 +72,50 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-6 md:px-8">
-      <h2
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+      className="max-w-7xl mx-auto px-6 md:px-8"
+    >
+      {/* Section heading - reveals first */}
+      <motion.h2
+        variants={itemVariants}
         className="text-3xl md:text-4xl font-bold mb-12"
         style={{ color: "var(--color-primary)" }}
       >
         Projects
-      </h2>
+      </motion.h2>
 
-      {/* Bento grid with responsive columns */}
+      {/* Bento grid with responsive columns and staggered cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[220px] grid-flow-dense">
         {projects.map((project, index) => {
           const sizeClass = getCardSizeClass(index, project.featured);
 
           return (
-            <ProjectCard
+            <motion.div
               key={project.id}
-              title={project.title}
-              description={project.description}
-              imageUrl={project.imageUrl}
-              technologies={project.technologies}
-              liveUrl={project.liveUrl}
-              repoUrl={project.repoUrl}
-              featured={project.featured}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+              }}
               className={sizeClass}
-            />
+            >
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                imageUrl={project.imageUrl}
+                technologies={project.technologies}
+                liveUrl={project.liveUrl}
+                repoUrl={project.repoUrl}
+                featured={project.featured}
+                className="h-full"
+              />
+            </motion.div>
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 }
