@@ -35,6 +35,7 @@ export function AboutSection({ description, imageUrl }: AboutSectionProps) {
                 className="object-cover"
                 sizes="(max-width: 1024px) 320px, 448px"
                 priority
+                unoptimized
               />
             </div>
           ) : (
