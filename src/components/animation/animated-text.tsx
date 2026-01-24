@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "motion/react";
-import type { ElementType, ComponentPropsWithoutRef } from "react";
+import type { ElementType, ComponentPropsWithoutRef, CSSProperties } from "react";
 
 interface AnimatedTextProps<T extends ElementType = "span"> {
   text: string;
   className?: string;
+  style?: CSSProperties;
   as?: T;
   staggerDelay?: number;
   delay?: number;
@@ -14,10 +15,12 @@ interface AnimatedTextProps<T extends ElementType = "span"> {
 /**
  * Word-by-word text reveal animation.
  * Splits text into words and animates each one with stagger effect.
+ * Supports delay prop for choreographed sequences.
  */
 export function AnimatedText<T extends ElementType = "span">({
   text,
   className,
+  style,
   as,
   staggerDelay = 0.08,
   delay = 0,
@@ -52,6 +55,7 @@ export function AnimatedText<T extends ElementType = "span">({
       animate="visible"
       variants={containerVariants}
       className={className}
+      style={style}
     >
       {words.map((word, index) => (
         <motion.span
