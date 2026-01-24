@@ -33,16 +33,7 @@ export function SocialLinkButton({ platform, url, icon }: SocialLinkButtonProps)
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center justify-center p-4 rounded-lg transition-all duration-200 hover:scale-110"
-      style={{
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
-      }}
+      className="inline-flex items-center justify-center p-4 rounded-lg transition-all duration-200 hover:scale-110 bg-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.2)]"
       aria-label={`Visit ${platform}`}
       title={platform}
     >

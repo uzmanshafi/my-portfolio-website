@@ -67,19 +67,7 @@ export function ContactSection({
             <a
               href={resumeUrl}
               download
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium border-2 transition-all duration-200 hover:scale-105"
-              style={{
-                borderColor: "var(--color-primary)",
-                color: "var(--color-primary)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--color-primary)";
-                e.currentTarget.style.color = "var(--color-background)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-                e.currentTarget.style.color = "var(--color-primary)";
-              }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium border-2 transition-all duration-200 hover:scale-105 bg-transparent hover:bg-[var(--color-primary)] text-[var(--color-primary)] hover:text-[var(--color-background)] border-[var(--color-primary)]"
               aria-label="Download resume"
             >
               <Download className="w-5 h-5" />

@@ -63,19 +63,7 @@ export function HeroSection({
             <a
               href={resumeUrl}
               download
-              className="inline-flex items-center px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium border-2 transition-all duration-200 hover:scale-105"
-              style={{
-                borderColor: "var(--color-primary)",
-                color: "var(--color-primary)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--color-primary)";
-                e.currentTarget.style.color = "var(--color-background)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-                e.currentTarget.style.color = "var(--color-primary)";
-              }}
+              className="inline-flex items-center px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium border-2 transition-all duration-200 hover:scale-105 bg-transparent hover:bg-[var(--color-primary)] text-[var(--color-primary)] hover:text-[var(--color-background)] border-[var(--color-primary)]"
               aria-label="Download my resume"
             >
               Download Resume
