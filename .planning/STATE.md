@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-22)
 ## Current Position
 
 Phase: 6 of 6 (Animation Polish)
-Plan: 2 of 4 complete in current phase (06-01, 06-02)
+Plan: 3 of 4 complete in current phase (06-01, 06-02, 06-03)
 Status: In progress
-Last activity: 2026-01-24 - Completed 06-02-PLAN.md
+Last activity: 2026-01-24 - Completed 06-03-PLAN.md
 
-Progress: [█████████░] 92% (24/26 plans)
+Progress: [█████████░] 96% (25/26 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 24
-- Average duration: 8.5 min
-- Total execution time: 3.4 hours
+- Total plans completed: 25
+- Average duration: 8.3 min
+- Total execution time: 3.5 hours
 
 **By Phase:**
 
@@ -32,11 +32,11 @@ Progress: [█████████░] 92% (24/26 plans)
 | 3 | 7 | 114 min | 16.3 min |
 | 4 | 5 | 20 min | 4 min |
 | 5 | 6 | 46 min | 7.7 min |
-| 6 | 2 | 6 min | 3 min |
+| 6 | 3 | 12 min | 4 min |
 
 **Recent Trend:**
-- Last 5 plans: 06-02 (3 min), 06-01 (3 min), 05-06 (5 min), 05-05 (8 min), 05-04 (9 min)
-- Trend: Hero entrance animations complete, ready for scroll reveals
+- Last 5 plans: 06-03 (6 min), 06-02 (3 min), 06-01 (3 min), 05-06 (5 min), 05-05 (8 min)
+- Trend: Scroll animations complete, only deployment remaining
 
 *Updated after each plan completion*
 
@@ -102,6 +102,8 @@ Recent decisions affecting current work:
 - TiltCard touch detection: Disabled on pointer: coarse devices
 - Hero choreography: Shapes 0-0.5s, name 0.5s, title 0.7s, headline 0.9s, CTAs 1.2s
 - createShapeVariants helper: Factory for scale animations with target opacity
+- Scroll animation viewport: 20-30% visibility triggers (lower for tall sections)
+- Stagger timing: 50ms tight cascades, 80-100ms section-level
 
 ### Pending Todos
 
@@ -115,8 +117,8 @@ User must set CRON_SECRET environment variable for background sync to work.
 
 ## Session Continuity
 
-Last session: 2026-01-24T12:55:05Z
-Stopped at: Completed 06-02-PLAN.md
+Last session: 2026-01-24T12:57:08Z
+Stopped at: Completed 06-03-PLAN.md
 Resume file: None
 
 ---
