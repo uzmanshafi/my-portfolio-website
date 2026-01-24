@@ -119,12 +119,12 @@ Plans:
 
 Plans:
 - [x] 05-01-PLAN.md — Page layout foundation (single page structure, side navigation dots, section scaffold) (2026-01-23)
-- [ ] 05-02-PLAN.md — Hero section (geometric shapes, bio info, CTAs)
-- [ ] 05-03-PLAN.md — About section (bio text, profile image display)
-- [ ] 05-04-PLAN.md — Skills section (category groups, Lucide icons)
-- [ ] 05-05-PLAN.md — Projects bento grid (asymmetric layout, cards, hover effects)
-- [ ] 05-06-PLAN.md — Contact section (copyable email, social links, resume link)
-- [ ] 05-07-PLAN.md — Visual polish (glassmorphism, grain texture, gradient lines, ISR verification)
+- [x] 05-02-PLAN.md — Hero section (geometric shapes, bio info, CTAs)
+- [x] 05-03-PLAN.md — About section (bio text, profile image display)
+- [x] 05-04-PLAN.md — Skills section (category groups, Lucide icons)
+- [x] 05-05-PLAN.md — Projects bento grid (asymmetric layout, cards, hover effects)
+- [x] 05-06-PLAN.md — Contact section (copyable email, social links, resume link)
+- [x] 05-07-PLAN.md — Visual polish (glassmorphism, grain texture, gradient lines, ISR verification)
 
 **Research needed during planning**: No (standard React Server Components patterns)
 
@@ -140,10 +140,13 @@ Plans:
   5. Animations respect prefers-reduced-motion accessibility setting
   6. Application is deployed to production environment (Render.com or similar)
   7. Loading and error states are handled gracefully across all pages
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] TBD during planning
+- [ ] 06-01-PLAN.md — Animation infrastructure (Motion package, reusable components, MotionProvider)
+- [ ] 06-02-PLAN.md — Hero entrance animations (geometric shapes scale-in, word-by-word text reveal)
+- [ ] 06-03-PLAN.md — Section scroll reveals and project card 3D tilt
+- [ ] 06-04-PLAN.md — Production deployment (Render.com config, health endpoint, verification)
 
 **Research needed during planning**: Yes (viewport-based animations, scroll triggers, Framer Motion SSR patterns)
 
@@ -158,9 +161,9 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 2. Authentication | 2/2 | Complete | 2026-01-22 |
 | 3. Data Layer + Admin CRUD | 7/7 | Complete | 2026-01-22 |
 | 4. GitHub Integration | 5/5 | Complete | 2026-01-23 |
-| 5. Public Portfolio | 1/7 | In progress | - |
-| 6. Animation + Polish | 0/TBD | Not started | - |
+| 5. Public Portfolio | 7/7 | Complete | 2026-01-23 |
+| 6. Animation + Polish | 0/4 | Not started | - |
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-23 (Phase 5 planned)*
+*Last updated: 2026-01-24 (Phase 6 planned)*
