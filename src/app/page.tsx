@@ -37,6 +37,7 @@ export default async function Home() {
           name={bio?.name ?? "Your Name"}
           title={bio?.title ?? "Developer"}
           headline={bio?.headline ?? "Building beautiful things"}
+          location={contact?.location ?? null}
           resumeUrl={resume?.url ?? null}
         />
       </SectionWrapper>

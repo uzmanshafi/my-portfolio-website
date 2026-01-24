@@ -2,6 +2,7 @@ interface HeroSectionProps {
   name: string;
   title: string;
   headline: string;
+  location: string | null;
   resumeUrl: string | null;
 }
 
@@ -14,6 +15,7 @@ export function HeroSection({
   name,
   title,
   headline,
+  location,
   resumeUrl,
 }: HeroSectionProps) {
   return (
@@ -37,11 +39,23 @@ export function HeroSection({
 
         {/* Headline/Tagline - Body text */}
         <p
-          className="text-lg md:text-xl max-w-2xl mx-auto mb-8 md:mb-12 opacity-80"
+          className="text-lg md:text-xl max-w-2xl mx-auto opacity-80"
           style={{ color: "var(--color-text)" }}
         >
           {headline}
         </p>
+
+        {/* Location - below tagline */}
+        {location && (
+          <p
+            className="text-base md:text-lg mt-4 mb-8 md:mb-12 opacity-60"
+            style={{ color: "var(--color-text)" }}
+          >
+            📍 {location}
+          </p>
+        )}
+
+        {!location && <div className="mb-8 md:mb-12" />}
 
         {/* CTAs container */}
         <div className="flex flex-wrap justify-center gap-4 mt-8 md:mt-12">

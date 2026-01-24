@@ -74,7 +74,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
       </h2>
 
       {/* Bento grid with responsive columns */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[250px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[220px] grid-flow-dense">
         {projects.map((project, index) => {
           const sizeClass = getCardSizeClass(index, project.featured);
 

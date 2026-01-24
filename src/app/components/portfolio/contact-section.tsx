@@ -19,8 +19,6 @@ export function ContactSection({
   socialLinks,
   resumeUrl,
 }: ContactSectionProps) {
-  const currentYear = new Date().getFullYear();
-
   return (
     <div className="container mx-auto px-6 md:px-8 text-center">
       <div className="max-w-2xl mx-auto">
@@ -63,7 +61,7 @@ export function ContactSection({
 
         {/* Resume download button */}
         {resumeUrl && (
-          <div className="mb-16">
+          <div className="mb-8">
             <a
               href={resumeUrl}
               download
@@ -75,17 +73,6 @@ export function ContactSection({
             </a>
           </div>
         )}
-
-        {/* Footer-like ending - copyright line */}
-        <div
-          className="text-sm opacity-50 mt-16 pt-8 border-t"
-          style={{
-            borderColor: "rgba(255, 255, 255, 0.1)",
-            color: "var(--color-text)",
-          }}
-        >
-          <p>{currentYear} Built with Next.js</p>
-        </div>
       </div>
     </div>
   );
