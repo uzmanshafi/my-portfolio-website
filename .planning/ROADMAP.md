@@ -143,7 +143,7 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 06-01-PLAN.md — Animation infrastructure (Motion package, reusable components, MotionProvider)
+- [x] 06-01-PLAN.md — Animation infrastructure (Motion package, reusable components, MotionProvider) (2026-01-24)
 - [ ] 06-02-PLAN.md — Hero entrance animations (geometric shapes scale-in, word-by-word text reveal)
 - [ ] 06-03-PLAN.md — Section scroll reveals and project card 3D tilt
 - [ ] 06-04-PLAN.md — Production deployment (Render.com config, health endpoint, verification)
@@ -162,7 +162,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 3. Data Layer + Admin CRUD | 7/7 | Complete | 2026-01-22 |
 | 4. GitHub Integration | 5/5 | Complete | 2026-01-23 |
 | 5. Public Portfolio | 7/7 | Complete | 2026-01-23 |
-| 6. Animation + Polish | 0/4 | Not started | - |
+| 6. Animation + Polish | 1/4 | In progress | - |
 
 ---
 *Roadmap created: 2026-01-22*
