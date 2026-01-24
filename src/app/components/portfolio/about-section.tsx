@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { AnimatedSection } from "@/components/animation/animated-section";
-import { itemVariants } from "@/lib/animation/variants";
 
 interface AboutSectionProps {
   description: string;
