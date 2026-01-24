@@ -11,17 +11,19 @@ interface ProjectsSectionProps {
  *
  * Pattern:
  * - Position 0: Large (2x2) - flagship project
- * - Position 1-2: Standard
+ * - Position 1-2: Standard (1x1)
  * - Position 3: Wide (2x1)
- * - Position 4: Standard
+ * - Position 4: Standard (1x1)
  * - Position 5: Tall (1x2)
- * - Position 6-7: Standard
+ * - Position 6-7: Standard (1x1)
  * - Then repeat pattern
+ *
+ * Note: No aspect-* classes - grid auto-rows controls height
  */
 function getCardSizeClass(index: number, featured: boolean): string {
   // Featured projects always get large treatment if in first position
   if (featured && index < 3) {
-    return "lg:col-span-2 lg:row-span-2 aspect-square";
+    return "lg:col-span-2 lg:row-span-2";
   }
 
   // Pattern repeats every 8 cards
@@ -29,13 +31,13 @@ function getCardSizeClass(index: number, featured: boolean): string {
 
   switch (position) {
     case 0:
-      return "lg:col-span-2 lg:row-span-2 aspect-square"; // Large
+      return "lg:col-span-2 lg:row-span-2"; // Large
     case 3:
-      return "lg:col-span-2 aspect-video"; // Wide
+      return "lg:col-span-2"; // Wide
     case 5:
-      return "lg:row-span-2 aspect-[3/4]"; // Tall
+      return "lg:row-span-2"; // Tall
     default:
-      return "aspect-square"; // Standard
+      return ""; // Standard - single cell
   }
 }
 
