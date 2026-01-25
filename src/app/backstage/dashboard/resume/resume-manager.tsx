@@ -5,6 +5,7 @@
 
 import { useState, useRef } from "react";
 import { FileText, Upload, Eye, Trash2, RefreshCw, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 import type { Resume } from "@/generated/prisma/client";
 import { validateResumeFile } from "@/lib/validations/resume";
 import { getSignedUploadUrl, getPublicUrl } from "@/lib/actions/storage";
@@ -19,17 +20,7 @@ export function ResumeManager({ initialResume }: ResumeManagerProps) {
   const [isUploading, setIsUploading] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [toast, setToast] = useState<{
-    message: string;
-    type: "success" | "error";
-  } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  // Show toast notification
-  const showToast = (message: string, type: "success" | "error") => {
-    setToast({ message, type });
-    setTimeout(() => setToast(null), 4000);
-  };
 
   // Format date nicely
   const formatDate = (date: Date) => {
@@ -57,7 +48,7 @@ export function ResumeManager({ initialResume }: ResumeManagerProps) {
     // Validate file
     const validation = validateResumeFile(file);
     if (!validation.valid) {
-      showToast(validation.error, "error");
+      toast.error(validation.error);
       return;
     }
 
@@ -69,7 +60,7 @@ export function ResumeManager({ initialResume }: ResumeManagerProps) {
       const urlResult = await getSignedUploadUrl("portfolio-assets", storagePath);
 
       if (!urlResult.success) {
-        showToast(urlResult.error || "Failed to get upload URL", "error");
+        toast.error(urlResult.error || "Failed to get upload URL");
         setIsUploading(false);
         return;
       }
@@ -84,7 +75,7 @@ export function ResumeManager({ initialResume }: ResumeManagerProps) {
       });
 
       if (!uploadResponse.ok) {
-        showToast("Failed to upload file", "error");
+        toast.error("Failed to upload file");
         setIsUploading(false);
         return;
       }
@@ -94,17 +85,17 @@ export function ResumeManager({ initialResume }: ResumeManagerProps) {
       const result = await uploadResume(file.name, publicUrl);
 
       if (!result.success) {
-        showToast(result.error || "Failed to save resume", "error");
+        toast.error(result.error || "Failed to save resume");
         setIsUploading(false);
         return;
       }
 
       // Update local state with new resume
       setResume(result.data!);
-      showToast("Resume uploaded successfully", "success");
+      toast.success("Resume uploaded - now available");
     } catch (error) {
       console.error("Upload error:", error);
-      showToast("An error occurred during upload", "error");
+      toast.error("An error occurred during upload");
     } finally {
       setIsUploading(false);
     }
@@ -120,17 +111,17 @@ export function ResumeManager({ initialResume }: ResumeManagerProps) {
       const result = await deleteResume(resume.id);
 
       if (!result.success) {
-        showToast(result.error || "Failed to delete resume", "error");
+        toast.error(result.error || "Failed to delete resume");
         setIsDeleting(false);
         return;
       }
 
       setResume(null);
       setShowDeleteConfirm(false);
-      showToast("Resume deleted", "success");
+      toast.success("Resume removed from site");
     } catch (error) {
       console.error("Delete error:", error);
-      showToast("An error occurred while deleting", "error");
+      toast.error("An error occurred while deleting");
     } finally {
       setIsDeleting(false);
     }
@@ -151,19 +142,6 @@ export function ResumeManager({ initialResume }: ResumeManagerProps) {
         onChange={handleFileSelect}
         className="hidden"
       />
-
-      {/* Toast notification */}
-      {toast && (
-        <div
-          className={`fixed top-4 right-4 z-50 px-4 py-3 rounded-lg shadow-lg transition-all ${
-            toast.type === "success"
-              ? "bg-green-600 text-white"
-              : "bg-red-600 text-white"
-          }`}
-        >
-          {toast.message}
-        </div>
-      )}
 
       {/* Current resume display */}
       {resume ? (
