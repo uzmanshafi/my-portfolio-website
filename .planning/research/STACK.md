@@ -2,6 +2,7 @@
 
 **Project:** Portfolio Website with Admin Dashboard
 **Researched:** 2026-01-22
+**Updated:** 2026-01-25 (v1.1 Polish Features)
 **Overall Confidence:** HIGH
 
 ---
@@ -93,6 +94,68 @@ This stack transforms a static HTML portfolio into a modern full-stack Next.js a
 
 ---
 
+## v1.1 Polish Features - Stack Additions (2026-01-25)
+
+The v1.1 polish features require **minimal stack additions**. Most capabilities are built into Next.js 15 already:
+
+| Feature | Stack Change | Rationale |
+|---------|--------------|-----------|
+| Cache revalidation | **None** | Already using `revalidatePath` correctly |
+| Error boundaries | **None** | Built-in `error.tsx` convention |
+| Loading skeletons | **None** | Built-in `loading.tsx` convention |
+| SEO metadata | **Add 1 dev dependency** | `schema-dts` for typed JSON-LD |
+| Tech icons | **Add 1 dependency** | `devicons-react` for branded tech logos |
+
+### New: Tech/Programming Language Icons
+
+| Technology | Version | Purpose | Confidence | Rationale |
+|------------|---------|---------|------------|-----------|
+| **devicons-react** | ^1.5.0 | Programming language/tool icons | HIGH | Purpose-built for programming languages, frameworks, and dev tools. 150+ tech-specific icons (TypeScript, React, Node.js, PostgreSQL, etc.). Three variants per icon: Original (colored), Plain, Line. Tree-shakeable with individual imports. TypeScript-first (86% TypeScript codebase). Active maintenance (v1.5.0 released ~2 months ago). |
+
+**Integration with existing stack:**
+- Complements Lucide React (UI icons) - Lucide stays for general UI, devicons for tech branding
+- Same import pattern: `import { TypescriptOriginal } from 'devicons-react'`
+- Supports `size` and `color` props matching existing icon usage patterns
+
+**Alternatives considered:**
+
+| Option | Why Not |
+|--------|---------|
+| `react-icons` (with Simple Icons) | Bundles 31 icon libraries (massive), overkill for just tech icons |
+| `@icons-pack/react-simple-icons` | Brand logos only, missing many dev tools (e.g., Prisma, Supabase) |
+| `devicon` (base library) | Font/CSS-based, not React components, harder to style dynamically |
+
+### New: JSON-LD Structured Data Types
+
+| Technology | Version | Purpose | Confidence | Rationale |
+|------------|---------|---------|------------|-----------|
+| **schema-dts** | ^1.1.5 | Schema.org TypeScript types | HIGH | Official Google package for Schema.org TypeScript types. Zero runtime dependencies (types only). Enables typed JSON-LD objects with IDE autocomplete. Recommended by Next.js official documentation. Dev dependency only. |
+
+**Note on maintenance:** The package shows "inactive" npm maintenance status (no releases in 12 months), but this is expected - Schema.org vocabulary is stable and rarely changes.
+
+### No Stack Changes Needed For:
+
+**Cache Revalidation (revalidatePath):**
+- Already implemented in server actions
+- Pattern fix needed: ensure all mutation actions call `revalidatePath("/")` for instant public page updates
+
+**Error Boundaries (error.tsx):**
+- Built-in Next.js 15 file convention
+- Create `src/app/error.tsx` (must be Client Component with `'use client'`)
+- Receives `error` and `reset` props
+
+**Loading Skeletons (loading.tsx):**
+- Built-in Next.js 15 file convention
+- Create `src/app/loading.tsx`
+- Automatically wraps page.tsx in React Suspense boundary
+
+**Open Graph & Twitter Cards:**
+- Built-in Next.js Metadata API via `generateMetadata`
+- Extend existing metadata in `page.tsx` to include `openGraph` and `twitter` fields
+- Set `metadataBase` in root layout for absolute URLs
+
+---
+
 ## Alternatives Considered
 
 | Category | Recommended | Alternative | Why Not Alternative |
@@ -122,11 +185,20 @@ This stack transforms a static HTML portfolio into a modern full-stack Next.js a
 | SQLite (production) | Connection pooling issues with serverless. PostgreSQL handles concurrent connections better. |
 | Animate.css | Legacy. Framer Motion provides better React integration and physics-based animations. |
 
+### v1.1 Anti-Recommendations
+
+| Technology | Why Avoid |
+|------------|-----------|
+| `next-seo` | Next.js 15 Metadata API is comprehensive and built-in. Adds runtime dependencies for features already native. |
+| `react-icons` | Bundles 31 icon libraries. Overkill when only tech icons needed. Already have Lucide for UI icons. |
+| `serialize-javascript` | Simple `.replace(/</g, '\\u003c')` sanitization is sufficient for controlled admin data. |
+| `revalidateTag` pattern | Current `revalidatePath("/")` is sufficient for single-page portfolio. Tags add complexity without benefit here. |
+
 ---
 
 ## Version Matrix
 
-Verified current versions as of 2026-01-22:
+Verified current versions as of 2026-01-25:
 
 ```
 # Core
@@ -161,6 +233,10 @@ zod@3.x                        # Validation
 @dnd-kit/core@6.x              # Drag and drop
 @dnd-kit/sortable@8.x          # Sortable lists
 sonner@latest                  # Toast notifications
+
+# v1.1 Additions
+devicons-react@^1.5.0          # Tech/programming language icons
+schema-dts@^1.1.5              # JSON-LD TypeScript types (dev)
 ```
 
 ---
@@ -197,6 +273,16 @@ npm install @tanstack/react-query octokit react-hook-form zod @hookform/resolver
 
 # Drag and Drop
 npm install @dnd-kit/core @dnd-kit/sortable @dnd-kit/utilities
+```
+
+### v1.1 Polish Feature Dependencies
+
+```bash
+# Production dependency - tech icons
+npm install devicons-react
+
+# Dev dependency - JSON-LD types
+npm install -D schema-dts
 ```
 
 ### Dev Dependencies
@@ -347,6 +433,11 @@ UPLOADTHING_APP_ID="xxxx"
 
 ### Official Documentation
 - [Next.js 15 Upgrade Guide](https://nextjs.org/docs/app/guides/upgrading/version-15)
+- [Next.js revalidatePath API](https://nextjs.org/docs/app/api-reference/functions/revalidatePath)
+- [Next.js error.tsx Conventions](https://nextjs.org/docs/app/api-reference/file-conventions/error)
+- [Next.js loading.tsx Conventions](https://nextjs.org/docs/app/api-reference/file-conventions/loading)
+- [Next.js JSON-LD Guide](https://nextjs.org/docs/app/guides/json-ld)
+- [Next.js generateMetadata API](https://nextjs.org/docs/app/api-reference/functions/generate-metadata)
 - [Prisma 7 Announcement](https://www.prisma.io/blog/announcing-prisma-orm-7-0-0)
 - [Auth.js v5 Migration](https://authjs.dev/getting-started/migrating-to-v5)
 - [Tailwind CSS v4](https://tailwindcss.com/blog/tailwindcss-v4)
@@ -358,13 +449,17 @@ UPLOADTHING_APP_ID="xxxx"
 - [lucide-react](https://www.npmjs.com/package/lucide-react) - v0.562.0
 - [octokit](https://www.npmjs.com/package/octokit) - v5.0.5
 - [jose](https://www.npmjs.com/package/jose) - Edge-compatible JWT
+- [devicons-react](https://github.com/MKAbuMattar/devicons-react) - v1.5.0
+- [schema-dts](https://github.com/google/schema-dts) - v1.1.5
 
 ### Ecosystem Research
 - [Top Drag-and-Drop Libraries 2026](https://puckeditor.com/blog/top-5-drag-and-drop-libraries-for-react)
 - [React Toast Libraries Compared](https://blog.logrocket.com/react-toast-libraries-compared-2025/)
 - [Password Hashing Guide 2026](https://guptadeepak.com/the-complete-guide-to-password-hashing-argon2-vs-bcrypt-vs-scrypt-vs-pbkdf2-2026/)
 - [shadcn/ui Top Libraries 2026](https://dev.to/vaibhavg/top-shadcn-ui-libraries-every-developer-should-know-1ffh)
+- [React Icon Libraries 2026](https://lineicons.com/blog/react-icon-libraries)
+- [Next.js Caching Discussion](https://github.com/vercel/next.js/discussions/54075)
 
 ---
 
-*Last updated: 2026-01-22*
+*Last updated: 2026-01-25*
