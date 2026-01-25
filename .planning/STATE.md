@@ -109,8 +109,9 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-1 todo in `.planning/todos/pending/`:
+2 todos in `.planning/todos/pending/`:
 - **Add cache revalidation to public page** (api) - Add revalidatePath("/") to contact, social-links, resume, github actions
+- **Add error boundary to public portfolio** (ui) - Create error.tsx for graceful data fetch failure handling
 
 ### Blockers/Concerns
 
