@@ -1,136 +1,61 @@
-# Requirements: Portfolio Website Redesign
+# Requirements: Portfolio Website v1.1 Polish
 
-**Defined:** 2026-01-22
+**Defined:** 2026-01-25
 **Core Value:** The portfolio must beautifully showcase work and be effortlessly updatable through the admin dashboard.
 
-## v1 Requirements
+## v1.1 Requirements
 
-Requirements for initial release. Each maps to roadmap phases.
+Requirements for v1.1 polish milestone. Each maps to roadmap phases.
 
-### Authentication
+### Cache Revalidation
 
-- [x] **AUTH-01**: Admin can log in with email and password
-- [x] **AUTH-02**: Admin session persists across browser refresh
-- [x] **AUTH-03**: Admin can log out securely
+- [ ] **CACH-01**: Public page updates instantly after admin saves content (no ISR delay)
+- [ ] **CACH-02**: All server actions that modify displayed content call revalidatePath("/")
+- [ ] **CACH-03**: Visual feedback (toast) confirms when content is live on public page
 
-### Admin Dashboard
+### Error Handling
 
-- [x] **ADMN-01**: Dashboard UI is accessible only when authenticated
-- [x] **ADMN-02**: Dashboard provides navigation to all content sections
-- [x] **ADMN-03**: Changes can be saved with visual feedback
+- [ ] **ERRR-01**: Branded error page displays when data fetch fails on public portfolio
+- [ ] **ERRR-02**: Error page includes "Try again" button to retry failed request
+- [ ] **ERRR-03**: Error page matches dark warm design system
+- [ ] **ERRR-04**: Errors are logged to console with useful debug information
 
-### Bio/About Management
+### Loading States
 
-- [x] **BIO-01**: Admin can edit bio/about section text
-- [x] **BIO-02**: Admin can update profile image
-- [x] **BIO-03**: Bio updates reflect immediately on public portfolio
+- [ ] **LOAD-01**: Skeleton loading state displays during initial page render
+- [ ] **LOAD-02**: Skeleton shapes match actual page layout (hero, about, skills, projects, contact)
+- [ ] **LOAD-03**: Skeleton uses design system colors (not default gray)
+- [ ] **LOAD-04**: Skeleton has animated shimmer/pulse effect
 
-### Skills Management
+### SEO Metadata
 
-- [x] **SKIL-01**: Admin can add new skills with icon and name
-- [x] **SKIL-02**: Admin can remove skills
-- [x] **SKIL-03**: Admin can reorder skills via drag-and-drop
-- [x] **SKIL-04**: Skills can be grouped by category
+- [ ] **SEO-01**: Open Graph meta tags include title, description, and image
+- [ ] **SEO-02**: Twitter Card meta tags configured for large image summary
+- [ ] **SEO-03**: OG image is properly sized (1200x630) for social sharing
+- [ ] **SEO-04**: JSON-LD structured data includes Person schema for rich search results
 
-### Projects Management
+### Programming Language Icons
 
-- [x] **PROJ-01**: Admin can add projects manually (name, description, image, links)
-- [x] **PROJ-02**: Admin can edit existing project details
-- [x] **PROJ-03**: Admin can delete projects
-- [x] **PROJ-04**: Admin can reorder projects via drag-and-drop
-- [x] **PROJ-05**: Admin can toggle project visibility (show/hide)
+- [ ] **ICON-01**: Skills section displays tech-specific icons (Python, React, TypeScript, etc.)
+- [ ] **ICON-02**: Tech icons display correctly in both admin dashboard and public portfolio
+- [ ] **ICON-03**: Fallback to Lucide icon if tech icon not available
+- [ ] **ICON-04**: Admin has visual icon picker with searchable grid of available tech icons
 
-### Resume Management
+## v1.0 Requirements (Complete)
 
-- [x] **RESU-01**: Admin can upload resume PDF
-- [x] **RESU-02**: Admin can replace existing resume
-- [x] **RESU-03**: Resume is downloadable from public portfolio
-
-### Contact/Social Management
-
-- [x] **CONT-01**: Admin can update contact email
-- [x] **CONT-02**: Admin can manage social media links (add, edit, remove)
-- [x] **CONT-03**: Contact info displays on public portfolio with copy functionality
-
-### GitHub Integration
-
-- [x] **GHUB-01**: Admin can authenticate with GitHub
-- [x] **GHUB-02**: Admin can view list of their repositories
-- [x] **GHUB-03**: Admin can select which repos to feature on portfolio
-- [x] **GHUB-04**: Selected repos auto-pull name, description, stars, and languages
-- [x] **GHUB-05**: Admin can override/customize details for GitHub-synced projects
-
-### Public Portfolio Display
-
-- [x] **PUBL-01**: Portfolio displays hero section with introduction
-- [x] **PUBL-02**: Portfolio displays bio/about section
-- [x] **PUBL-03**: Portfolio displays skills section with Lucide icons
-- [x] **PUBL-04**: Portfolio displays projects in bento grid layout
-- [x] **PUBL-05**: Portfolio displays contact section with copyable email
-- [x] **PUBL-06**: Portfolio displays social links
-- [x] **PUBL-07**: Portfolio provides resume download link
-- [x] **PUBL-08**: Portfolio is fully responsive across devices
-
-### Visual Design
-
-- [x] **DSGN-01**: Dark warm color palette (text: #f3e9e2, bg: #160f09, primary: #d3b196, secondary: #326978, accent: #6655b8)
-- [x] **DSGN-02**: Bento grid layout for projects section
-- [x] **DSGN-03**: Glassmorphism effects on cards
-- [x] **DSGN-04**: Subtle grain texture on background
-- [x] **DSGN-05**: Lucide icons throughout (no emojis)
-
-### Animations
-
-- [x] **ANIM-01**: Scroll-triggered animations throughout page
-- [x] **ANIM-02**: Text reveal animations on hero section
-- [x] **ANIM-03**: 3D tilt effect on project card hover
-- [x] **ANIM-04**: Smooth section transitions
-- [x] **ANIM-05**: Respect prefers-reduced-motion preference
-
-### Technical Foundation
-
-- [x] **TECH-01**: Next.js 15+ application with App Router
-- [x] **TECH-02**: PostgreSQL database for content storage
-- [x] **TECH-03**: Prisma ORM for type-safe database access
-- [x] **TECH-04**: Motion for React (formerly Framer Motion) for animations
-- [x] **TECH-05**: Secure authentication with Auth.js v5
-- [x] **TECH-06**: Deployable to Render.com or similar
-
-## v2 Requirements
-
-Deferred to future release. Tracked but not in current roadmap.
-
-### Analytics
-
-- **ANLY-01**: Admin can view basic analytics (page views, popular projects)
-- **ANLY-02**: Track visitor traffic sources
-
-### Live Preview
-
-- **PREV-01**: Admin can preview changes before publishing
-- **PREV-02**: Draft mode for unpublished changes
-
-### Enhanced Contact
-
-- **ECNT-01**: Contact form with submission storage
-- **ECNT-02**: Admin can view and manage contact form submissions
+All 51 v1.0 requirements completed. See v1-MILESTONE-AUDIT.md for full list.
 
 ## Out of Scope
 
-Explicitly excluded. Documented to prevent scope creep.
+Explicitly excluded from v1.1. Documented to prevent scope creep.
 
 | Feature | Reason |
 |---------|--------|
-| Blog/articles section | Not requested, adds significant complexity |
-| Multiple user accounts | Single admin only needed for personal portfolio |
-| Comments/guestbook | Portfolio is one-way showcase |
-| E-commerce/payments | Not a store |
-| Contact form with backend | Existing email copy is sufficient for v1 |
-| Dark/light mode toggle | Committed to dark theme |
-| Multi-language support | English only for v1 |
-| AI chatbot | High complexity, not essential |
-| 3D/WebGL elements | Very high complexity unless showcasing 3D skills |
-| PWA features | Nice-to-have, not critical |
+| Per-section Suspense boundaries | Requires data layer refactoring, defer to v1.2 |
+| Dynamic OG image generation | Static image sufficient for portfolio |
+| Multiple error page variants | Single branded error page sufficient |
+| Admin error boundaries | Focus on public portfolio first |
+| Original brand colors for icons | Monochrome matches design system better |
 
 ## Traceability
 
@@ -138,65 +63,31 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TECH-01 | Phase 1 | Complete |
-| TECH-02 | Phase 1 | Complete |
-| TECH-03 | Phase 1 | Complete |
-| AUTH-01 | Phase 2 | Complete |
-| AUTH-02 | Phase 2 | Complete |
-| AUTH-03 | Phase 2 | Complete |
-| TECH-05 | Phase 2 | Complete |
-| ADMN-01 | Phase 3 | Complete |
-| ADMN-02 | Phase 3 | Complete |
-| ADMN-03 | Phase 3 | Complete |
-| BIO-01 | Phase 3 | Complete |
-| BIO-02 | Phase 3 | Complete |
-| BIO-03 | Phase 5 | Complete |
-| SKIL-01 | Phase 3 | Complete |
-| SKIL-02 | Phase 3 | Complete |
-| SKIL-03 | Phase 3 | Complete |
-| SKIL-04 | Phase 3 | Complete |
-| PROJ-01 | Phase 3 | Complete |
-| PROJ-02 | Phase 3 | Complete |
-| PROJ-03 | Phase 3 | Complete |
-| PROJ-04 | Phase 3 | Complete |
-| PROJ-05 | Phase 3 | Complete |
-| RESU-01 | Phase 3 | Complete |
-| RESU-02 | Phase 3 | Complete |
-| CONT-01 | Phase 3 | Complete |
-| CONT-02 | Phase 3 | Complete |
-| GHUB-01 | Phase 4 | Complete |
-| GHUB-02 | Phase 4 | Complete |
-| GHUB-03 | Phase 4 | Complete |
-| GHUB-04 | Phase 4 | Complete |
-| GHUB-05 | Phase 4 | Complete |
-| PUBL-01 | Phase 5 | Complete |
-| PUBL-02 | Phase 5 | Complete |
-| PUBL-03 | Phase 5 | Complete |
-| PUBL-04 | Phase 5 | Complete |
-| PUBL-05 | Phase 5 | Complete |
-| PUBL-06 | Phase 5 | Complete |
-| PUBL-07 | Phase 5 | Complete |
-| PUBL-08 | Phase 5 | Complete |
-| RESU-03 | Phase 5 | Complete |
-| CONT-03 | Phase 5 | Complete |
-| DSGN-01 | Phase 5 | Complete |
-| DSGN-02 | Phase 5 | Complete |
-| DSGN-03 | Phase 5 | Complete |
-| DSGN-04 | Phase 5 | Complete |
-| DSGN-05 | Phase 5 | Complete |
-| TECH-04 | Phase 6 | Complete |
-| ANIM-01 | Phase 6 | Complete |
-| ANIM-02 | Phase 6 | Complete |
-| ANIM-03 | Phase 6 | Complete |
-| ANIM-04 | Phase 6 | Complete |
-| ANIM-05 | Phase 6 | Complete |
-| TECH-06 | Phase 6 | Complete |
+| CACH-01 | TBD | Pending |
+| CACH-02 | TBD | Pending |
+| CACH-03 | TBD | Pending |
+| ERRR-01 | TBD | Pending |
+| ERRR-02 | TBD | Pending |
+| ERRR-03 | TBD | Pending |
+| ERRR-04 | TBD | Pending |
+| LOAD-01 | TBD | Pending |
+| LOAD-02 | TBD | Pending |
+| LOAD-03 | TBD | Pending |
+| LOAD-04 | TBD | Pending |
+| SEO-01 | TBD | Pending |
+| SEO-02 | TBD | Pending |
+| SEO-03 | TBD | Pending |
+| SEO-04 | TBD | Pending |
+| ICON-01 | TBD | Pending |
+| ICON-02 | TBD | Pending |
+| ICON-03 | TBD | Pending |
+| ICON-04 | TBD | Pending |
 
 **Coverage:**
-- v1 requirements: 51 total
-- Mapped to phases: 51
-- Complete: 51
+- v1.1 requirements: 19 total
+- Mapped to phases: 0 (pending roadmap)
+- Unmapped: 19
 
 ---
-*Requirements defined: 2026-01-22*
-*Last updated: 2026-01-24 (All phases complete - v1 COMPLETE)*
+*Requirements defined: 2026-01-25*
+*Last updated: 2026-01-25 after milestone initialization*
