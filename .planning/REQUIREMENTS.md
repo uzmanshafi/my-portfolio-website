@@ -9,9 +9,9 @@ Requirements for v1.1 polish milestone. Each maps to roadmap phases.
 
 ### Cache Revalidation
 
-- [ ] **CACH-01**: Public page updates instantly after admin saves content (no ISR delay)
-- [ ] **CACH-02**: All server actions that modify displayed content call revalidatePath("/")
-- [ ] **CACH-03**: Visual feedback (toast) confirms when content is live on public page
+- [x] **CACH-01**: Public page updates instantly after admin saves content (no ISR delay)
+- [x] **CACH-02**: All server actions that modify displayed content call revalidatePath("/")
+- [x] **CACH-03**: Visual feedback (toast) confirms when content is live on public page
 
 ### Error Handling
 
@@ -63,9 +63,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CACH-01 | Phase 7 | Pending |
-| CACH-02 | Phase 7 | Pending |
-| CACH-03 | Phase 7 | Pending |
+| CACH-01 | Phase 7 | Complete |
+| CACH-02 | Phase 7 | Complete |
+| CACH-03 | Phase 7 | Complete |
 | ERRR-01 | Phase 9 | Pending |
 | ERRR-02 | Phase 9 | Pending |
 | ERRR-03 | Phase 9 | Pending |
@@ -90,4 +90,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-01-25*
-*Last updated: 2026-01-25 after roadmap creation*
+*Last updated: 2026-01-25 (Phase 7 complete)*
