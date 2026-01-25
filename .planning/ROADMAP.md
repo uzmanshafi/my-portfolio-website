@@ -89,10 +89,10 @@ Plans:
   1. Admin saves content in dashboard, then immediately views public page and sees the change (no 60-second wait)
   2. Toast notification appears confirming "Content is now live" after successful save
   3. All server actions that modify bio, skills, projects, resume, or contact call revalidatePath
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 07-01-PLAN.md - TBD
+- [ ] 07-01-PLAN.md - Add revalidatePath("/") to all mutations, update toast messages with "now live" feedback, migrate resume-manager to sonner
 
 ### Phase 8: SEO Metadata
 **Goal**: Portfolio appears with rich previews when shared on social media and search results
@@ -164,7 +164,7 @@ Phases execute in numeric order: 7 -> 8 -> 9 -> 10 -> 11
 | 4. GitHub Integration | v1.0 | 5/5 | Complete | 2026-01-23 |
 | 5. Public Portfolio | v1.0 | 7/7 | Complete | 2026-01-23 |
 | 6. Animation + Polish | v1.0 | 4/4 | Complete | 2026-01-24 |
-| 7. Cache Revalidation | v1.1 | 0/? | Not started | - |
+| 7. Cache Revalidation | v1.1 | 0/1 | Planned | - |
 | 8. SEO Metadata | v1.1 | 0/? | Not started | - |
 | 9. Error Handling | v1.1 | 0/? | Not started | - |
 | 10. Loading States | v1.1 | 0/? | Not started | - |
@@ -172,4 +172,4 @@ Phases execute in numeric order: 7 -> 8 -> 9 -> 10 -> 11
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-25 (v1.1 phases added)*
+*Last updated: 2026-01-25 (Phase 7 planned)*
