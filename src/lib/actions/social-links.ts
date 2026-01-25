@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 import { socialLinkSchema } from "@/lib/validations/contact";
@@ -57,6 +58,9 @@ export async function createSocialLink(
       },
     });
 
+    revalidatePath("/backstage/dashboard/contact");
+    revalidatePath("/");
+
     return success(socialLink);
   } catch (error) {
     console.error("Failed to create social link:", error);
@@ -101,6 +105,9 @@ export async function updateSocialLink(
       },
     });
 
+    revalidatePath("/backstage/dashboard/contact");
+    revalidatePath("/");
+
     return success(socialLink);
   } catch (error) {
     console.error("Failed to update social link:", error);
@@ -125,6 +132,9 @@ export async function deleteSocialLink(
     await prisma.socialLink.delete({
       where: { id },
     });
+
+    revalidatePath("/backstage/dashboard/contact");
+    revalidatePath("/");
 
     return success();
   } catch (error) {
@@ -160,6 +170,9 @@ export async function updateSocialLinksOrder(
         })
       )
     );
+
+    revalidatePath("/backstage/dashboard/contact");
+    revalidatePath("/");
 
     return success();
   } catch (error) {

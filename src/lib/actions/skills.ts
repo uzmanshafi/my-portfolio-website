@@ -142,6 +142,7 @@ export async function createSkill(
     });
 
     revalidatePath("/backstage/dashboard/skills");
+    revalidatePath("/");
     return success(skill);
   } catch (error) {
     console.error("Failed to create skill:", error);
@@ -206,6 +207,7 @@ export async function updateSkill(
     });
 
     revalidatePath("/backstage/dashboard/skills");
+    revalidatePath("/");
     return success(skill);
   } catch (error) {
     console.error("Failed to update skill:", error);
@@ -236,6 +238,7 @@ export async function deleteSkill(id: string): Promise<ActionResult<void>> {
     await prisma.skill.delete({ where: { id } });
 
     revalidatePath("/backstage/dashboard/skills");
+    revalidatePath("/");
     return success();
   } catch (error) {
     console.error("Failed to delete skill:", error);
@@ -271,6 +274,7 @@ export async function updateSkillsOrder(
     );
 
     revalidatePath("/backstage/dashboard/skills");
+    revalidatePath("/");
     return success();
   } catch (error) {
     console.error("Failed to update skills order:", error);
@@ -340,6 +344,7 @@ export async function updateCategoryOrder(
     }
 
     revalidatePath("/backstage/dashboard/skills");
+    revalidatePath("/");
     return success();
   } catch (error) {
     console.error("Failed to update category order:", error);

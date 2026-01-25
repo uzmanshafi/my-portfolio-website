@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 import { contactSchema } from "@/lib/validations/contact";
@@ -63,6 +64,9 @@ export async function updateContact(
         },
       });
     }
+
+    revalidatePath("/backstage/dashboard/contact");
+    revalidatePath("/");
 
     return success(contact);
   } catch (error) {

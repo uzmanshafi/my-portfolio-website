@@ -247,6 +247,7 @@ export async function importRepositoriesAsProjects(
 
     revalidatePath("/backstage/dashboard/projects");
     revalidatePath("/backstage/dashboard/github");
+    revalidatePath("/");
 
     return success(projects);
   } catch (error) {
@@ -470,6 +471,7 @@ export async function resetProjectFieldToGitHub(
     });
 
     revalidatePath("/backstage/dashboard/projects");
+    revalidatePath("/");
 
     return success(updated);
   } catch (error) {

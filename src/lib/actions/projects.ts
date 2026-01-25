@@ -87,6 +87,7 @@ export async function createProject(
     });
 
     revalidatePath("/backstage/dashboard/projects");
+    revalidatePath("/");
     return success(project);
   } catch (error) {
     console.error("Failed to create project:", error);
@@ -169,6 +170,7 @@ export async function updateProject(
     });
 
     revalidatePath("/backstage/dashboard/projects");
+    revalidatePath("/");
     return success(project);
   } catch (error) {
     console.error("Failed to update project:", error);
@@ -195,6 +197,7 @@ export async function deleteProject(id: string): Promise<ActionResult> {
     await prisma.project.delete({ where: { id } });
 
     revalidatePath("/backstage/dashboard/projects");
+    revalidatePath("/");
     return success();
   } catch (error) {
     console.error("Failed to delete project:", error);
@@ -229,6 +232,7 @@ export async function updateProjectsOrder(
     );
 
     revalidatePath("/backstage/dashboard/projects");
+    revalidatePath("/");
     return success();
   } catch (error) {
     console.error("Failed to update project order:", error);
@@ -261,6 +265,7 @@ export async function toggleProjectVisibility(
     });
 
     revalidatePath("/backstage/dashboard/projects");
+    revalidatePath("/");
     return success(project);
   } catch (error) {
     console.error("Failed to toggle project visibility:", error);
@@ -295,6 +300,7 @@ export async function updateProjectImage(
     });
 
     revalidatePath("/backstage/dashboard/projects");
+    revalidatePath("/");
     return success(project);
   } catch (error) {
     console.error("Failed to update project image:", error);

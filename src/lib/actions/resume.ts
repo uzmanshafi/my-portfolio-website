@@ -60,6 +60,7 @@ export async function uploadResume(
     });
 
     revalidatePath("/backstage/dashboard/resume");
+    revalidatePath("/");
 
     return success(resume);
   } catch (error) {
@@ -87,6 +88,7 @@ export async function deleteResume(id: string): Promise<ActionResult> {
     });
 
     revalidatePath("/backstage/dashboard/resume");
+    revalidatePath("/");
 
     return success();
   } catch (error) {
