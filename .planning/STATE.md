@@ -109,7 +109,8 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-None - project complete.
+1 todo in `.planning/todos/pending/`:
+- **Add cache revalidation to public page** (api) - Add revalidatePath("/") to contact, social-links, resume, github actions
 
 ### Blockers/Concerns
 
