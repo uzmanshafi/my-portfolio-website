@@ -63,31 +63,31 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CACH-01 | TBD | Pending |
-| CACH-02 | TBD | Pending |
-| CACH-03 | TBD | Pending |
-| ERRR-01 | TBD | Pending |
-| ERRR-02 | TBD | Pending |
-| ERRR-03 | TBD | Pending |
-| ERRR-04 | TBD | Pending |
-| LOAD-01 | TBD | Pending |
-| LOAD-02 | TBD | Pending |
-| LOAD-03 | TBD | Pending |
-| LOAD-04 | TBD | Pending |
-| SEO-01 | TBD | Pending |
-| SEO-02 | TBD | Pending |
-| SEO-03 | TBD | Pending |
-| SEO-04 | TBD | Pending |
-| ICON-01 | TBD | Pending |
-| ICON-02 | TBD | Pending |
-| ICON-03 | TBD | Pending |
-| ICON-04 | TBD | Pending |
+| CACH-01 | Phase 7 | Pending |
+| CACH-02 | Phase 7 | Pending |
+| CACH-03 | Phase 7 | Pending |
+| ERRR-01 | Phase 9 | Pending |
+| ERRR-02 | Phase 9 | Pending |
+| ERRR-03 | Phase 9 | Pending |
+| ERRR-04 | Phase 9 | Pending |
+| LOAD-01 | Phase 10 | Pending |
+| LOAD-02 | Phase 10 | Pending |
+| LOAD-03 | Phase 10 | Pending |
+| LOAD-04 | Phase 10 | Pending |
+| SEO-01 | Phase 8 | Pending |
+| SEO-02 | Phase 8 | Pending |
+| SEO-03 | Phase 8 | Pending |
+| SEO-04 | Phase 8 | Pending |
+| ICON-01 | Phase 11 | Pending |
+| ICON-02 | Phase 11 | Pending |
+| ICON-03 | Phase 11 | Pending |
+| ICON-04 | Phase 11 | Pending |
 
 **Coverage:**
 - v1.1 requirements: 19 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 19
+- Mapped to phases: 19
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-01-25*
-*Last updated: 2026-01-25 after milestone initialization*
+*Last updated: 2026-01-25 after roadmap creation*
