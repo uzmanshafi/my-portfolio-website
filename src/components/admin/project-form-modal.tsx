@@ -270,7 +270,7 @@ export function ProjectFormModal({
       } else if (field === 'description') {
         setValue('description', result.data.description);
       }
-      toast.success(`${field.charAt(0).toUpperCase() + field.slice(1)} reset to GitHub value`);
+      toast.success(`${field.charAt(0).toUpperCase() + field.slice(1)} reset to GitHub - now live`);
     } else {
       toast.error(result.error || `Failed to reset ${field}`);
     }

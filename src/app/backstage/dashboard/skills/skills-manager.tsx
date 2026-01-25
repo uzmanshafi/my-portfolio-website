@@ -138,7 +138,7 @@ export function SkillsManager({ initialSkills }: SkillsManagerProps) {
           setGroupedSkills(optimisticSkills);
           toast.error(result.error || "Failed to reorder categories");
         } else {
-          toast.success("Categories reordered");
+          toast.success("Categories reordered - now live");
         }
       }
       return;
@@ -195,7 +195,7 @@ export function SkillsManager({ initialSkills }: SkillsManagerProps) {
       setGroupedSkills(optimisticSkills);
       toast.error(result.error || "Failed to reorder skills");
     } else {
-      toast.success("Skills reordered");
+      toast.success("Skills reordered - now live");
     }
   }
 
@@ -215,7 +215,7 @@ export function SkillsManager({ initialSkills }: SkillsManagerProps) {
       );
       setGroupedSkills(newGrouped);
       setModal({ type: "closed" });
-      toast.success(`Added "${newSkill.name}"`);
+      toast.success(`"${newSkill.name}" added - now live`);
     } else {
       toast.error(result.error || "Failed to add skill");
     }
@@ -243,7 +243,7 @@ export function SkillsManager({ initialSkills }: SkillsManagerProps) {
       }));
       setGroupedSkills(newGrouped);
       setModal({ type: "closed" });
-      toast.success(`Updated "${updatedSkill.name}"`);
+      toast.success(`"${updatedSkill.name}" updated - now live`);
     } else {
       toast.error(result.error || "Failed to update skill");
     }
@@ -265,7 +265,7 @@ export function SkillsManager({ initialSkills }: SkillsManagerProps) {
       }));
       setGroupedSkills(newGrouped);
       setModal({ type: "closed" });
-      toast.success(`Deleted "${skill.name}"`);
+      toast.success(`"${skill.name}" removed from site`);
     } else {
       toast.error(result.error || "Failed to delete skill");
     }

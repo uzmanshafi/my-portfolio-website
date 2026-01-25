@@ -102,7 +102,7 @@ export function ContactManager({
     const result = await updateContact(formData);
 
     if (result.success) {
-      toast.success("Contact information saved");
+      toast.success("Contact updated - now live");
       contactForm.reset(data);
     } else {
       toast.error(result.error || "Failed to save contact");
@@ -147,7 +147,7 @@ export function ContactManager({
             link.id === editingLink.id ? result.data! : link
           )
         );
-        toast.success("Social link updated");
+        toast.success("Social link updated - now live");
         setIsModalOpen(false);
       } else {
         toast.error(result.error || "Failed to update social link");
@@ -157,7 +157,7 @@ export function ContactManager({
       const result = await createSocialLink(formData);
       if (result.success && result.data) {
         setSocialLinks((prev) => [...prev, result.data!]);
-        toast.success("Social link added");
+        toast.success("Social link added - now live");
         setIsModalOpen(false);
       } else {
         toast.error(result.error || "Failed to add social link");
@@ -174,7 +174,7 @@ export function ContactManager({
       setSocialLinks((prev) =>
         prev.filter((link) => link.id !== deleteTarget.id)
       );
-      toast.success("Social link deleted");
+      toast.success("Social link removed from site");
     } else {
       toast.error(result.error || "Failed to delete social link");
     }

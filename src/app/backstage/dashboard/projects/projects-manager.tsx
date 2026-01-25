@@ -92,7 +92,7 @@ export function ProjectsManager({ initialProjects }: ProjectsManagerProps) {
 
       if (result.success) {
         setProjects(newOrder);
-        toast.success("Order saved");
+        toast.success("Order saved - now live");
       } else {
         // Revert optimistic update on error
         startTransition(() => {
@@ -135,7 +135,7 @@ export function ProjectsManager({ initialProjects }: ProjectsManagerProps) {
       startTransition(() => {
         setOptimisticProjects(newProjects);
       });
-      toast.success("Project deleted");
+      toast.success("Project removed from site");
     } else {
       toast.error(result.error || "Failed to delete project");
     }
@@ -158,7 +158,7 @@ export function ProjectsManager({ initialProjects }: ProjectsManagerProps) {
 
     if (result.success) {
       setProjects(newProjects);
-      toast.success(result.data?.visible ? "Project visible" : "Project hidden");
+      toast.success(result.data?.visible ? "Project visible - now live" : "Project hidden from site");
     } else {
       // Revert on error
       startTransition(() => {

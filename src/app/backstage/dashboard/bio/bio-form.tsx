@@ -71,7 +71,7 @@ export function BioForm({ initialData }: BioFormProps) {
     const result = await updateBio(formData);
 
     if (result.success) {
-      toast.success("Bio saved successfully");
+      toast.success("Bio saved - now live on site");
       // Reset form dirty state with current values
       reset(data);
     } else {
@@ -145,7 +145,7 @@ export function BioForm({ initialData }: BioFormProps) {
 
       // Update local state
       setCurrentImageUrl(publicUrl);
-      toast.success("Profile image updated");
+      toast.success("Profile image updated - now live");
     } catch (error) {
       console.error("Image upload failed:", error);
       toast.error(
