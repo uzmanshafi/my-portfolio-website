@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-25)
 ## Current Position
 
 Phase: 7 of 11 (Cache Revalidation)
-Plan: Ready to plan
-Status: Roadmap complete, ready to plan Phase 7
-Last activity: 2026-01-25 - v1.1 roadmap created
+Plan: 07-01 complete
+Status: Phase 7 complete
+Last activity: 2026-01-25 - Completed 07-01-PLAN.md
 
-Progress: [**********----------] 55% (27/? plans - v1.0 complete, v1.1 starting)
+Progress: [***********---------] 57% (28/49 plans - v1.0 + 07-01)
 
 ## Performance Metrics
 
@@ -24,7 +24,7 @@ Progress: [**********----------] 55% (27/? plans - v1.0 complete, v1.1 starting)
 - Total execution time: 3.5 hours
 
 **v1.1 Metrics:**
-- Plans completed: 0
+- Plans completed: 1
 - Phases: 5 (Phases 7-11)
 - Requirements: 19
 
@@ -49,6 +49,8 @@ Recent decisions affecting current work:
 - Page-level loading.tsx (not granular Suspense)
 - Static OG image (not dynamic generation)
 - schema-dts for typed JSON-LD
+- Revalidate both dashboard path and "/" for instant public visibility (07-01)
+- Toast messages use "now live" for adds/updates, "from site" for deletions (07-01)
 
 ### Pending Todos
 
@@ -61,9 +63,9 @@ None currently.
 ## Session Continuity
 
 Last session: 2026-01-25
-Stopped at: v1.1 roadmap created
+Stopped at: Completed 07-01-PLAN.md
 Resume file: None
 
 ---
 *State initialized: 2026-01-22*
-*Last updated: 2026-01-25 (v1.1 roadmap complete)*
+*Last updated: 2026-01-25 (Phase 7 complete)*
