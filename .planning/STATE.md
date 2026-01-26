@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-01-25)
 
 **Core value:** The portfolio must beautifully showcase work and be effortlessly updatable through the admin dashboard.
-**Current focus:** v1.1 Polish - Phase 7 Cache Revalidation
+**Current focus:** v1.1 Polish - Phase 8 SEO Metadata
 
 ## Current Position
 
-Phase: 7 of 11 (Cache Revalidation)
-Plan: 07-01 complete
-Status: Phase 7 complete
-Last activity: 2026-01-25 - Completed 07-01-PLAN.md
+Phase: 8 of 11 (SEO Metadata)
+Plan: 08-01 complete
+Status: In progress (3 plans remaining in phase)
+Last activity: 2026-01-26 - Completed 08-01-PLAN.md
 
-Progress: [***********---------] 57% (28/49 plans - v1.0 + 07-01)
+Progress: [************--------] 59% (29/49 plans - v1.0 + 07-01 + 08-01)
 
 ## Performance Metrics
 
@@ -24,7 +24,7 @@ Progress: [***********---------] 57% (28/49 plans - v1.0 + 07-01)
 - Total execution time: 3.5 hours
 
 **v1.1 Metrics:**
-- Plans completed: 1
+- Plans completed: 2
 - Phases: 5 (Phases 7-11)
 - Requirements: 19
 
@@ -51,6 +51,8 @@ Recent decisions affecting current work:
 - schema-dts for typed JSON-LD
 - Revalidate both dashboard path and "/" for instant public visibility (07-01)
 - Toast messages use "now live" for adds/updates, "from site" for deletions (07-01)
+- SEO title limit: 60 chars, description limit: 160 chars (08-01)
+- SEO singleton pattern matching Bio model for consistency (08-01)
 
 ### Pending Todos
 
@@ -62,10 +64,10 @@ None currently.
 
 ## Session Continuity
 
-Last session: 2026-01-25
-Stopped at: Completed 07-01-PLAN.md
+Last session: 2026-01-26
+Stopped at: Completed 08-01-PLAN.md
 Resume file: None
 
 ---
 *State initialized: 2026-01-22*
-*Last updated: 2026-01-25 (Phase 7 complete)*
+*Last updated: 2026-01-26 (08-01 complete)*
