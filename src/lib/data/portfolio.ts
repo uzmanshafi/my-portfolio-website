@@ -10,6 +10,7 @@ import type {
   Contact,
   SocialLink,
   Resume,
+  SeoSettings,
 } from "@/generated/prisma/client";
 
 // Type for grouped skills by category
@@ -41,6 +42,7 @@ export type PortfolioData = {
   contact: Contact | null;
   socialLinks: SocialLink[];
   resume: Resume | null;
+  seoSettings: SeoSettings | null;
 };
 
 /**
@@ -171,11 +173,25 @@ export async function getPublicResume(): Promise<Resume | null> {
 }
 
 /**
+ * Fetch SEO settings for public display.
+ * Returns null if no settings exist or on error.
+ */
+export async function getPublicSeoSettings(): Promise<SeoSettings | null> {
+  try {
+    const seoSettings = await prisma.seoSettings.findFirst();
+    return seoSettings;
+  } catch (error) {
+    console.error("Failed to fetch SEO settings:", error);
+    return null;
+  }
+}
+
+/**
  * Fetch all portfolio data in one call.
  * Runs all queries in parallel for performance.
  */
 export async function getPortfolioData(): Promise<PortfolioData> {
-  const [bio, skills, projects, contact, socialLinks, resume] =
+  const [bio, skills, projects, contact, socialLinks, resume, seoSettings] =
     await Promise.all([
       getPublicBio(),
       getPublicSkills(),
@@ -183,6 +199,7 @@ export async function getPortfolioData(): Promise<PortfolioData> {
       getPublicContact(),
       getPublicSocialLinks(),
       getPublicResume(),
+      getPublicSeoSettings(),
     ]);
 
   return {
@@ -192,5 +209,6 @@ export async function getPortfolioData(): Promise<PortfolioData> {
     contact,
     socialLinks,
     resume,
+    seoSettings,
   };
 }
