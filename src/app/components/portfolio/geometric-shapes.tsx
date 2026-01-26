@@ -131,3 +131,92 @@ export function GeometricShapes() {
     </motion.div>
   );
 }
+
+/**
+ * Static version of geometric shapes for loading state.
+ * Renders shapes at their final opacity without animation.
+ * Used in loading.tsx to show shapes during skeleton state.
+ */
+export function StaticGeometricShapes() {
+  return (
+    <div
+      className="absolute inset-0 overflow-hidden pointer-events-none"
+      aria-hidden="true"
+    >
+      {/* Large primary circle - top right with glow */}
+      <div
+        className="absolute -top-32 -right-32 w-96 h-96 rounded-full blur-3xl"
+        style={{ backgroundColor: "var(--color-primary)", opacity: 0.15 }}
+      />
+
+      {/* Medium secondary circle - bottom left */}
+      <div
+        className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full blur-2xl"
+        style={{ backgroundColor: "var(--color-secondary)", opacity: 0.1 }}
+      />
+
+      {/* Small accent circle - mid right */}
+      <div
+        className="absolute top-1/3 right-16 w-32 h-32 rounded-full blur-xl"
+        style={{ backgroundColor: "var(--color-primary)", opacity: 0.2 }}
+      />
+
+      {/* Diagonal line - top left to center */}
+      <div
+        className="absolute top-20 left-20 w-64 h-px rotate-45"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, var(--color-primary), transparent)",
+          opacity: 0.2,
+        }}
+      />
+
+      {/* Diagonal line - bottom right */}
+      <div
+        className="absolute bottom-32 right-32 w-48 h-px -rotate-12"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, var(--color-primary), transparent)",
+          opacity: 0.15,
+        }}
+      />
+
+      {/* Grid pattern section - subtle texture */}
+      <div
+        className="absolute top-1/4 left-1/4 w-64 h-64"
+        style={{
+          backgroundImage: `
+            linear-gradient(var(--color-primary) 1px, transparent 1px),
+            linear-gradient(90deg, var(--color-primary) 1px, transparent 1px)
+          `,
+          backgroundSize: "32px 32px",
+          opacity: 0.03,
+        }}
+      />
+
+      {/* Scattered small dots */}
+      <div
+        className="absolute top-1/4 right-1/4 w-2 h-2 rounded-full"
+        style={{ backgroundColor: "var(--color-primary)", opacity: 0.3 }}
+      />
+      <div
+        className="absolute top-2/3 left-1/3 w-1.5 h-1.5 rounded-full"
+        style={{ backgroundColor: "var(--color-primary)", opacity: 0.25 }}
+      />
+      <div
+        className="absolute bottom-1/4 right-1/3 w-2.5 h-2.5 rounded-full"
+        style={{ backgroundColor: "var(--color-secondary)", opacity: 0.2 }}
+      />
+      <div
+        className="absolute top-1/2 left-1/6 w-1 h-1 rounded-full"
+        style={{ backgroundColor: "var(--color-primary)", opacity: 0.35 }}
+      />
+
+      {/* Accent glow - very subtle purple */}
+      <div
+        className="absolute bottom-1/3 right-1/4 w-48 h-48 rounded-full blur-3xl"
+        style={{ backgroundColor: "var(--color-accent)", opacity: 0.08 }}
+      />
+    </div>
+  );
+}
