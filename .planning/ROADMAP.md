@@ -106,9 +106,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 08-01-PLAN.md - Database model, validation schema, server actions, and portfolio data layer for SEO settings
-- [ ] 08-02-PLAN.md - Admin SEO section with sidebar navigation, OG image upload, and text field editing
-- [ ] 08-03-PLAN.md - Public metadata (generateMetadata with OG/Twitter tags) and JSON-LD structured data
+- [x] 08-01-PLAN.md - Database model, validation schema, server actions, and portfolio data layer for SEO settings (2026-01-26)
+- [x] 08-02-PLAN.md - Admin SEO section with sidebar navigation, OG image upload, and text field editing (2026-01-26)
+- [x] 08-03-PLAN.md - Public metadata (generateMetadata with OG/Twitter tags) and JSON-LD structured data (2026-01-26)
 
 ### Phase 9: Error Handling
 **Goal**: Data fetch failures display a branded, recoverable error page instead of crashing
@@ -167,11 +167,11 @@ Phases execute in numeric order: 7 -> 8 -> 9 -> 10 -> 11
 | 5. Public Portfolio | v1.0 | 7/7 | Complete | 2026-01-23 |
 | 6. Animation + Polish | v1.0 | 4/4 | Complete | 2026-01-24 |
 | 7. Cache Revalidation | v1.1 | 1/1 | Complete | 2026-01-25 |
-| 8. SEO Metadata | v1.1 | 0/3 | Not started | - |
+| 8. SEO Metadata | v1.1 | 3/3 | Complete | 2026-01-26 |
 | 9. Error Handling | v1.1 | 0/? | Not started | - |
 | 10. Loading States | v1.1 | 0/? | Not started | - |
 | 11. Programming Language Icons | v1.1 | 0/? | Not started | - |
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-25 (Phase 8 planned)*
+*Last updated: 2026-01-26 (Phase 8 complete)*
