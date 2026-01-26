@@ -137,8 +137,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 10-01-PLAN.md - CSS shimmer animation infrastructure and 6 skeleton components matching real layouts
-- [ ] 10-02-PLAN.md - Route-level loading.tsx composition with static geometric shapes
+- [x] 10-01-PLAN.md - CSS shimmer animation infrastructure and 6 skeleton components matching real layouts (2026-01-26)
+- [x] 10-02-PLAN.md - Route-level loading.tsx composition with static geometric shapes (2026-01-26)
 
 ### Phase 11: Programming Language Icons
 **Goal**: Skills display recognizable tech logos with an intuitive picker in admin
@@ -171,9 +171,9 @@ Phases execute in numeric order: 7 -> 8 -> 9 -> 10 -> 11
 | 7. Cache Revalidation | v1.1 | 1/1 | Complete | 2026-01-25 |
 | 8. SEO Metadata | v1.1 | 3/3 | Complete | 2026-01-26 |
 | 9. Error Handling | v1.1 | 2/2 | Complete | 2026-01-26 |
-| 10. Loading States | v1.1 | 0/2 | Not started | - |
+| 10. Loading States | v1.1 | 2/2 | Complete | 2026-01-26 |
 | 11. Programming Language Icons | v1.1 | 0/? | Not started | - |
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-26 (Phase 10 planned)*
+*Last updated: 2026-01-26 (Phase 10 complete)*
