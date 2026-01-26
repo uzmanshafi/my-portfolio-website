@@ -205,11 +205,6 @@ export async function getPublicSeoSettings(): Promise<SeoSettings | null> {
  * Runs all queries in parallel for performance.
  */
 export async function getPortfolioData(): Promise<PortfolioData> {
-  // TEMPORARY: Add delay for skeleton testing (remove after verification)
-  if (process.env.NODE_ENV === 'development') {
-    await new Promise(resolve => setTimeout(resolve, 3000));
-  }
-
   const [bio, skills, projects, contact, socialLinks, resume, seoSettings] =
     await Promise.all([
       getPublicBio(),
