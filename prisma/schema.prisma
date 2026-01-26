@@ -111,3 +111,13 @@ model GitHubConnection {
   lastSyncAt  DateTime?
   syncError   String?   // Last sync error if any
 }
+
+// SEO metadata settings (singleton - one record)
+model SeoSettings {
+  id             String   @id @default(cuid())
+  ogImageUrl     String?  // Supabase storage URL for OG image (1200x630)
+  seoTitle       String?  // Custom title (fallback to bio.name + bio.title)
+  seoDescription String?  // Custom description (fallback to bio.headline)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
