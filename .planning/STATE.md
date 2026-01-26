@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-25)
 ## Current Position
 
 Phase: 8 of 11 (SEO Metadata)
-Plan: 08-01 complete
-Status: In progress (3 plans remaining in phase)
-Last activity: 2026-01-26 - Completed 08-01-PLAN.md
+Plan: 08-02 complete
+Status: In progress (2 plans remaining in phase)
+Last activity: 2026-01-26 - Completed 08-02-PLAN.md
 
-Progress: [************--------] 59% (29/49 plans - v1.0 + 07-01 + 08-01)
+Progress: [*************-------] 61% (30/49 plans - v1.0 + 07-01 + 08-01 + 08-02)
 
 ## Performance Metrics
 
@@ -24,7 +24,7 @@ Progress: [************--------] 59% (29/49 plans - v1.0 + 07-01 + 08-01)
 - Total execution time: 3.5 hours
 
 **v1.1 Metrics:**
-- Plans completed: 2
+- Plans completed: 3
 - Phases: 5 (Phases 7-11)
 - Requirements: 19
 
@@ -53,6 +53,8 @@ Recent decisions affecting current work:
 - Toast messages use "now live" for adds/updates, "from site" for deletions (07-01)
 - SEO title limit: 60 chars, description limit: 160 chars (08-01)
 - SEO singleton pattern matching Bio model for consistency (08-01)
+- OG images stored in og-images/ subfolder of portfolio-assets bucket (08-02)
+- ImageCropper configurable via aspect and cropShape props (08-02)
 
 ### Pending Todos
 
@@ -65,9 +67,9 @@ None currently.
 ## Session Continuity
 
 Last session: 2026-01-26
-Stopped at: Completed 08-01-PLAN.md
+Stopped at: Completed 08-02-PLAN.md
 Resume file: None
 
 ---
 *State initialized: 2026-01-22*
-*Last updated: 2026-01-26 (08-01 complete)*
+*Last updated: 2026-01-26 (08-02 complete)*
