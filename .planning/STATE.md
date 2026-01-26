@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-01-25)
 
 **Core value:** The portfolio must beautifully showcase work and be effortlessly updatable through the admin dashboard.
-**Current focus:** v1.1 Polish - Phase 8 SEO Metadata
+**Current focus:** v1.1 Polish - Phase 9 Error Handling
 
 ## Current Position
 
-Phase: 8 of 11 (SEO Metadata)
-Plan: 08-02 complete
-Status: In progress (2 plans remaining in phase)
-Last activity: 2026-01-26 - Completed 08-02-PLAN.md
+Phase: 9 of 11 (Error Handling)
+Plan: 09-01 complete
+Status: In progress (1 plan remaining in phase)
+Last activity: 2026-01-26 - Completed 09-01-PLAN.md
 
-Progress: [*************-------] 61% (30/49 plans - v1.0 + 07-01 + 08-01 + 08-02)
+Progress: [**************------] 63% (31/49 plans - v1.0 + 07-01 + 08-01 + 08-02 + 09-01)
 
 ## Performance Metrics
 
@@ -24,7 +24,7 @@ Progress: [*************-------] 61% (30/49 plans - v1.0 + 07-01 + 08-01 + 08-02
 - Total execution time: 3.5 hours
 
 **v1.1 Metrics:**
-- Plans completed: 3
+- Plans completed: 4
 - Phases: 5 (Phases 7-11)
 - Requirements: 19
 
@@ -55,6 +55,8 @@ Recent decisions affecting current work:
 - SEO singleton pattern matching Bio model for consistency (08-01)
 - OG images stored in og-images/ subfolder of portfolio-assets bucket (08-02)
 - ImageCropper configurable via aspect and cropShape props (08-02)
+- window.location.reload() for error retry instead of reset() (09-01)
+- Public error shows clean message, admin sees technical details on page (09-01)
 
 ### Pending Todos
 
@@ -67,9 +69,9 @@ None currently.
 ## Session Continuity
 
 Last session: 2026-01-26
-Stopped at: Completed 08-02-PLAN.md
+Stopped at: Completed 09-01-PLAN.md
 Resume file: None
 
 ---
 *State initialized: 2026-01-22*
-*Last updated: 2026-01-26 (08-02 complete)*
+*Last updated: 2026-01-26 (09-01 complete)*
