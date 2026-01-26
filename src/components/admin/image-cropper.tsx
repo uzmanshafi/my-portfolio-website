@@ -10,6 +10,8 @@ interface ImageCropperProps {
   imageSrc: string;
   onCropComplete: (blob: Blob) => void;
   onCancel: () => void;
+  aspect?: number; // Default: 1 (square). For OG images use 1200/630
+  cropShape?: "round" | "rect"; // Default: "round" for profile images
 }
 
 /**
@@ -80,13 +82,16 @@ function createImage(url: string): Promise<HTMLImageElement> {
 
 /**
  * Image cropper modal component
- * Allows user to crop an image to 1:1 aspect ratio (square)
- * with zoom control and round crop shape for profile images
+ * Allows user to crop an image with configurable aspect ratio and shape.
+ * Defaults to 1:1 square with round crop for profile images.
+ * For OG images, use aspect={1200/630} and cropShape="rect".
  */
 export function ImageCropper({
   imageSrc,
   onCropComplete,
   onCancel,
+  aspect = 1,
+  cropShape = "round",
 }: ImageCropperProps) {
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
@@ -141,8 +146,8 @@ export function ImageCropper({
             image={imageSrc}
             crop={crop}
             zoom={zoom}
-            aspect={1}
-            cropShape="round"
+            aspect={aspect}
+            cropShape={cropShape}
             showGrid={false}
             onCropChange={setCrop}
             onZoomChange={setZoom}

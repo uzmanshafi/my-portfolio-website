@@ -14,6 +14,7 @@ import {
   FolderKanban,
   FileText,
   Mail,
+  Settings,
   Github,
   Menu,
   X,
@@ -36,6 +37,7 @@ const navItems: NavItem[] = [
   { name: "Projects", href: "/backstage/dashboard/projects", icon: FolderKanban },
   { name: "Resume", href: "/backstage/dashboard/resume", icon: FileText },
   { name: "Contact", href: "/backstage/dashboard/contact", icon: Mail },
+  { name: "SEO", href: "/backstage/dashboard/seo", icon: Settings },
   { name: "GitHub", href: "/backstage/dashboard/github", icon: Github },
 ];
 
