@@ -119,10 +119,11 @@ Plans:
   2. Error page uses dark warm design system colors (#160f09 background, #f3e9e2 text)
   3. User can click "Try again" button to retry the failed request
   4. Developer can see useful error details in browser console for debugging
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 09-01-PLAN.md - TBD
+- [ ] 09-01-PLAN.md - Error boundaries for public portfolio (error.tsx, global-error.tsx) and admin dashboard
+- [ ] 09-02-PLAN.md - Data layer throw-on-error and enhanced 404 page design
 
 ### Phase 10: Loading States
 **Goal**: Initial page load shows skeleton placeholders that match the page layout
@@ -168,10 +169,10 @@ Phases execute in numeric order: 7 -> 8 -> 9 -> 10 -> 11
 | 6. Animation + Polish | v1.0 | 4/4 | Complete | 2026-01-24 |
 | 7. Cache Revalidation | v1.1 | 1/1 | Complete | 2026-01-25 |
 | 8. SEO Metadata | v1.1 | 3/3 | Complete | 2026-01-26 |
-| 9. Error Handling | v1.1 | 0/? | Not started | - |
+| 9. Error Handling | v1.1 | 0/2 | Not started | - |
 | 10. Loading States | v1.1 | 0/? | Not started | - |
 | 11. Programming Language Icons | v1.1 | 0/? | Not started | - |
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-26 (Phase 8 complete)*
+*Last updated: 2026-01-26 (Phase 9 planned)*
