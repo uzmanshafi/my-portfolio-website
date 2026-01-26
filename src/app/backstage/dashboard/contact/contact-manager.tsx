@@ -53,7 +53,7 @@ export function ContactManager({
 }: ContactManagerProps) {
   // State
   const [socialLinks, setSocialLinks] = useState(initialSocialLinks);
-  const [isPending, startTransition] = useTransition();
+  const [_isPending, startTransition] = useTransition();
   const [optimisticLinks, setOptimisticLinks] = useOptimistic(socialLinks);
 
   // Modal state

@@ -32,7 +32,7 @@ import {
   updateSkillsOrder,
   updateCategoryOrder,
 } from "@/lib/actions/skills";
-import { SKILL_CATEGORIES, type SkillCategory } from "@/lib/validations/skill";
+import { SKILL_CATEGORIES } from "@/lib/validations/skill";
 import { SkillCategory as SkillCategoryComponent } from "@/components/admin/skill-category";
 
 interface SkillsManagerProps {

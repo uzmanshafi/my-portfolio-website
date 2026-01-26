@@ -21,7 +21,7 @@ export function ReposBrowser() {
   // Data state
   const [repos, setRepos] = useState<RepoListItem[]>([]);
   const [languages, setLanguages] = useState<string[]>([]);
-  const [totalCount, setTotalCount] = useState(0);
+  const [_totalCount, setTotalCount] = useState(0);
   const [hasMore, setHasMore] = useState(false);
 
   // Filter state
@@ -75,7 +75,7 @@ export function ReposBrowser() {
 
     setIsLoading(false);
     setIsLoadingMore(false);
-  }, [searchQuery, selectedLanguage]);
+  }, [searchQuery, selectedLanguage, repos]);
 
   // Fetch languages for filter
   const fetchLanguages = useCallback(async () => {
@@ -89,12 +89,14 @@ export function ReposBrowser() {
   useEffect(() => {
     fetchRepos(1);
     fetchLanguages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Refetch when filters change
   useEffect(() => {
     setCurrentPage(1);
     fetchRepos(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery, selectedLanguage]);
 
   // Handle load more

@@ -23,7 +23,7 @@ interface ProjectCardProps {
  */
 export function ProjectCard({
   title,
-  description,
+  description: _description,
   imageUrl,
   technologies,
   liveUrl,

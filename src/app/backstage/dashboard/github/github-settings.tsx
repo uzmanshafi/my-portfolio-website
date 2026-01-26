@@ -4,6 +4,7 @@
 // Shows connect/disconnect button and connection status
 
 import { useState } from "react";
+import Image from "next/image";
 import { signIn } from "next-auth/react";
 import { Github, Unlink, Loader2, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
@@ -70,10 +71,12 @@ export function GitHubSettings({ connection }: GitHubSettingsProps) {
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             {connection.avatarUrl && (
-              <img
+              <Image
                 src={connection.avatarUrl}
                 alt={connection.username}
-                className="w-10 h-10 rounded-full"
+                width={40}
+                height={40}
+                className="rounded-full"
               />
             )}
             <div>
