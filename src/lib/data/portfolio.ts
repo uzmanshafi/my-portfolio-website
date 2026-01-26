@@ -3,6 +3,20 @@
 // NO authentication checks - public data only
 
 import { prisma } from "@/lib/prisma";
+
+/**
+ * Log error with structured JSON for server-side debugging.
+ * Outputs to console.error for Render logs visibility.
+ */
+function logError(error: unknown, context: { operation: string; [key: string]: unknown }) {
+  const errorObj = {
+    timestamp: new Date().toISOString(),
+    type: error instanceof Error ? error.constructor.name : 'UnknownError',
+    message: error instanceof Error ? error.message : String(error),
+    ...context,
+  };
+  console.error(JSON.stringify(errorObj));
+}
 import type {
   Bio,
   Skill,
@@ -47,15 +61,15 @@ export type PortfolioData = {
 
 /**
  * Fetch bio data for public display.
- * Returns null if bio doesn't exist or on error.
+ * Returns null if bio doesn't exist. Throws on database error.
  */
 export async function getPublicBio(): Promise<Bio | null> {
   try {
     const bio = await prisma.bio.findFirst();
     return bio;
   } catch (error) {
-    console.error("Failed to fetch bio:", error);
-    return null;
+    logError(error, { operation: 'getPublicBio', table: 'Bio' });
+    throw error;
   }
 }
 
@@ -91,8 +105,8 @@ export async function getPublicSkills(): Promise<GroupedSkills> {
 
     return grouped;
   } catch (error) {
-    console.error("Failed to fetch skills:", error);
-    return [];
+    logError(error, { operation: 'getPublicSkills', table: 'Skill' });
+    throw error;
   }
 }
 
@@ -120,22 +134,22 @@ export async function getPublicProjects(): Promise<PublicProject[]> {
 
     return projects;
   } catch (error) {
-    console.error("Failed to fetch projects:", error);
-    return [];
+    logError(error, { operation: 'getPublicProjects', table: 'Project' });
+    throw error;
   }
 }
 
 /**
  * Fetch contact information for public display.
- * Returns null if no contact exists or on error.
+ * Returns null if no contact exists. Throws on database error.
  */
 export async function getPublicContact(): Promise<Contact | null> {
   try {
     const contact = await prisma.contact.findFirst();
     return contact;
   } catch (error) {
-    console.error("Failed to fetch contact:", error);
-    return null;
+    logError(error, { operation: 'getPublicContact', table: 'Contact' });
+    throw error;
   }
 }
 
@@ -151,14 +165,14 @@ export async function getPublicSocialLinks(): Promise<SocialLink[]> {
     });
     return socialLinks;
   } catch (error) {
-    console.error("Failed to fetch social links:", error);
-    return [];
+    logError(error, { operation: 'getPublicSocialLinks', table: 'SocialLink' });
+    throw error;
   }
 }
 
 /**
  * Fetch active resume for public display.
- * Returns null if no active resume or on error.
+ * Returns null if no active resume. Throws on database error.
  */
 export async function getPublicResume(): Promise<Resume | null> {
   try {
@@ -167,22 +181,22 @@ export async function getPublicResume(): Promise<Resume | null> {
     });
     return resume;
   } catch (error) {
-    console.error("Failed to fetch resume:", error);
-    return null;
+    logError(error, { operation: 'getPublicResume', table: 'Resume' });
+    throw error;
   }
 }
 
 /**
  * Fetch SEO settings for public display.
- * Returns null if no settings exist or on error.
+ * Returns null if no settings exist. Throws on database error.
  */
 export async function getPublicSeoSettings(): Promise<SeoSettings | null> {
   try {
     const seoSettings = await prisma.seoSettings.findFirst();
     return seoSettings;
   } catch (error) {
-    console.error("Failed to fetch SEO settings:", error);
-    return null;
+    logError(error, { operation: 'getPublicSeoSettings', table: 'SeoSettings' });
+    throw error;
   }
 }
 
