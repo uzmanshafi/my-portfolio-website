@@ -70,7 +70,7 @@ export function SkillsSection({ skills }: SkillsSectionProps) {
             >
               {categorySkills.map((skill) => (
                 <motion.div key={skill.id} variants={itemVariants}>
-                  <SkillCard name={skill.name} icon={skill.icon} />
+                  <SkillCard name={skill.name} iconType={skill.iconType} iconId={skill.iconId} />
                 </motion.div>
               ))}
             </motion.div>

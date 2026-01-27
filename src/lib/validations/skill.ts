@@ -13,16 +13,21 @@ export const SKILL_CATEGORIES = [
 
 export type SkillCategory = (typeof SKILL_CATEGORIES)[number]["value"];
 
+// Icon types for dual icon system (devicon for tech logos, lucide for UI)
+export const ICON_TYPES = ["devicon", "lucide"] as const;
+export type IconType = (typeof ICON_TYPES)[number];
+
 // Zod schema for skill validation
 export const skillSchema = z.object({
   name: z
     .string()
     .min(1, "Name is required")
     .max(50, "Name must be 50 characters or less"),
-  icon: z
+  iconType: z.enum(["devicon", "lucide"]).default("lucide"),
+  iconId: z
     .string()
     .min(1, "Icon is required")
-    .max(50, "Icon name must be 50 characters or less"),
+    .max(50, "Icon ID must be 50 characters or less"),
   category: z.enum(["frontend", "backend", "tools", "other"], {
     error: "Please select a valid category",
   }),

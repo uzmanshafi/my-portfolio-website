@@ -466,10 +466,13 @@ function SkillFormModal({
             />
           </div>
 
+          {/* Hidden iconType field - defaulting to lucide for now */}
+          <input type="hidden" name="iconType" value={skill?.iconType || "lucide"} />
+
           {/* Icon input */}
           <div>
             <label
-              htmlFor="icon"
+              htmlFor="iconId"
               className="block text-sm font-medium mb-1"
               style={{ color: "rgba(243, 233, 226, 0.8)" }}
             >
@@ -477,9 +480,9 @@ function SkillFormModal({
             </label>
             <input
               type="text"
-              id="icon"
-              name="icon"
-              defaultValue={skill?.icon || ""}
+              id="iconId"
+              name="iconId"
+              defaultValue={skill?.iconId || "code"}
               required
               maxLength={50}
               className="w-full px-3 py-2 rounded-lg transition-colors"

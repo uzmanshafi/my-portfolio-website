@@ -112,7 +112,8 @@ export async function createSkill(
 
   const rawData = {
     name: formData.get("name"),
-    icon: formData.get("icon"),
+    iconType: formData.get("iconType") || "lucide",
+    iconId: formData.get("iconId"),
     category: formData.get("category"),
   };
 
@@ -135,7 +136,8 @@ export async function createSkill(
     const skill = await prisma.skill.create({
       data: {
         name: parsed.data.name,
-        icon: parsed.data.icon,
+        iconType: parsed.data.iconType,
+        iconId: parsed.data.iconId,
         category: parsed.data.category,
         order: newOrder,
       },
@@ -168,7 +170,8 @@ export async function updateSkill(
 
   const rawData = {
     name: formData.get("name"),
-    icon: formData.get("icon"),
+    iconType: formData.get("iconType") || "lucide",
+    iconId: formData.get("iconId"),
     category: formData.get("category"),
   };
 
@@ -200,7 +203,8 @@ export async function updateSkill(
       where: { id },
       data: {
         name: parsed.data.name,
-        icon: parsed.data.icon,
+        iconType: parsed.data.iconType,
+        iconId: parsed.data.iconId,
         category: parsed.data.category,
         order: newOrder,
       },

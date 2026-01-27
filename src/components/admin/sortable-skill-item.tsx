@@ -8,6 +8,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { GripVertical, Pencil, Trash2, Circle, LucideIcon } from "lucide-react";
 import type { Skill } from "@/generated/prisma/client";
 import * as LucideIcons from "lucide-react";
+import { DEVICON_MAP } from "@/lib/icons/devicon-registry";
 
 interface SortableSkillItemProps {
   skill: Skill;
@@ -15,15 +16,37 @@ interface SortableSkillItemProps {
   onDelete: (skill: Skill) => void;
 }
 
-// Helper to render dynamic Lucide icon
-function DynamicIcon({ name, className }: { name: string; className?: string }) {
-  // Convert icon name to PascalCase (e.g., "code" -> "Code", "database" -> "Database")
-  const pascalCase = name
+// Helper to render dynamic icon (devicon or lucide)
+function DynamicIcon({
+  iconType,
+  iconId,
+  className,
+}: {
+  iconType: string;
+  iconId: string;
+  className?: string;
+}) {
+  // Render devicon if type is devicon
+  if (iconType === "devicon") {
+    const deviconEntry = DEVICON_MAP.get(iconId);
+    if (deviconEntry) {
+      const DeviconComponent = deviconEntry.component;
+      return (
+        <DeviconComponent
+          color="currentColor"
+          style={{ width: 16, height: 16 }}
+          className={className}
+        />
+      );
+    }
+  }
+
+  // Fallback to Lucide icon
+  const pascalCase = iconId
     .split("-")
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
     .join("");
 
-  // Get icon from Lucide - fallback to Circle if not found
   const icons = LucideIcons as unknown as Record<string, LucideIcon>;
   const IconComponent = icons[pascalCase] || Circle;
 
@@ -79,7 +102,8 @@ export function SortableSkillItem({
         style={{ backgroundColor: "rgba(211, 177, 150, 0.15)" }}
       >
         <DynamicIcon
-          name={skill.icon}
+          iconType={skill.iconType}
+          iconId={skill.iconId}
           className="w-4 h-4"
         />
       </div>

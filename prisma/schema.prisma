@@ -23,7 +23,8 @@ model Bio {
 model Skill {
   id        String   @id @default(cuid())
   name      String
-  icon      String   // Lucide icon name (e.g., "code", "database")
+  iconType  String   @default("lucide")  // "devicon" | "lucide"
+  iconId    String   @default("code")    // devicon id or lucide icon name
   category  String   // "frontend", "backend", "tools", "other"
   order     Int      @default(0)
   visible   Boolean  @default(true)
