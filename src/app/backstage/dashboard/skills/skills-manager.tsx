@@ -3,7 +3,7 @@
 // Skills manager client component
 // Handles CRUD operations and drag-and-drop reordering
 
-import { useState, useOptimistic, startTransition } from "react";
+import { useState, useOptimistic, startTransition, useEffect } from "react";
 import {
   DndContext,
   closestCenter,
@@ -21,7 +21,7 @@ import {
   verticalListSortingStrategy,
   arrayMove,
 } from "@dnd-kit/sortable";
-import { Plus, X } from "lucide-react";
+import { Plus, X, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
 import type { Skill } from "@/generated/prisma/client";
 import type { GroupedSkills } from "@/lib/actions/skills";
@@ -34,6 +34,10 @@ import {
 } from "@/lib/actions/skills";
 import { SKILL_CATEGORIES } from "@/lib/validations/skill";
 import { SkillCategory as SkillCategoryComponent } from "@/components/admin/skill-category";
+import { IconPickerModal } from "@/components/admin/icon-picker/icon-picker-modal";
+import { TechIcon } from "@/components/ui/tech-icon";
+import { findMatchingIcon } from "@/lib/icons/icon-matcher";
+import { DEVICON_MAP } from "@/lib/icons/devicon-registry";
 
 interface SkillsManagerProps {
   initialSkills: GroupedSkills;
@@ -402,6 +406,48 @@ function SkillFormModal({
   onClose,
   onSubmit,
 }: SkillFormModalProps) {
+  // Icon state
+  const [iconPickerOpen, setIconPickerOpen] = useState(false);
+  const [selectedIconType, setSelectedIconType] = useState<"devicon" | "lucide">(
+    (skill?.iconType as "devicon" | "lucide") || "lucide"
+  );
+  const [selectedIconId, setSelectedIconId] = useState(skill?.iconId || "code");
+
+  // Name state for auto-suggest (add mode only)
+  const [name, setName] = useState(skill?.name || "");
+
+  // Auto-suggest icon when name changes (add mode only)
+  useEffect(() => {
+    if (mode !== "add") return;
+
+    const match = findMatchingIcon(name);
+    if (match) {
+      setSelectedIconType("devicon");
+      setSelectedIconId(match.id);
+    }
+  }, [name, mode]);
+
+  // Handle icon selection from picker
+  function handleIconSelect(iconId: string | null, iconType: "devicon" | "lucide") {
+    if (iconId) {
+      setSelectedIconType(iconType);
+      setSelectedIconId(iconId);
+    } else {
+      // "Use default" selected - use Lucide code icon
+      setSelectedIconType("lucide");
+      setSelectedIconId("code");
+    }
+  }
+
+  // Get display name for selected icon
+  function getIconDisplayName(): string {
+    if (selectedIconType === "devicon") {
+      const icon = DEVICON_MAP.get(selectedIconId);
+      return icon?.name || selectedIconId;
+    }
+    return selectedIconId;
+  }
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -453,7 +499,8 @@ function SkillFormModal({
               type="text"
               id="name"
               name="name"
-              defaultValue={skill?.name || ""}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
               maxLength={50}
               className="w-full px-3 py-2 rounded-lg transition-colors"
@@ -466,47 +513,63 @@ function SkillFormModal({
             />
           </div>
 
-          {/* Hidden iconType field - defaulting to lucide for now */}
-          <input type="hidden" name="iconType" value={skill?.iconType || "lucide"} />
+          {/* Hidden inputs for icon data */}
+          <input type="hidden" name="iconType" value={selectedIconType} />
+          <input type="hidden" name="iconId" value={selectedIconId} />
 
-          {/* Icon input */}
+          {/* Icon picker button */}
           <div>
             <label
-              htmlFor="iconId"
               className="block text-sm font-medium mb-1"
               style={{ color: "rgba(243, 233, 226, 0.8)" }}
             >
-              Icon (Lucide icon name)
+              Icon
             </label>
-            <input
-              type="text"
-              id="iconId"
-              name="iconId"
-              defaultValue={skill?.iconId || "code"}
-              required
-              maxLength={50}
-              className="w-full px-3 py-2 rounded-lg transition-colors"
+            <button
+              type="button"
+              onClick={() => setIconPickerOpen(true)}
+              className="w-full flex items-center justify-between px-3 py-2 rounded-lg transition-colors hover:bg-white/5"
               style={{
                 backgroundColor: "rgba(243, 233, 226, 0.05)",
                 border: "1px solid rgba(243, 233, 226, 0.2)",
                 color: "var(--color-text)",
               }}
-              placeholder="e.g., code, database, server"
-            />
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-8 h-8 rounded-lg flex items-center justify-center"
+                  style={{ backgroundColor: "rgba(211, 177, 150, 0.15)" }}
+                >
+                  <TechIcon
+                    iconType={selectedIconType}
+                    iconId={selectedIconId}
+                    size={18}
+                    className="text-primary"
+                  />
+                </div>
+                <span className="text-sm">{getIconDisplayName()}</span>
+                {selectedIconType === "devicon" && (
+                  <span
+                    className="text-xs px-1.5 py-0.5 rounded"
+                    style={{
+                      backgroundColor: "rgba(211, 177, 150, 0.2)",
+                      color: "var(--color-primary)",
+                    }}
+                  >
+                    devicon
+                  </span>
+                )}
+              </div>
+              <ChevronDown
+                size={16}
+                style={{ color: "rgba(243, 233, 226, 0.5)" }}
+              />
+            </button>
             <p
               className="text-xs mt-1"
               style={{ color: "rgba(243, 233, 226, 0.5)" }}
             >
-              Browse icons at{" "}
-              <a
-                href="https://lucide.dev/icons"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:no-underline"
-                style={{ color: "var(--color-primary)" }}
-              >
-                lucide.dev/icons
-              </a>
+              Click to browse 100+ tech icons
             </p>
           </div>
 
@@ -569,6 +632,14 @@ function SkillFormModal({
           </div>
         </form>
       </div>
+
+      {/* Icon Picker Modal */}
+      <IconPickerModal
+        isOpen={iconPickerOpen}
+        onClose={() => setIconPickerOpen(false)}
+        onSelect={handleIconSelect}
+        currentIconId={selectedIconType === "devicon" ? selectedIconId : null}
+      />
     </div>
   );
 }
