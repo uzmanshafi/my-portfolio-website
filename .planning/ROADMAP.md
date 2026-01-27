@@ -150,10 +150,13 @@ Plans:
   3. Skills without a matching tech icon gracefully fall back to generic Lucide icon
   4. Admin can browse searchable grid of available icons when editing a skill
   5. Icon selection persists to database and survives page refresh
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 11-01-PLAN.md - TBD
+- [ ] 11-01-PLAN.md - Install devicons-react, create static icon registry with categories/aliases, migrate Skill schema
+- [ ] 11-02-PLAN.md - Create TechIcon component, icon matcher for auto-suggest, recent icons localStorage hook
+- [ ] 11-03-PLAN.md - Build icon picker modal with search, category tabs, keyboard navigation
+- [ ] 11-04-PLAN.md - Integrate icon picker into skill form, update public skill card to use TechIcon
 
 ## Progress
 
@@ -172,8 +175,8 @@ Phases execute in numeric order: 7 -> 8 -> 9 -> 10 -> 11
 | 8. SEO Metadata | v1.1 | 3/3 | Complete | 2026-01-26 |
 | 9. Error Handling | v1.1 | 2/2 | Complete | 2026-01-26 |
 | 10. Loading States | v1.1 | 2/2 | Complete | 2026-01-26 |
-| 11. Programming Language Icons | v1.1 | 0/? | Not started | - |
+| 11. Programming Language Icons | v1.1 | 0/4 | Planned | - |
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-26 (Phase 10 complete)*
+*Last updated: 2026-01-27 (Phase 11 planned)*
