@@ -61,7 +61,7 @@ export function searchDevicons(
   const normalized = query.toLowerCase().trim();
 
   // Filter by category first if specified
-  let filtered = category && category !== "all"
+  const filtered = category && category !== "all"
     ? DEVICON_REGISTRY.filter((icon) => icon.category === category)
     : [...DEVICON_REGISTRY];
 
