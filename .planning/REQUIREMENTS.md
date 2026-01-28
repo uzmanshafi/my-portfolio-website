@@ -36,10 +36,10 @@ Requirements for v1.1 polish milestone. Each maps to roadmap phases.
 
 ### Programming Language Icons
 
-- [ ] **ICON-01**: Skills section displays tech-specific icons (Python, React, TypeScript, etc.)
-- [ ] **ICON-02**: Tech icons display correctly in both admin dashboard and public portfolio
-- [ ] **ICON-03**: Fallback to Lucide icon if tech icon not available
-- [ ] **ICON-04**: Admin has visual icon picker with searchable grid of available tech icons
+- [x] **ICON-01**: Skills section displays tech-specific icons (Python, React, TypeScript, etc.)
+- [x] **ICON-02**: Tech icons display correctly in both admin dashboard and public portfolio
+- [x] **ICON-03**: Fallback to Lucide icon if tech icon not available
+- [x] **ICON-04**: Admin has visual icon picker with searchable grid of available tech icons
 
 ## v1.0 Requirements (Complete)
 
@@ -78,10 +78,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SEO-02 | Phase 8 | Complete |
 | SEO-03 | Phase 8 | Complete |
 | SEO-04 | Phase 8 | Complete |
-| ICON-01 | Phase 11 | Pending |
-| ICON-02 | Phase 11 | Pending |
-| ICON-03 | Phase 11 | Pending |
-| ICON-04 | Phase 11 | Pending |
+| ICON-01 | Phase 11 | Complete |
+| ICON-02 | Phase 11 | Complete |
+| ICON-03 | Phase 11 | Complete |
+| ICON-04 | Phase 11 | Complete |
 
 **Coverage:**
 - v1.1 requirements: 19 total
@@ -90,4 +90,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-01-25*
-*Last updated: 2026-01-26 (Phase 10 complete)*
+*Last updated: 2026-01-28 (v1.1 complete - all 19 requirements satisfied)*
