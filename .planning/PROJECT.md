@@ -2,22 +2,25 @@
 
 ## What This Is
 
-A complete redesign of a personal developer portfolio website, transforming it from a static HTML site into a modern full-stack application with an admin dashboard. The portfolio showcases projects (pulled from GitHub), skills, bio, and contact information — all managed through a custom CMS interface.
+A complete redesign of a personal developer portfolio website, transforming it from a static HTML site into a modern full-stack application with an admin dashboard. The portfolio showcases projects (pulled from GitHub), skills with tech-specific icons, bio, and contact information — all managed through a custom CMS interface with instant updates and SEO optimization.
 
 ## Core Value
 
 The portfolio must beautifully showcase work and be effortlessly updatable through the admin dashboard — if updating content feels like a chore, the system has failed.
 
-## Current Milestone: v1.1 Polish
+## Current State (v1.1 shipped)
 
-**Goal:** Optimize user experience with instant updates, better error handling, loading states, SEO, and tech icons.
-
-**Target features:**
-- Instant cache revalidation after admin saves
+- Next.js 15.5+ with App Router, fully deployed on Render.com
+- PostgreSQL with Prisma 7, all models implemented
+- Auth.js v5 with credentials provider
+- Admin dashboard with full CRUD for all content
+- GitHub OAuth integration with repository browser and automatic sync
+- Public portfolio with bento grid, glassmorphism, Motion animations
+- Instant cache revalidation with toast feedback
 - Branded error boundaries with retry
-- Loading skeletons with shimmer effect
-- SEO metadata with Open Graph and JSON-LD
-- Programming language icons with visual picker
+- Shimmer skeleton loading states
+- SEO metadata with OG/Twitter tags and JSON-LD
+- 118 tech icons with searchable picker
 
 ## Requirements
 
@@ -38,29 +41,19 @@ The portfolio must beautifully showcase work and be effortlessly updatable throu
 - ✓ Animations (scroll triggers, text reveal, 3D tilt, transitions, a11y) — v1.0
 - ✓ Technical Foundation (Next.js 15, PostgreSQL, Prisma, Motion, Auth.js) — v1.0
 
+<!-- v1.1 complete — 19 requirements shipped -->
+
+- ✓ Cache Revalidation (instant updates, toast feedback, revalidatePath) — v1.1
+- ✓ Error Handling (branded boundaries, retry button, structured logging) — v1.1
+- ✓ Loading States (shimmer skeletons, layout match, accessibility) — v1.1
+- ✓ SEO Metadata (OG/Twitter tags, JSON-LD Person schema, 1200x630 image) — v1.1
+- ✓ Programming Language Icons (118 devicons, picker modal, auto-suggest) — v1.1
+
 ### Active
 
-<!-- v1.1 scope — building toward these -->
+<!-- Next milestone scope — TBD -->
 
-**Cache Revalidation:**
-- [ ] Instant public page updates after admin saves
-- [ ] Visual feedback confirming content is live
-
-**Error Handling:**
-- [ ] Branded error page for data fetch failures
-- [ ] Retry button and error logging
-
-**Loading States:**
-- [ ] Skeleton loading matching page layout
-- [ ] Shimmer animation effect
-
-**SEO Metadata:**
-- [ ] Open Graph and Twitter Card tags
-- [ ] JSON-LD Person schema
-
-**Programming Language Icons:**
-- [ ] Tech-specific icons for skills
-- [ ] Visual icon picker in admin
+(Run `/gsd:new-milestone` to define v1.2 scope)
 
 ### Out of Scope
 
@@ -71,28 +64,24 @@ The portfolio must beautifully showcase work and be effortlessly updatable throu
 - Contact form with backend — existing email copy is sufficient
 - Dark/light mode toggle — committing to dark theme
 - Multi-language support — English only
-- Per-section Suspense — requires data layer refactor, defer to v1.2
+- Per-section Suspense — requires data layer refactor, defer to future
 - Dynamic OG image generation — static image sufficient
 - Original brand colors for icons — monochrome matches design
 
 ## Context
 
-**Current State (v1.0 complete):**
-- Next.js 15.5+ with App Router, fully deployed
-- PostgreSQL with Prisma 7, all models implemented
-- Auth.js v5 with credentials provider
-- Admin dashboard with full CRUD for all content
-- GitHub OAuth integration with repo sync
-- Public portfolio with bento grid, glassmorphism, animations
-- Motion for React with scroll triggers and 3D tilt
-- ISR caching with 60-second revalidation
+**Codebase:**
+- 25,491 lines of TypeScript
+- Next.js 15.5+ with App Router
+- PostgreSQL with Prisma 7
+- Auth.js v5 (credentials + GitHub OAuth)
+- Motion for React (animations)
+- devicons-react (118 tech icons)
+- Deployed on Render.com
 
-**v1.1 Focus:**
-- Polish and optimization (not new features)
-- Better developer experience (instant updates)
-- Better user experience (loading states, error handling)
-- Better discoverability (SEO)
-- Better skill display (tech icons)
+**Milestones shipped:**
+- v1.0 MVP (2026-01-24) — 6 phases, 27 plans
+- v1.1 Polish (2026-01-28) — 5 phases, 12 plans
 
 ## Constraints
 
@@ -100,7 +89,7 @@ The portfolio must beautifully showcase work and be effortlessly updatable throu
 - **Icons**: Lucide for UI + devicons-react for tech logos
 - **Hosting**: Render.com (deployment config ready)
 - **Auth**: Admin-only, single user
-- **Design**: Dark warm palette, consistent with v1.0
+- **Design**: Dark warm palette (#160f09, #f3e9e2, #6655b8)
 
 ## Key Decisions
 
@@ -112,9 +101,12 @@ The portfolio must beautifully showcase work and be effortlessly updatable throu
 | Motion for React | Physics-based, React-native, great API | ✓ Good |
 | Single admin user | Portfolio is personal, no need for multi-user | ✓ Good |
 | GitHub API integration | Pull real repo data rather than manual entry | ✓ Good |
-| devicons-react for tech icons | 150+ tech icons, tree-shakeable, TS-first | — Pending |
-| Page-level loading.tsx | Simpler than granular Suspense, no refactor needed | — Pending |
-| Static OG image | Simpler than dynamic generation, sufficient for portfolio | — Pending |
+| devicons-react for tech icons | 150+ tech icons, tree-shakeable, TS-first | ✓ Good |
+| Page-level loading.tsx | Simpler than granular Suspense, no refactor needed | ✓ Good |
+| Static OG image | Simpler than dynamic generation, sufficient for portfolio | ✓ Good |
+| Instant revalidation | revalidatePath("/") on all mutations for instant updates | ✓ Good |
+| Dual icon system | iconType + iconId allows devicon OR lucide per skill | ✓ Good |
+| Shimmer skeletons | background-attachment: fixed for synchronized animation | ✓ Good |
 
 ---
-*Last updated: 2026-01-25 after v1.1 milestone initialization*
+*Last updated: 2026-01-28 after v1.1 milestone*

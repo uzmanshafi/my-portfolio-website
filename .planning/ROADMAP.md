@@ -3,7 +3,7 @@
 ## Milestones
 
 - **v1.0 MVP** - Phases 1-6 (shipped 2026-01-24)
-- **v1.1 Polish** - Phases 7-11 (in progress)
+- **v1.1 Polish** - Phases 7-11 (shipped 2026-01-28)
 
 ## Phases
 
@@ -75,93 +75,54 @@ Plans:
 
 </details>
 
-### v1.1 Polish (In Progress)
-
-**Milestone Goal:** Optimize user experience with instant updates, better error handling, loading states, SEO, and tech icons.
-
-## Phase Details
+<details>
+<summary>v1.1 Polish (Phases 7-11) - SHIPPED 2026-01-28</summary>
 
 ### Phase 7: Cache Revalidation
 **Goal**: Public portfolio updates instantly when admin saves content, with visual confirmation
-**Depends on**: Phase 6
-**Requirements**: CACH-01, CACH-02, CACH-03
-**Success Criteria** (what must be TRUE):
-  1. Admin saves content in dashboard, then immediately views public page and sees the change (no 60-second wait)
-  2. Toast notification appears confirming "Content is now live" after successful save
-  3. All server actions that modify bio, skills, projects, resume, or contact call revalidatePath
 **Plans**: 1 plan
 
 Plans:
-- [x] 07-01-PLAN.md - Add revalidatePath("/") to all mutations, update toast messages with "now live" feedback, migrate resume-manager to sonner (2026-01-25)
+- [x] 07-01-PLAN.md - Add revalidatePath("/") to all mutations, update toast messages with "now live" feedback (2026-01-25)
 
 ### Phase 8: SEO Metadata
 **Goal**: Portfolio appears with rich previews when shared on social media and search results
-**Depends on**: Phase 6 (no dependency on Phase 7)
-**Requirements**: SEO-01, SEO-02, SEO-03, SEO-04
-**Success Criteria** (what must be TRUE):
-  1. Sharing portfolio URL on Twitter/X shows large image card with title and description
-  2. Sharing portfolio URL on LinkedIn/Facebook shows Open Graph preview with image
-  3. OG image displays at correct dimensions (1200x630) without cropping issues
-  4. Google search results can display Person rich result with structured data
 **Plans**: 3 plans
 
 Plans:
-- [x] 08-01-PLAN.md - Database model, validation schema, server actions, and portfolio data layer for SEO settings (2026-01-26)
-- [x] 08-02-PLAN.md - Admin SEO section with sidebar navigation, OG image upload, and text field editing (2026-01-26)
-- [x] 08-03-PLAN.md - Public metadata (generateMetadata with OG/Twitter tags) and JSON-LD structured data (2026-01-26)
+- [x] 08-01-PLAN.md - Database model, validation schema, server actions, portfolio data layer (2026-01-26)
+- [x] 08-02-PLAN.md - Admin SEO section with OG image upload (2026-01-26)
+- [x] 08-03-PLAN.md - Public metadata (generateMetadata, JSON-LD) (2026-01-26)
 
 ### Phase 9: Error Handling
 **Goal**: Data fetch failures display a branded, recoverable error page instead of crashing
-**Depends on**: Phase 6 (no dependency on Phases 7-8)
-**Requirements**: ERRR-01, ERRR-02, ERRR-03, ERRR-04
-**Success Criteria** (what must be TRUE):
-  1. When database connection fails, user sees branded error page (not Next.js default or white screen)
-  2. Error page uses dark warm design system colors (#160f09 background, #f3e9e2 text)
-  3. User can click "Try again" button to retry the failed request
-  4. Developer can see useful error details in browser console for debugging
 **Plans**: 2 plans
 
 Plans:
-- [x] 09-01-PLAN.md - Error boundaries for public portfolio (error.tsx, global-error.tsx) and admin dashboard (2026-01-26)
-- [x] 09-02-PLAN.md - Data layer throw-on-error and enhanced 404 page design (2026-01-26)
+- [x] 09-01-PLAN.md - Error boundaries for public and admin (2026-01-26)
+- [x] 09-02-PLAN.md - Data layer throw-on-error and enhanced 404 (2026-01-26)
 
 ### Phase 10: Loading States
 **Goal**: Initial page load shows skeleton placeholders that match the page layout
-**Depends on**: Phase 6 (no dependency on Phases 7-9)
-**Requirements**: LOAD-01, LOAD-02, LOAD-03, LOAD-04
-**Success Criteria** (what must be TRUE):
-  1. During initial server render, skeleton shapes appear instead of blank/spinner
-  2. Skeleton layout matches actual page sections (hero area, about area, skills grid, projects bento, contact)
-  3. Skeleton uses design system accent color (not default gray) for placeholder elements
-  4. Skeleton has visible shimmer/pulse animation indicating loading in progress
 **Plans**: 2 plans
 
 Plans:
-- [x] 10-01-PLAN.md - CSS shimmer animation infrastructure and 6 skeleton components matching real layouts (2026-01-26)
-- [x] 10-02-PLAN.md - Route-level loading.tsx composition with static geometric shapes (2026-01-26)
+- [x] 10-01-PLAN.md - CSS shimmer animation and 6 skeleton components (2026-01-26)
+- [x] 10-02-PLAN.md - Route-level loading.tsx composition (2026-01-26)
 
 ### Phase 11: Programming Language Icons
 **Goal**: Skills display recognizable tech logos with an intuitive picker in admin
-**Depends on**: Phase 6 (no dependency on Phases 7-10)
-**Requirements**: ICON-01, ICON-02, ICON-03, ICON-04
-**Success Criteria** (what must be TRUE):
-  1. Skills like "Python", "React", "TypeScript" show their recognizable tech logos on public portfolio
-  2. Same tech icons appear consistently in both admin skill editor and public portfolio
-  3. Skills without a matching tech icon gracefully fall back to generic Lucide icon
-  4. Admin can browse searchable grid of available icons when editing a skill
-  5. Icon selection persists to database and survives page refresh
 **Plans**: 4 plans
 
 Plans:
-- [ ] 11-01-PLAN.md - Install devicons-react, create static icon registry with categories/aliases, migrate Skill schema
-- [ ] 11-02-PLAN.md - Create TechIcon component, icon matcher for auto-suggest, recent icons localStorage hook
-- [ ] 11-03-PLAN.md - Build icon picker modal with search, category tabs, keyboard navigation
-- [ ] 11-04-PLAN.md - Integrate icon picker into skill form, update public skill card to use TechIcon
+- [x] 11-01-PLAN.md - Install devicons-react, create icon registry, migrate Skill schema (2026-01-27)
+- [x] 11-02-PLAN.md - TechIcon component, icon matcher, recent icons hook (2026-01-27)
+- [x] 11-03-PLAN.md - Icon picker modal with search and categories (2026-01-27)
+- [x] 11-04-PLAN.md - Integrate icon picker into skill form (2026-01-27)
+
+</details>
 
 ## Progress
-
-**Execution Order:**
-Phases execute in numeric order: 7 -> 8 -> 9 -> 10 -> 11
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
@@ -175,8 +136,10 @@ Phases execute in numeric order: 7 -> 8 -> 9 -> 10 -> 11
 | 8. SEO Metadata | v1.1 | 3/3 | Complete | 2026-01-26 |
 | 9. Error Handling | v1.1 | 2/2 | Complete | 2026-01-26 |
 | 10. Loading States | v1.1 | 2/2 | Complete | 2026-01-26 |
-| 11. Programming Language Icons | v1.1 | 0/4 | Planned | - |
+| 11. Programming Language Icons | v1.1 | 4/4 | Complete | 2026-01-27 |
+
+**Total:** 11 phases, 39 plans complete
 
 ---
 *Roadmap created: 2026-01-22*
-*Last updated: 2026-01-27 (Phase 11 planned)*
+*Last updated: 2026-01-28 (v1.1 shipped)*

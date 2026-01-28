@@ -2,19 +2,19 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-01-25)
+See: .planning/PROJECT.md (updated 2026-01-28)
 
 **Core value:** The portfolio must beautifully showcase work and be effortlessly updatable through the admin dashboard.
-**Current focus:** v1.1 Polish - COMPLETE
+**Current focus:** v1.1 shipped — ready for next milestone
 
 ## Current Position
 
-Phase: 11 of 11 (Programming Language Icons) - COMPLETE
-Plan: 04 of 04 complete
-Status: v1.1 Complete
-Last activity: 2026-01-27 - Completed 11-04-PLAN.md (Skill Form Integration)
+Phase: 11 of 11 complete
+Plan: All complete
+Status: v1.1 shipped
+Last activity: 2026-01-28 — v1.1 milestone archived
 
-Progress: [████████████████████] 100% (39/39 plans - v1.1 phases 7-11)
+Progress: [████████████████████] 100% (39/39 plans - all milestones)
 
 ## Performance Metrics
 
@@ -23,61 +23,34 @@ Progress: [████████████████████] 100% (3
 - Average duration: 8.1 min
 - Total execution time: 3.5 hours
 
-**v1.1 Metrics:**
-- Plans completed: 12 (07-01, 08-01, 08-02, 08-03, 09-01, 09-02, 10-01, 10-02, 11-01, 11-02, 11-03, 11-04)
+**v1.1 Completed:**
+- Plans completed: 12
 - Phases complete: 5 (Phases 7-11)
-- Requirements: 19
+- Requirements: 19/19 satisfied
 
-*Updated after each plan completion*
+**Cumulative:**
+- Total phases: 11
+- Total plans: 39
+- Total requirements: 70+ (51 v1.0 + 19 v1.1)
 
 ## Accumulated Context
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
+All decisions logged in PROJECT.md Key Decisions table.
 
-**v1.0 decisions (still applicable):**
-- Design system: CSS variables in globals.css
-- Server actions: Located in src/lib/actions/
-- Public data layer: Direct Prisma queries in src/lib/data/
-- ISR revalidation: 60 seconds (being enhanced in v1.1)
-- Motion for React: reducedMotion="user" for accessibility
-
-**v1.1 decisions:**
-- devicons-react for tech icons (alongside Lucide for UI)
+Key architectural decisions:
+- Next.js 15 with App Router
+- PostgreSQL with Prisma 7
+- Auth.js v5 (credentials + GitHub OAuth)
+- Motion for React (animations)
+- devicons-react (118 tech icons)
+- Instant revalidation via revalidatePath
 - Page-level loading.tsx (not granular Suspense)
-- Static OG image (not dynamic generation)
-- schema-dts for typed JSON-LD
-- Revalidate both dashboard path and "/" for instant public visibility (07-01)
-- Toast messages use "now live" for adds/updates, "from site" for deletions (07-01)
-- SEO title limit: 60 chars, description limit: 160 chars (08-01)
-- SEO singleton pattern matching Bio model for consistency (08-01)
-- OG images stored in og-images/ subfolder of portfolio-assets bucket (08-02)
-- ImageCropper configurable via aspect and cropShape props (08-02)
-- window.location.reload() for error retry instead of reset() (09-01)
-- Public error shows clean message, admin sees technical details on page (09-01)
-- logError helper outputs JSON with timestamp, type, message, and context (09-02)
-- 404 uses FileQuestion icon (semantic) vs WifiOff (error page) (09-02)
-- Skeleton components use background-attachment: fixed for synchronized shimmer (10-01)
-- 2s shimmer duration with 100deg diagonal gradient for premium feel (10-01)
-- motion-safe:animate-shimmer pattern for accessibility (10-01)
-- StaticGeometricShapes uses fixed opacity (no animation) for loading state continuity (10-02)
-- loading.tsx mirrors page.tsx structure exactly for smooth transition (10-02)
-- Individual devicon imports for tree-shaking (11-01)
-- Dual icon system: iconType ("devicon" | "lucide") + iconId for Skill model (11-01)
-- 118 tech icons curated across 6 categories with aliases for fuzzy matching (11-01)
-- TechIcon uses currentColor for monochrome design system integration (11-02)
-- Cascading match strategy: exact -> alias -> partial for icon auto-suggestion (11-02)
-- useRecentIcons initializes empty to avoid SSR hydration mismatch (11-02)
-- IconPickerModal pattern: isOpen, onClose, onSelect, currentIconId props (11-03)
-- 6 columns on sm+, 4 on mobile for icon grid (11-03)
-- data-icon-item attribute for scroll-into-view targeting in IconGrid (11-03)
-- Auto-suggest triggers on skill name change in add mode only (11-04)
 
 ### Pending Todos
 
-None - v1.1 complete.
+None — v1.1 complete.
 
 ### Blockers/Concerns
 
@@ -85,10 +58,10 @@ None currently.
 
 ## Session Continuity
 
-Last session: 2026-01-27
-Stopped at: Completed 11-04-PLAN.md (Phase 11 complete, v1.1 complete)
+Last session: 2026-01-28
+Stopped at: v1.1 milestone complete and archived
 Resume file: None
 
 ---
 *State initialized: 2026-01-22*
-*Last updated: 2026-01-27 (11-04 complete, v1.1 complete)*
+*Last updated: 2026-01-28 (v1.1 milestone archived)*
